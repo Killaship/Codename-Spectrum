@@ -7,7 +7,7 @@ Build Commands:
 
 ```nasm -f elf32 kernel.asm -o kasm.o```
 
-```gcc -fno-stack-protector -m32 -c kernel.c -o kc.o```
+32 bit: ```gcc -fno-stack-protector -m32 -c kernel.c -o kc.o``` 64 bit: ```gcc -fno-stack-protector -mno-red-zone -m64 -c kernel.c -o kc.o```
 
 ```ld -m elf_i386 -T link.ld -o kernel kasm.o kc.o```
 
