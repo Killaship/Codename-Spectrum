@@ -5,11 +5,11 @@ IMPORTANT: The OS is 32 bit, however it is possible to compile for 64 bit.
 
 Build Commands:
 
-```nasm -f elf32 kernel.asm -o kasm.o```
+32 bit: ```nasm -f elf32 kernel.asm -o kasm.o``` 64 bit: ```nasm -f elf64 kernel.asm -o kasm.o```
 
 32 bit: ```gcc -fno-stack-protector -m32 -c kernel.c -o kc.o``` 64 bit: ```gcc -fno-stack-protector -mno-red-zone -m64 -c kernel.c -o kc.o```
 
-```ld -m elf_i386 -T link.ld -o kernel kasm.o kc.o```
+32 bit: ```ld -m elf_i386 -T link.ld -o kernel kasm.o kc.o``` 64 bit: ```ld -m elf_x86_64 -T link64.ld -o kernel kasm.o kc.o```
 
 
 
