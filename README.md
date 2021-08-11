@@ -9,6 +9,12 @@ Build Commands:
 
 ```ld -m elf_i386 -T link.ld -o kernel kasm.o kc.o```
 
+NOTE: This part requires QEMU and an X Server. My enviroment is WSL, I haven't tested it anywhere else.
+
+```export DISPLAY=:0```
+
+```qemu-system-i386 -no-reboot -kernel kernel```
+
 This is under the GPL license now because this: https://github.com/arjun024/mkeykernel/blob/master/LICENSE
 
 Most of the code is taken from the following repo: https://github.com/arjun024/mkeykernel
