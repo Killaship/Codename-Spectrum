@@ -1,6 +1,6 @@
 # Codename Spectrum
 An open-source operating system that I'm making as a side project. The bootloader is Limine. Repo:
-
+IMPORTANT: The OS is 32 bit again.
 Build Commands:
 
 ```nasm -f elf32 kernel.asm -o kasm.o```
