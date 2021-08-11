@@ -4,6 +4,8 @@
 */
 #include "keyboard_map.h"
 
+int shift;
+
 /* there are 25 lines each of 80 columns; each element takes 2 bytes */
 #define LINES 25
 #define COLUMNS_IN_LINE 80
