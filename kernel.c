@@ -19,6 +19,7 @@
 #define ENTER_KEY_CODE 0x1C
 #define LSHIFT_KEY_DOWN 0x2A
 #define LSHIFT_KEY_UP 0xAA
+
 extern unsigned char keyboard_map[128];
 extern void keyboard_handler(void);
 extern char read_port(unsigned short port);
@@ -144,19 +145,29 @@ void keyboard_handler_main(void)
 			return;
 		}
 		
-		/*if(keycode == SHIFT_KEY_CODE) {
-			do this later bc it's hard, and i need free time
-		}*/
-
-		vidptr[current_loc++] = keyboard_map[(unsigned char) keycode];
-		vidptr[current_loc++] = 0x07;
+		if(keycode == LSHIFT_KEY_DOWN) {
+			int shift = 1;
+		}
+		
+		if(keycode == LSHIFT_KEY_UP) {
+			int shift = 0;
+		}
+		
+		if(shift != 1) {
+			vidptr[current_loc++] = keyboard_map[(unsigned char) keycode];
+			vidptr[current_loc++] = 0x07;
+		}
+		else {
+			vidptr[current_loc++] = keyboard_map_caps[(unsigned char) keycode];
+			vidptr[current_loc++] = 0x07;
+		}
 	}
 }
 
 void kmain(void)
 {
 	const char *str = "Codename Spectrum Build 0.3.1";
-	const char *str2 = "New features: Keyboard support";
+	const char *str2 = "https://github.com/Killaship/Codename-Spectrum";
 	clear_screen();
 	kprint(str);
 	kprint_newline();
