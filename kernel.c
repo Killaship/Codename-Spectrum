@@ -140,6 +140,14 @@ void clear_screen(void)
 	}
 }
 
+void putint(int n, int base) {
+    char tmpb[21], *tmp = &tmpb[0];
+    for (; n > 0; n /= base)
+        *(++tmp) = "0123456789abcdef"[n % base];    
+    while (*tmp != '\0')
+       kprint(*(tmp--));
+}
+
 void keyboard_handler_main(void)
 {
 	unsigned char status;
