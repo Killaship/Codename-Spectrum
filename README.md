@@ -1,7 +1,9 @@
 # Codename Spectrum
 An open-source operating system that I'm making as a side project. The bootloading is currently handled by the -kernel flag in QEMU, I'll add an area on how to set up Limine soon. 
 
-IMPORTANT: The OS is 32 bit, however it is possible to compile for 64 bit.
+IMPORTANT: The OS is 32 bit, however it is possible to compile for 64 bit. 
+
+# The current build is a WIP, refer to releases for stable releases.
 
 Build Commands:
 
