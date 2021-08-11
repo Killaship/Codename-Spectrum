@@ -17,7 +17,8 @@
 #define KERNEL_CODE_SEGMENT_OFFSET 0x08
 
 #define ENTER_KEY_CODE 0x1C
-
+#define LSHIFT_KEY_DOWN 0x2A
+#define LSHIFT_KEY_UP 0xAA
 extern unsigned char keyboard_map[128];
 extern void keyboard_handler(void);
 extern char read_port(unsigned short port);
@@ -154,8 +155,8 @@ void keyboard_handler_main(void)
 
 void kmain(void)
 {
-	const char *str = "Codename Spectrum Build 003";
-	const char *str2 = "This kernel finally has keyboard support!";
+	const char *str = "Codename Spectrum Build 0.3.1";
+	const char *str2 = "New features: Keyboard support";
 	clear_screen();
 	kprint(str);
 	kprint_newline();
