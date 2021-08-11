@@ -114,10 +114,10 @@ void kprint(const char *str)
 
 static unsigned long int next = 1;
  
-int rand(int max) // RAND_MAX assumed to be 32767
+int rand(void) 
 {
     next = next * 1103515245 + 12345;
-    return (unsigned int)(next / 65536) % max;
+    return (char)((next / 65536) % 9) + '0';
 }
  
 void srand( unsigned int seed )
@@ -179,10 +179,9 @@ void keyboard_handler_main(void)
 	}
 }
 
-void kmain(void)
-{
+void kmain(void) {
 	const char *str = "Codename Spectrum Build 0.3.1";
-	const char *str2 = "Random Number Test: %c" + char(rand(100));
+	const char *str2 = "Random Number Test: %c" + rand() + rand() + rand();
 	clear_screen();
 	kprint(str);
 	kprint_newline();
