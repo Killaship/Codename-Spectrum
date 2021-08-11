@@ -150,9 +150,12 @@ void keyboard_handler_main(void)
 
 void kmain(void)
 {
-	const char *str = "my first kernel with keyboard support";
+	const char *str = "Codename Spectrum Build 003";
+	const char *str2 = "This kernel finally has keyboard support!";
 	clear_screen();
 	kprint(str);
+	kprint_newline();
+	kprint(str2);
 	kprint_newline();
 	kprint_newline();
 
