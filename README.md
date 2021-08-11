@@ -10,6 +10,10 @@ Build Commands:
 ```gcc -m32 -c kernel.c -o kc.o```
 
 ```ld -m elf_i386 -T link.ld -o kernel kasm.o kc.o```
+Note: If ld returns an error, use this command instead:
+
+```gcc -fno-stack-protector -m32 -c kernel.c -o bin/kc.o```
+
 
 NOTE: This part requires QEMU and an X Server. My enviroment is WSL, I haven't tested it anywhere else.
 
