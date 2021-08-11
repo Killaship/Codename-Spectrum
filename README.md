@@ -19,7 +19,7 @@ NOTE: This part requires QEMU and an X Server. My enviroment is WSL, I haven't t
 
 ```export DISPLAY=:0```
 
-```qemu-system-i386 -no-reboot -kernel ./x86_binary/kernel```
+```qemu-system-i386 -no-reboot -kernel ./path/to/kernel/image``` 
 
 This is under the GPL license now because this: https://github.com/arjun024/mkeykernel/blob/master/LICENSE
 
