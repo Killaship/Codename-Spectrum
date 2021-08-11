@@ -4,7 +4,9 @@ An open-source operating system that I'm making as a side project. The bootloade
 Build Commands:
 
 ```nasm -f elf32 kernel.asm -o kasm.o```
+
 ```gcc -m32 -c kernel.c -o kc.o```
+
 ```ld -m elf_i386 -T link.ld -o kernel kasm.o kc.o```
 
 This is under the GPL license now because this: https://github.com/arjun024/mkeykernel/blob/master/LICENSE
