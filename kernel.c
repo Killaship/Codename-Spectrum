@@ -142,6 +142,10 @@ void keyboard_handler_main(void)
 			kprint_newline();
 			return;
 		}
+		
+		/*if(keycode == SHIFT_KEY_CODE) {
+			do this later bc it's hard, and i need free time
+		}*/
 
 		vidptr[current_loc++] = keyboard_map[(unsigned char) keycode];
 		vidptr[current_loc++] = 0x07;
