@@ -112,6 +112,19 @@ void kprint(const char *str)
 	}
 }
 
+static unsigned long int next = 1;
+ 
+int rand(int max) // RAND_MAX assumed to be 32767
+{
+    next = next * 1103515245 + 12345;
+    return (unsigned int)(next / 65536) % max;
+}
+ 
+void srand( unsigned int seed )
+{
+    next = seed;
+}
+
 void kprint_newline(void)
 {
 	unsigned int line_size = BYTES_FOR_EACH_ELEMENT * COLUMNS_IN_LINE;
@@ -169,7 +182,7 @@ void keyboard_handler_main(void)
 void kmain(void)
 {
 	const char *str = "Codename Spectrum Build 0.3.1";
-	const char *str2 = "https://github.com/Killaship/Codename-Spectrum";
+	const char *str2 = "Random Number Test:" + char(rand(100));
 	clear_screen();
 	kprint(str);
 	kprint_newline();
