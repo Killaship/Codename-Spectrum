@@ -17,7 +17,7 @@ Note: If ld returns an error, recompile and use this command instead:
 
 NOTE: This part requires QEMU and an X Server. My enviroment is WSL, I haven't tested it anywhere else.
 
-```export DISPLAY=:0```
+```export DISPLAY=:0.0```
 
 ```qemu-system-i386 -no-reboot -kernel ./path/to/kernel/image``` 
 
