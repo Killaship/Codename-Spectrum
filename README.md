@@ -20,6 +20,9 @@ NOTE: This part requires QEMU and an X Server. My enviroment is WSL, I haven't t
 
 ```qemu-system-i386 -no-reboot -kernel ./path/to/kernel/image``` 
 
+Enjoy your shiny new OS!
+
+
 This is under the GPL license now because this: https://github.com/arjun024/mkeykernel/blob/master/LICENSE
 
 Most of the code is taken from the following repo: https://github.com/arjun024/mkeykernel
