@@ -112,15 +112,24 @@ void kprint(const char *str)
 	}
 }
 
+void kputchar(const char *text)
+{
+	unsigned int i = 0;
+	while (text[i] != '\0') {
+		vidptr[current_loc++] = text[i++];
+		vidptr[current_loc++] = 0x07;
+	}
+}
+
 static unsigned long int next = 1;
  
 int rand(void) 
 {
     next = next * 1103515245 + 12345;
-    return (char)((next / 65536) % 9) + '0';
+    return (char)(next / 65536) % 999);
 }
  
-void srand( unsigned int seed )
+void srand(unsigned int seed)
 {
     next = seed;
 }
@@ -145,7 +154,7 @@ void putint(int n, int base) {
     for (; n > 0; n /= base)
         *(++tmp) = "0123456789abcdef"[n % base];    
     while (*tmp != '\0')
-       kprint(*(tmp--));
+       kputchar(*(tmp--));
 }
 
 void keyboard_handler_main(void)
@@ -188,12 +197,15 @@ void keyboard_handler_main(void)
 }
 
 void kmain(void) {
+	srand(
 	const char *str = "Codename Spectrum Build 0.3.1";
-	const char *str2 = "Random Number Test: %c" + rand() + rand() + rand();
+	const char *str2 = "Random Number Test:";
 	clear_screen();
 	kprint(str);
 	kprint_newline();
 	kprint(str2);
+	kprint_newline();
+	putint(rand(), 10);
 	kprint_newline();
 	kprint_newline();
 
