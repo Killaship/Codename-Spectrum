@@ -101,7 +101,7 @@ void kb_init(void)
 	write_port(0x21 , 0xFD);
 }
 
-void kprint(char *str)
+void kprint(const char *str)
 {
 	unsigned int i = 0;
 	while (str[i] != '\0') {
