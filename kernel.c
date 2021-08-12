@@ -136,8 +136,8 @@ void panic(const char *msg) {
 		vidptr[i++] = 0x04;
 	}
 	unsigned int a = 0;
-	while (str[a] != '\0') {
-		vidptr[current_loc++] = str[a++];
+	while (msg[a] != '\0') {
+		vidptr[current_loc++] = msg[a++];
 		vidptr[current_loc++] = 0x00;
 	}
 }
@@ -176,7 +176,7 @@ void kmain(void) {
 	kprint(str, 0x0E);
 	kprint_newline();
 	kprint_newline();
-
+	panic("err: kernel panic");
 	idt_init();
 	kb_init();
 
