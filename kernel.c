@@ -4,7 +4,7 @@
 */
 #include "keyboard_map.h"
 
-int shift;
+
 
 /* there are 25 lines each of 80 columns; each element takes 2 bytes */
 #define LINES 25
@@ -19,8 +19,6 @@ int shift;
 #define KERNEL_CODE_SEGMENT_OFFSET 0x08
 
 #define ENTER_KEY_CODE 0x1C
-#define LSHIFT_KEY_DOWN 0x2A
-#define LSHIFT_KEY_UP 0xAA
 
 extern unsigned char keyboard_map[128];
 extern void keyboard_handler(void);
@@ -103,29 +101,18 @@ void kb_init(void)
 	write_port(0x21 , 0xFD);
 }
 
-void kprint(const char *str)
+void kprint(char *str)
 {
 	unsigned int i = 0;
 	while (str[i] != '\0') {
 		vidptr[current_loc++] = str[i++];
-		vidptr[current_loc++] = 0x07;
+		vidptr[current_loc++] = 0xE7;
 	}
 }
 
 
 
-static unsigned long int next = 1;
- 
-int rand(void) 
-{
-    next = next * 1103515245 + 12345;
-    return (char)(next / 65536) % 999);
-}
- 
-void srand(unsigned int seed)
-{
-    next = seed;
-}
+
 
 void kprint_newline(void)
 {
@@ -142,13 +129,6 @@ void clear_screen(void)
 	}
 }
 
-void putint(int n, int base) {
-    char tmpb[21], *tmp = &tmpb[0];
-    for (; n > 0; n /= base)
-        *(++tmp) = "0123456789abcdef"[n % base];    
-    while (*tmp != '\0')
-       kputchar(*(tmp--));
-}
 
 void keyboard_handler_main(void)
 {
@@ -169,36 +149,21 @@ void keyboard_handler_main(void)
 			kprint_newline();
 			return;
 		}
-		
-		if(keycode == LSHIFT_KEY_DOWN) {
-			int shift = 1;
-		}
-		
-		if(keycode == LSHIFT_KEY_UP) {
-			int shift = 0;
-		}
-		
-		if(shift != 1) {
-			vidptr[current_loc++] = keyboard_map[(unsigned char) keycode];
-			vidptr[current_loc++] = 0x07;
-		}
-		else {
-			vidptr[current_loc++] = keyboard_map_caps[(unsigned char) keycode];
-			vidptr[current_loc++] = 0x07;
+
+	
+	vidptr[current_loc++] = keyboard_map[(unsigned char) keycode];
+	vidptr[current_loc++] = 0x07;
+
 		}
 	}
 }
 
 void kmain(void) {
-	srand(
+
 	const char *str = "Codename Spectrum Build 0.3.1";
-	const char *str2 = "Random Number Test:";
+	
 	clear_screen();
 	kprint(str);
-	kprint_newline();
-	kprint(str2);
-	kprint_newline();
-	putint(rand(), 10);
 	kprint_newline();
 	kprint_newline();
 
