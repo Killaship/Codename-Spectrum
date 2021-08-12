@@ -133,7 +133,7 @@ void panic(const char *msg) {
 	unsigned int i = 0;
 	while (i < SCREENSIZE) {
 		vidptr[i++] = ' ';
-		vidptr[i++] = 0x04;
+		vidptr[i++] = 0x4F;
 	}
 	unsigned int a = 0;
 	while (msg[a] != '\0') {
