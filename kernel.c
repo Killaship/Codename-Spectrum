@@ -106,7 +106,7 @@ void kprint(const char *str)
 	unsigned int i = 0;
 	while (str[i] != '\0') {
 		vidptr[current_loc++] = str[i++];
-		vidptr[current_loc++] = 0xE7;
+		vidptr[current_loc++] = 0x0E;
 	}
 }
 
