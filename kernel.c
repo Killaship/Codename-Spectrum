@@ -176,7 +176,7 @@ void kmain(void) {
 	kprint(str, 0x0E);
 	kprint_newline();
 	kprint_newline();
-	panic("err: kernel panic!");
+	panic("err: kernel panic!               ");
 	idt_init();
 	kb_init();
 
