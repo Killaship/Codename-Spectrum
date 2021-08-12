@@ -112,14 +112,7 @@ void kprint(const char *str)
 	}
 }
 
-void kputchar(const char *text)
-{
-	unsigned int i = 0;
-	while (text[i] != '\0') {
-		vidptr[current_loc++] = text[i++];
-		vidptr[current_loc++] = 0x07;
-	}
-}
+
 
 static unsigned long int next = 1;
  
