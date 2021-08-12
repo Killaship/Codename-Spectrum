@@ -125,7 +125,7 @@ void clear_screen(void)
 	unsigned int i = 0;
 	while (i < SCREENSIZE) {
 		vidptr[i++] = ' ';
-		vidptr[i++] = 0x37;
+		vidptr[i++] = 0x33;
 	}
 }
 
