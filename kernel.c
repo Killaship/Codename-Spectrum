@@ -1,12 +1,13 @@
 /*
-* Copyright (C) 2014  Arjun Sreedharan
+* Parts of this was made by Arjun Sreedharan, all credit where due.
 * License: GPL version 2 or higher http://www.gnu.org/licenses/gpl.html
 */
 #include "keyboard_map.h"
 
+#define IDT_TA_InterruptGate    0b10001110
+#define IDT_TA_CallGate         0b10001100
+#define IDT_TA_TrapGate         0b10001111
 
-
-/* there are 25 lines each of 80 columns; each element takes 2 bytes */
 #define LINES 25
 #define COLUMNS_IN_LINE 80
 #define BYTES_FOR_EACH_ELEMENT 2
