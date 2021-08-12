@@ -1,5 +1,6 @@
 # Codename Spectrum
-An open-source operating system that I'm making as a side project. The bootloading is currently handled by the -kernel flag in QEMU, I'll add an area on how to set up Limine soon. 
+An open-source operating system that I'm making as a side project. The bootloading is currently handled by the -kernel flag in QEMU. 
+This isn't meant for real hardware since it's so outdated, so I probably won't add a bootloader.
 
 IMPORTANT: The OS is 32 bit. It will not run on modern hardware. Use a VM, preferably QEMU.
 
