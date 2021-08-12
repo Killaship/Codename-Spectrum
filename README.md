@@ -13,6 +13,8 @@ Build Commands:
 
 32 bit: ```ld -m elf_i386 -T link.ld -o kernel kasm.o kc.o``` 
 
+# You can also ```./build.sh``` to auto-build the OS.
+
 
 
 
