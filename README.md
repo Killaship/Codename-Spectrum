@@ -3,7 +3,7 @@ An open-source operating system that I'm making as a side project. The bootloadi
 
 IMPORTANT: The OS is 32 bit. It will not run on modern hardware. Use a VM, preferably QEMU.
 
-# The current build is a WIP, refer to releases for stable releases.
+# The 'main' branch is usually is a WIP, refer to Releases for stable versions.
 
 Build Commands:
 
