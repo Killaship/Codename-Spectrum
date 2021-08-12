@@ -159,7 +159,7 @@ void keyboard_handler_main(void)
 void kmain(void) {
 
 	const char *str = "Codename Spectrum Build 0.3.1";
-	
+	int test = 0 / 0;
 	clear_screen();
 	kprint(str);
 	kprint_newline();
