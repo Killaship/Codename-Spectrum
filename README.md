@@ -8,6 +8,7 @@ IMPORTANT: The OS is 32 bit. It will not run on modern hardware. Use a VM, prefe
 Build Commands:
 
 32 bit: ```nasm -f elf32 kernel.asm -o kasm.o```
+
 32 bit: ```gcc -fno-stack-protector -m32 -c kernel.c -o kc.o``` 
 
 32 bit: ```ld -m elf_i386 -T link.ld -o kernel kasm.o kc.o``` 
