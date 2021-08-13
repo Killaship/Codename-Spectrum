@@ -141,19 +141,14 @@ void clear_screen(void) {
 
 }
 
-void panic(char err) {
+void panic(const char *err) {
 	unsigned int i = 0;
 	while (i < SCREENSIZE) {
 		vidptr[i++] = ' ';
 		vidptr[i++] = 0x44;
-	}
-	unsigned int a = 0;
-	char x[22] = {"e","r","r",":"," ","k","e","r","n","e","l"," ","p","a","n","i","c","!"," "," "," ","\0"};
-	x[19] = err;
-	while (x[a] != '\0') {
-		vidptr[current_loc++] = x[a++];
-		vidptr[current_loc++] = 0x40;
-	}
+	kprint("err: kernel panic!",0x40);
+	kprint_newline();
+	kprint(err, 0x40);
 }
 
 
