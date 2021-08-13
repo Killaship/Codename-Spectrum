@@ -45,7 +45,7 @@ keyboard_handler:
 
 div0_handler:
 	cli
-	push 0x30583030
+	push 30783030h
 	call	panic
 
 
