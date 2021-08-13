@@ -27,7 +27,7 @@ extern void keyboard_handler(void);
 extern char read_port(unsigned short port);
 extern void write_port(unsigned short port, unsigned char data);
 extern void load_idt(unsigned long *idt_ptr);
-extern void hcf(void);
+
 /* current cursor location */
 unsigned int current_loc = 0;
 /* video memory begins at address 0xb8000 */
@@ -143,7 +143,7 @@ void clear_screen(void) {
 
 
 
-void panic(const char err) {
+void panic(const int err) {
 	unsigned int i = 0;
 	while (i < SCREENSIZE) {
 		vidptr[i++] = ' ';
@@ -153,8 +153,7 @@ void panic(const char err) {
 	kprint_newline();
 	kprint("error code:",0x40);
 	kprint_newline();
-	kprint(err, 0x40);
-	hcf();
+	kprint((char)err, 0x40);
 	
 	
 		
