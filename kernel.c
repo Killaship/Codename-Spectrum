@@ -150,8 +150,8 @@ void panic(char err) {
 	unsigned int a = 0;
 	char x[] = "err: kernel panic!       " + 0x00;
 	x[20] = err;
-	while (err[a] != '\0') {
-		vidptr[current_loc++] = err[a++];
+	while (x[a] != '\0') {
+		vidptr[current_loc++] = x[a++];
 		vidptr[current_loc++] = 0x40;
 	}
 }
