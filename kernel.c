@@ -148,7 +148,7 @@ void panic(const char *err) {
 		vidptr[i++] = 0x44;
 	}
 	unsigned int a = 0;
-	char x[] = "err: kernel panic!       " + ""
+	char x[] = "err: kernel panic!       " + 0x00;
 	x[20] = err;
 	while (err[a] != '\0') {
 		vidptr[current_loc++] = err[a++];
