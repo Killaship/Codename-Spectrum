@@ -188,10 +188,10 @@ void kmain(void) {
 	const char *str = "Codename Spectrum Build 0.3.1";
 	clear_screen();
 	kprint(str, 0x0E);
-	int testerr = 0 / 0;
 	kprint_newline();
 	kprint_newline();
 	idt_init();
 	kb_init();
+	int testerr = 0 / 0;
 	while(1);
 }
