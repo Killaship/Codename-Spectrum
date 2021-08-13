@@ -42,7 +42,7 @@ keyboard_handler:
 	iretd
 
 div0_handler:
-	push strict byte 30h
+	push 30h
 	call	panic
 
 start:
