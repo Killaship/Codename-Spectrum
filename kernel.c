@@ -146,6 +146,7 @@ void panic(const char *err) {
 	while (i < SCREENSIZE) {
 		vidptr[i++] = ' ';
 		vidptr[i++] = 0x44;
+	}
 	kprint("err: kernel panic!",0x40);
 	kprint_newline();
 	kprint(err, 0x40);
