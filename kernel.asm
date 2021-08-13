@@ -42,7 +42,7 @@ keyboard_handler:
 	iretd
 
 div0_handler:
-	push 30h
+	push 0x30583030
 	call	panic
 
 start:
