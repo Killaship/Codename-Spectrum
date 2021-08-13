@@ -162,9 +162,9 @@ void panic(const char err) {
 	kprint("error code:",0x40);
 	kprint_newline();
 	errcodeprint(err, 0x40);
-	while(1) {
-		asm ("hlt");
-	}
+	
+	asm ("hlt");
+	
 }
 
 
