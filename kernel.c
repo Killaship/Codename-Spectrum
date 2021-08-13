@@ -22,6 +22,7 @@
 #define ENTER_KEY_CODE 0x1C
 
 extern unsigned char keyboard_map[128];
+extern void div0_handler(void);
 extern void keyboard_handler(void);
 extern char read_port(unsigned short port);
 extern void write_port(unsigned short port, unsigned char data);
@@ -44,7 +45,7 @@ struct IDT_entry IDT[IDT_SIZE];
 
 
 void idt_init(void)
-{
+{	unsigned long div0_address;
 	unsigned long keyboard_address;
 	unsigned long idt_address;
 	unsigned long idt_ptr[2];
@@ -56,6 +57,16 @@ void idt_init(void)
 	IDT[0x21].zero = 0;
 	IDT[0x21].type_attr = INTERRUPT_GATE;
 	IDT[0x21].offset_higherbits = (keyboard_address & 0xffff0000) >> 16;
+	
+	
+	
+	
+	div0_address = (unsigned long)div0_handler;
+	IDT[0x00].offset_lowerbits = div0_address & 0xffff;
+	IDT[0x00].selector = KERNEL_CODE_SEGMENT_OFFSET;
+	IDT[0x00].zero = 0;
+	IDT[0x00].type_attr = IDT_TA_TrapGate;
+	IDT[0x00].offset_higherbits = (div0_address & 0xffff0000) >> 16;
 
 	/*     Ports
 	*	 PIC1	PIC2
