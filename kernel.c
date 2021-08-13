@@ -6,7 +6,6 @@
 
 
 
-
 #define LINES 25
 #define COLUMNS_IN_LINE 80
 #define BYTES_FOR_EACH_ELEMENT 2
@@ -142,14 +141,7 @@ void clear_screen(void) {
 
 }
 
-void errcodeprint(const char str, const int color) {
-	
-	unsigned int i = 0;
-	while (str[i] != '\0') {
-		vidptr[current_loc++] = str[i++];
-		vidptr[current_loc++] = color;
-	}
-}
+
 
 void panic(const char err) {
 	unsigned int i = 0;
@@ -157,11 +149,12 @@ void panic(const char err) {
 		vidptr[i++] = ' ';
 		vidptr[i++] = 0x44;
 	}
+	placeholdervar = err;
 	kprint("err: kernel panic!",0x40);
 	kprint_newline();
 	kprint("error code:",0x40);
 	kprint_newline();
-	errcodeprint(err, 0x40);
+	kprint(placeholdervar, 0x40);
 	
 	asm volatile(
   		"1:"
