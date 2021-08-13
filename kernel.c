@@ -142,7 +142,7 @@ void clear_screen(void) {
 
 }
 
-void panic(const char *err) {
+void panic(const char err) {
 	unsigned int i = 0;
 	while (i < SCREENSIZE) {
 		vidptr[i++] = ' ';
