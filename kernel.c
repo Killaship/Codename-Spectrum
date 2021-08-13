@@ -148,8 +148,8 @@ void panic(char err) {
 		vidptr[i++] = 0x44;
 	}
 	unsigned int a = 0;
-	char x[] = {"e","r","r",":"," ","k","e","r","n","e","l"," ","p","a","n","i","c","!"," "," "," ","\0"};
-	x[20] = err;
+	char x[22] = {"e","r","r",":"," ","k","e","r","n","e","l"," ","p","a","n","i","c","!"," "," "," ","\0"};
+	x[19] = err;
 	while (x[a] != '\0') {
 		vidptr[current_loc++] = x[a++];
 		vidptr[current_loc++] = 0x40;
