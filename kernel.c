@@ -154,6 +154,12 @@ void panic(const int err) {
 	kprint("error code:",0x40);
 	kprint_newline();
 	kprint((char)err, 0x40);
+	asm volatile(
+          "1:\n\t"
+          "cli\n\t"
+          "hlt\n\t"
+          "jmp 1b\n\t"
+          );
 	
 	
 		
