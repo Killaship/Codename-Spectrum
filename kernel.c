@@ -114,7 +114,7 @@ void kb_init(void)
 	write_port(0x21 , 0xFD);
 }
 
-void kprint(const char *str, const int color) {
+void kprint(const char str, const int color) {
 	
 	unsigned int i = 0;
 	while (str[i] != '\0') {
