@@ -164,10 +164,10 @@ void panic(const char err) {
 	errcodeprint(err, 0x40);
 	
 	asm volatile(
-  		"1:\n\t"
-  		"cli\n\t"
-  		"hlt\n\t"
- 	 	"jmp 1b\"
+  		"1:"
+  		"cli"
+  		"hlt"
+ 	 	"jmp 1b"
 			);
 	
 }
