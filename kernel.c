@@ -65,7 +65,7 @@ void idt_init(void)
 	IDT[0x00].offset_lowerbits = div0_address & 0xffff;
 	IDT[0x00].selector = KERNEL_CODE_SEGMENT_OFFSET;
 	IDT[0x00].zero = 0;
-	IDT[0x00].type_attr = IDT_TA_TrapGate;
+	IDT[0x00].type_attr = INTERRUPT_GATE;
 	IDT[0x00].offset_higherbits = (div0_address & 0xffff0000) >> 16;
 
 	/*     Ports
