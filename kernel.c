@@ -27,7 +27,7 @@ extern void keyboard_handler(void);
 extern char read_port(unsigned short port);
 extern void write_port(unsigned short port, unsigned char data);
 extern void load_idt(unsigned long *idt_ptr);
-
+extern void hcf(void);
 /* current cursor location */
 unsigned int current_loc = 0;
 /* video memory begins at address 0xb8000 */
@@ -155,13 +155,8 @@ void panic(const char err) {
 	kprint("error code:",0x40);
 	kprint_newline();
 	kprint(placeholdervar, 0x40);
+	hcf();
 	
-	asm volatile(
-  		"1:\n"
-  		"cli\n"
-	  	"hlt\n"
-  		"jmp 1b\n"
-			);
 	
 		
 }
