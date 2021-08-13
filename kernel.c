@@ -261,5 +261,6 @@ void kmain(void) {
 	kprint_newline();
 	idt_init();
 	kb_init();
+	int hdjdhujhduj = 0 / 0;
 	while(1);
 }
