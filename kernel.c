@@ -20,9 +20,10 @@
 #define KERNEL_CODE_SEGMENT_OFFSET 0x08
 
 #define ENTER_KEY_CODE 0x1C
-
-extern unsigned char keyboard_map[128];
+extern void boundrx_handler(void);
 extern void div0_handler(void);
+extern void overf_handler(void);
+extern unsigned char keyboard_map[128];
 extern void keyboard_handler(void);
 extern char read_port(unsigned short port);
 extern void write_port(unsigned short port, unsigned char data);
@@ -46,6 +47,8 @@ struct IDT_entry IDT[IDT_SIZE];
 
 void idt_init(void)
 {	unsigned long div0_address;
+ 	unsigned long boundrx_address;
+	unsigned long overf_address;
 	unsigned long keyboard_address;
 	unsigned long idt_address;
 	unsigned long idt_ptr[2];
@@ -62,12 +65,32 @@ void idt_init(void)
 	
 	
 	div0_address = (unsigned long)div0_handler;
-	IDT[0x20].offset_lowerbits = div0_address & 0xffff;
-	IDT[0x20].selector = KERNEL_CODE_SEGMENT_OFFSET;
-	IDT[0x20].zero = 0;
-	IDT[0x20].type_attr = INTERRUPT_GATE;
-	IDT[0x20].offset_higherbits = (div0_address & 0xffff0000) >> 16;
+	IDT[0x00].offset_lowerbits = div0_address & 0xffff;
+	IDT[0x00].selector = KERNEL_CODE_SEGMENT_OFFSET;
+	IDT[0x00].zero = 0;
+	IDT[0x00].type_attr = INTERRUPT_GATE;
+	IDT[0x00].offset_higherbits = (div0_address & 0xffff0000) >> 16;
+ 
+ 
+ 
+ 
+ 	boundrx_address = (unsigned long)boundrx_handler;
+	IDT[0x05].offset_lowerbits = boundrx_address & 0xffff;
+	IDT[0x05].selector = KERNEL_CODE_SEGMENT_OFFSET;
+	IDT[0x05].zero = 0;
+	IDT[0x05].type_attr = INTERRUPT_GATE;
+	IDT[0x05].offset_higherbits = (boundrx_address & 0xffff0000) >> 16;
+ 
+ 
+  	overf_address = (unsigned long)overf_handler;
+	IDT[0x05].offset_lowerbits = overf_address & 0xffff;
+	IDT[0x05].selector = KERNEL_CODE_SEGMENT_OFFSET;
+	IDT[0x05].zero = 0;
+	IDT[0x05].type_attr = INTERRUPT_GATE;
+	IDT[0x05].offset_higherbits = (overf_address & 0xffff0000) >> 16;
 
+ 
+ 
 	/*     Ports
 	*	 PIC1	PIC2
 	*Command 0x20	0xA0
@@ -140,7 +163,7 @@ void clear_screen(void) {
 }
 
 
-void panic() {
+void panic0() {
 	unsigned int i = 0;
 	while (i < SCREENSIZE) {
 		vidptr[i++] = ' ';
@@ -148,18 +171,60 @@ void panic() {
 	}
 	kprint("err: kernel panic!",0x40);
 	kprint_newline();
+	kprint("err type:",0x40);
+	kprint_newline();
+	kprint("fault: divide-by-zero (0x00)",0x40);
+	kprint_newline();
 	kprint_newline();
 	asm volatile(
           "1:\n\t"
           "cli\n\t"
           "hlt\n\t"
           "jmp 1b\n\t"
-          );
-	
-	
-		
+          );	
 }
 
+void panic1() {
+	unsigned int i = 0;
+	while (i < SCREENSIZE) {
+		vidptr[i++] = ' ';
+		vidptr[i++] = 0x44;
+	}
+	kprint("err: kernel panic!",0x40);
+	kprint_newline();
+	kprint("err type:",0x40);
+	kprint_newline();
+	kprint("fault: bound range exceeded (0x05)",0x40);
+	kprint_newline();
+	kprint_newline();
+	asm volatile(
+          "1:\n\t"
+          "cli\n\t"
+          "hlt\n\t"
+          "jmp 1b\n\t"
+          );	
+}
+
+void panic2() {
+	unsigned int i = 0;
+	while (i < SCREENSIZE) {
+		vidptr[i++] = ' ';
+		vidptr[i++] = 0x44;
+	}
+	kprint("err: kernel panic!",0x40);
+	kprint_newline();
+	kprint("err type:",0x40);
+	kprint_newline();
+	kprint("trap: overflow detected (0x04)",0x40);
+	kprint_newline();
+	kprint_newline();
+	asm volatile(
+          "1:\n\t"
+          "cli\n\t"
+          "hlt\n\t"
+          "jmp 1b\n\t"
+          );	
+}
 
 void keyboard_handler_main(void)
 {
