@@ -122,7 +122,7 @@ void kprint(const char *str, const int color) {
 	}
 }
 
-void kprintnoptr(const char str, const int color) {
+void kprintnoptr(const char abcdef, const int color) {
 	
 	unsigned int i = 0;
 	while (abcdef[i] != '\0') {
