@@ -4,9 +4,8 @@
 */
 #include "keyboard_map.h"
 
-#define IDT_TA_InterruptGate    0b10001110
-#define IDT_TA_CallGate         0b10001100
-#define IDT_TA_TrapGate         0b10001111
+
+
 
 #define LINES 25
 #define COLUMNS_IN_LINE 80
@@ -17,6 +16,8 @@
 #define KEYBOARD_STATUS_PORT 0x64
 #define IDT_SIZE 256
 #define INTERRUPT_GATE 0x8e
+#define IDT_TA_CallGate         0b10001100
+#define IDT_TA_TrapGate         0b10001111
 #define KERNEL_CODE_SEGMENT_OFFSET 0x08
 
 #define ENTER_KEY_CODE 0x1C
@@ -150,6 +151,9 @@ void panic(const char *err) {
 	kprint("err: kernel panic!",0x40);
 	kprint_newline();
 	kprint(err, 0x40);
+	while(true) {
+		// just hang...
+	}
 }
 
 
