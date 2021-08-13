@@ -45,8 +45,6 @@ keyboard_handler:
 
 div0_handler:
 	cli
-	push 30h
-	push 30h
 	call	panic
 
 
