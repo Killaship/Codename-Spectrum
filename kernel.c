@@ -154,7 +154,7 @@ void panic(const char err) {
 	kprint_newline();
 	kprint(err, 0x40);
 	while(1) {
-		// just hang...
+		asm ("hlt");
 	}
 }
 
