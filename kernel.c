@@ -157,10 +157,10 @@ void panic(const char err) {
 	kprint(placeholdervar, 0x40);
 	
 	asm volatile(
-  		"1:"
-  		"cli"
+  		"hang:"
+  		"cli
   		"hlt"
- 	 	"jmp 1b"
+ 	 	"jmp hang"
 			);
 	
 }
