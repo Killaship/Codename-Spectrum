@@ -83,11 +83,11 @@ void idt_init(void)
  
  
   	overf_address = (unsigned long)overf_handler;
-	IDT[0x05].offset_lowerbits = overf_address & 0xffff;
-	IDT[0x05].selector = KERNEL_CODE_SEGMENT_OFFSET;
-	IDT[0x05].zero = 0;
-	IDT[0x05].type_attr = INTERRUPT_GATE;
-	IDT[0x05].offset_higherbits = (overf_address & 0xffff0000) >> 16;
+	IDT[0x04].offset_lowerbits = overf_address & 0xffff;
+	IDT[0x04].selector = KERNEL_CODE_SEGMENT_OFFSET;
+	IDT[0x04].zero = 0;
+	IDT[0x04].type_attr = INTERRUPT_GATE;
+	IDT[0x04].offset_higherbits = (overf_address & 0xffff0000) >> 16;
 
  
  
