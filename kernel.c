@@ -260,6 +260,5 @@ void kmain(void) {
 	kprint(str, 0x0E);
 	kprint_newline();
 	kprint_newline();
-	panic0();
 	while(1);
 }
