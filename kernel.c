@@ -197,6 +197,6 @@ void kmain(void) {
 	kprint_newline();
 	idt_init();
 	kb_init();
-	int testerr = 0 / 0;
+	// int testerr = 0 / 0;
 	while(1);
 }
