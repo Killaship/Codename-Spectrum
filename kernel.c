@@ -122,6 +122,14 @@ void kprint(const char *str, const int color) {
 	}
 }
 
+void kprintnoptr(const char str, const int color) {
+	
+	unsigned int i = 0;
+	while (str[i] != '\0') {
+		vidptr[current_loc++] = str[i++];
+		vidptr[current_loc++] = color;
+	}
+}
 
 
 
@@ -153,7 +161,7 @@ void panic(const int a, const int b) {
 	kprint_newline();
 	kprint("error code:",0x40);
 	kprint_newline();
-	kprint((char)a + (char)b, 0x40);
+	kprintnoptr((char)a + (char)b, 0x40);
 	asm volatile(
           "1:\n\t"
           "cli\n\t"
