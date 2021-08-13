@@ -157,10 +157,10 @@ void panic(const char err) {
 	kprint(placeholdervar, 0x40);
 	
 	asm volatile(
-  		"1:\n\t"
-  		"cli\n\t"
-	  	"hlt\n\t"
-  		"jmp 1b\n\t ;A"
+  		"1:\n"
+  		"cli\n"
+	  	"hlt\n"
+  		"jmp 1b\n"
 			);
 	
 		
