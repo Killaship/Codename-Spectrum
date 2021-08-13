@@ -160,7 +160,7 @@ void panic(const char err) {
   		"1:\n\t"
   		"cli\n\t"
 	  	"hlt\n\t"
-  		"jmp 1b\  "
+  		"jmp 1b\;comment"
 			);
 	
 		
