@@ -143,7 +143,7 @@ void clear_screen(void) {
 
 
 
-void panic(const int err) {
+void panic(const int a, const int b) {
 	unsigned int i = 0;
 	while (i < SCREENSIZE) {
 		vidptr[i++] = ' ';
@@ -153,7 +153,7 @@ void panic(const int err) {
 	kprint_newline();
 	kprint("error code:",0x40);
 	kprint_newline();
-	kprint((char)err, 0x40);
+	kprint((char)a + (char)b, 0x40);
 	asm volatile(
           "1:\n\t"
           "cli\n\t"
