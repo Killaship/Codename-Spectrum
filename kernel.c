@@ -132,7 +132,17 @@ void kprintnoptr(const char str, const int color) {
 }
 
 
+char *strcpy(char *s1, const char *s2) {
+    char *s1_p = s1;
+    while (*s1++ = *s2++)
+      ;
+    return s1_p;
+}
 
+char *strcat (char *dest, const char *src) {
+  strcpy(dest + strlen (dest), src);
+  return dest;
+}
 
 void kprint_newline(void)
 {
@@ -161,6 +171,7 @@ void panic(const int a, const int b) {
 	kprint_newline();
 	kprint("error code:",0x40);
 	kprint_newline();
+	const char errcode =
 	kprintnoptr((char)a + (char)b, 0x40);
 	asm volatile(
           "1:\n\t"
