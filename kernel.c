@@ -122,17 +122,6 @@ void kprint(const char *str, const int color) {
 	}
 }
 
-void kprintnoptr(const char abcdef, const int color) {
-	
-	unsigned int i = 0;
-	while (abcdef[i] != '\0') {
-		vidptr[current_loc++] = abcdef[i++];
-		vidptr[current_loc++] = color;
-	}
-}
-
-
-
 // strlen strcpy strcat
 
 void kprint_newline(void)
@@ -151,9 +140,6 @@ void clear_screen(void) {
 }
 
 
-
-kprint(teststring,0x40)
-
 void panic(const int a, const int b) {
 	unsigned int i = 0;
 	while (i < SCREENSIZE) {
@@ -164,8 +150,6 @@ void panic(const int a, const int b) {
 	kprint_newline();
 	kprint("error code:",0x40);
 	kprint_newline();
-	const char errcode =
-	kprintnoptr((char)a + (char)b, 0x40);
 	asm volatile(
           "1:\n\t"
           "cli\n\t"
