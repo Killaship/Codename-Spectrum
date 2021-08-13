@@ -125,8 +125,8 @@ void kprint(const char *str, const int color) {
 void kprintnoptr(const char str, const int color) {
 	
 	unsigned int i = 0;
-	while (str[i] != '\0') {
-		vidptr[current_loc++] = str[i++];
+	while (abcdef[i] != '\0') {
+		vidptr[current_loc++] = abcdef[i++];
 		vidptr[current_loc++] = color;
 	}
 }
