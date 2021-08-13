@@ -167,10 +167,10 @@ void clear_screen(void) {
 }
 
 char teststring[80];
-strcpy(str, "these ");
-strcat(str, "strings ");
-strcat(str, "are ");
-strcat(str, "concatenated.");
+strcpy(teststring, "these ");
+strcat(teststring, "strings ");
+strcat(teststring, "are ");
+strcat(teststring, "concatenated.");
 
 kprint(teststring,0x40)
 
