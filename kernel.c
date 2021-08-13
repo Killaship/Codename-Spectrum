@@ -159,7 +159,13 @@ void clear_screen(void) {
 
 }
 
+char teststring[80];
+strcpy(str, "these ");
+strcat(str, "strings ");
+strcat(str, "are ");
+strcat(str, "concatenated.");
 
+kprint(teststring,0x40)
 
 void panic(const int a, const int b) {
 	unsigned int i = 0;
