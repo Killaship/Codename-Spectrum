@@ -65,11 +65,11 @@ void idt_init(void)
 	
 	
 	div0_address = (unsigned long)div0_handler;
-	IDT[0x20].offset_lowerbits = div0_address & 0xffff;
-	IDT[0x20].selector = KERNEL_CODE_SEGMENT_OFFSET;
-	IDT[0x20].zero = 0;
-	IDT[0x20].type_attr = INTERRUPT_GATE;
-	IDT[0x20].offset_higherbits = (div0_address & 0xffff0000) >> 16;
+	IDT[0x00].offset_lowerbits = div0_address & 0xffff;
+	IDT[0x00].selector = KERNEL_CODE_SEGMENT_OFFSET;
+	IDT[0x00].zero = 0;
+	IDT[0x00].type_attr = INTERRUPT_GATE;
+	IDT[0x00].offset_higherbits = (div0_address & 0xffff0000) >> 16;
  
  
  
@@ -260,6 +260,6 @@ void kmain(void) {
 	kprint(str, 0x0E);
 	kprint_newline();
 	kprint_newline();
-	int hdjdhujhduj = 0 / 0;
+	panic0();
 	while(1);
 }
