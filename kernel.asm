@@ -10,6 +10,8 @@ section .text
         dd - (0x1BADB002 + 0x00)   ;checksum. m+f+c should be zero
 	
 global div0_handler
+global boundrx_handler
+global overf_handler
 global start
 global keyboard_handler
 global read_port
@@ -19,7 +21,9 @@ global load_idt
 
 extern kmain 		;this is defined in the c file
 extern keyboard_handler_main
-extern panic
+extern panic0 ;div0
+extern panic1 ;boundrx
+extern panic2 ;overflow
 
 read_port:
 	mov edx, [esp + 4]
@@ -45,10 +49,15 @@ keyboard_handler:
 
 div0_handler:
 	cli
-	call	panic
+	call	panic0
 
-
-
+boundrx_handler:
+	cli
+	call	panic1
+	
+overf_handler:
+	cli
+	call	panic2
 start:
 	cli 				;block interrupts
 	mov esp, stack_space
