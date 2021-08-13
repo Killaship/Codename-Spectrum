@@ -8,7 +8,7 @@ section .text
         dd 0x1BADB002              ;magic
         dd 0x00                    ;flags
         dd - (0x1BADB002 + 0x00)   ;checksum. m+f+c should be zero
-
+global div0_handler
 global start
 global keyboard_handler
 global read_port
@@ -17,6 +17,7 @@ global load_idt
 
 extern kmain 		;this is defined in the c file
 extern keyboard_handler_main
+extern panic
 
 read_port:
 	mov edx, [esp + 4]
@@ -39,6 +40,10 @@ load_idt:
 keyboard_handler:                 
 	call    keyboard_handler_main
 	iretd
+
+div0_handler:
+	push strict byte 0x00
+	call	panic
 
 start:
 	cli 				;block interrupts
