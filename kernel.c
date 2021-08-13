@@ -149,12 +149,11 @@ void panic(const char err) {
 		vidptr[i++] = ' ';
 		vidptr[i++] = 0x44;
 	}
-	const char *placeholdervar = err;
 	kprint("err: kernel panic!",0x40);
 	kprint_newline();
 	kprint("error code:",0x40);
 	kprint_newline();
-	kprint(placeholdervar, 0x40);
+	kprint(err, 0x40);
 	hcf();
 	
 	
