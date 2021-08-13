@@ -62,11 +62,11 @@ void idt_init(void)
 	
 	
 	div0_address = (unsigned long)div0_handler;
-	IDT[0x00].offset_lowerbits = div0_address & 0xffff;
-	IDT[0x00].selector = KERNEL_CODE_SEGMENT_OFFSET;
-	IDT[0x00].zero = 0;
-	IDT[0x00].type_attr = INTERRUPT_GATE;
-	IDT[0x00].offset_higherbits = (div0_address & 0xffff0000) >> 16;
+	IDT[0x20].offset_lowerbits = div0_address & 0xffff;
+	IDT[0x20].selector = KERNEL_CODE_SEGMENT_OFFSET;
+	IDT[0x20].zero = 0;
+	IDT[0x20].type_attr = INTERRUPT_GATE;
+	IDT[0x20].offset_higherbits = (div0_address & 0xffff0000) >> 16;
 
 	/*     Ports
 	*	 PIC1	PIC2
@@ -131,25 +131,9 @@ void kprintnoptr(const char abcdef, const int color) {
 	}
 }
 
-int strlen(char *string) {
-    int length = 0;
-    while (string[length] != '\0') {
-        length++;
-    }
-    return length;
-}
 
-char *strcpy(char *s1, const char *s2) {
-    char *s1_p = s1;
-    while (*s1++ = *s2++)
-      ;
-    return s1_p;
-}
 
-char *strcat (char *dest, const char *src) {
-  strcpy(dest + strlen (dest), src);
-  return dest;
-}
+// strlen strcpy strcat
 
 void kprint_newline(void)
 {
@@ -166,11 +150,7 @@ void clear_screen(void) {
 
 }
 
-char teststring[80];
-strcpy(teststring, "these ");
-strcat(teststring, "strings ");
-strcat(teststring, "are ");
-strcat(teststring, "concatenated.");
+
 
 kprint(teststring,0x40)
 
