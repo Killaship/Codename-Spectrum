@@ -131,6 +131,13 @@ void kprintnoptr(const char str, const int color) {
 	}
 }
 
+int strlen(char *string) {
+    int length = 0;
+    while (string[length] != '\0') {
+        length++;
+    }
+    return length;
+}
 
 char *strcpy(char *s1, const char *s2) {
     char *s1_p = s1;
