@@ -8,12 +8,14 @@ section .text
         dd 0x1BADB002              ;magic
         dd 0x00                    ;flags
         dd - (0x1BADB002 + 0x00)   ;checksum. m+f+c should be zero
+	
 global div0_handler
 global start
 global keyboard_handler
 global read_port
 global write_port
 global load_idt
+global hcf
 
 extern kmain 		;this is defined in the c file
 extern keyboard_handler_main
@@ -45,6 +47,11 @@ div0_handler:
 	
 	push 0x30583030
 	call	panic
+
+hcf:
+	cli
+	hlt
+	jmp hcf
 
 start:
 	cli 				;block interrupts
