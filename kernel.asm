@@ -44,7 +44,7 @@ keyboard_handler:
 	iretd
 
 div0_handler:
-	;cli
+	cli
 	push 0x30583030
 	call	panic
 
