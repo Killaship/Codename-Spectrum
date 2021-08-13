@@ -163,7 +163,12 @@ void panic(const char err) {
 	kprint_newline();
 	errcodeprint(err, 0x40);
 	
-	asm ("hlt");
+	asm volatile(
+  		"1:\n\t"
+  		"cli\n\t"
+  		"hlt\n\t"
+ 	 	"jmp 1b\"
+			);
 	
 }
 
