@@ -253,14 +253,13 @@ void keyboard_handler_main(void)
 }
 
 void kmain(void) {
-
+	idt_init();
+	kb_init();
 	const char *str = "Codename Spectrum Build 0.3.1";
 	clear_screen();
 	kprint(str, 0x0E);
 	kprint_newline();
 	kprint_newline();
-	idt_init();
-	kb_init();
 	int hdjdhujhduj = 0 / 0;
 	while(1);
 }
