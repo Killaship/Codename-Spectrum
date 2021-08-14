@@ -248,12 +248,12 @@ void keyboard_handler_main(void)
 		
 		if ((keycode& 0x80)) {
 			if (keycode == 0xAA || keycode == 0xB6) {
-			shift = 1;
+			shift = 0;
 		}
 			
 		} else {
 			if (keycode == 0x36 || keycode == 0x2A) {
-				shift = 0;
+				shift = 1;
 				return;
 		}
 	}
@@ -264,12 +264,12 @@ void keyboard_handler_main(void)
 		}
 
 		
-		if(shift == 0) {
+		if(shift == 1) {
 			vidptr[current_loc++] = keyboard_map[(unsigned char) keycode];
 			vidptr[current_loc++] = 0x07;
 		}
 		
-		if(shift == 1) {
+		if(shift == 0) {
 			vidptr[current_loc++] = keyboard_map_upper[(unsigned char) keycode];
 			vidptr[current_loc++] = 0x07;
 		}
