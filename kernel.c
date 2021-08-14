@@ -4,7 +4,7 @@
 */
 #include "keyboard_map.h"
 
-
+int uppercase = 0;
 
 #define LINES 25
 #define COLUMNS_IN_LINE 80
@@ -18,7 +18,7 @@
 #define IDT_TA_CallGate         0b10001100
 #define IDT_TA_TrapGate         0b10001111
 #define KERNEL_CODE_SEGMENT_OFFSET 0x08
-
+w
 #define ENTER_KEY_CODE 0x1C
 
 
@@ -247,15 +247,36 @@ void keyboard_handler_main(void)
 		keycode = read_port(KEYBOARD_DATA_PORT);
 		if(keycode < 0)
 			return;
-
+		
+		
+		if ((scancode & 0x80)) {
+			if (scancode == 0xAA || scancode == 0xB6) {
+			uppercase = 0;
+		}
+			
+		} else {
+			if (scancode == 0x36 || scancode == 0x2A) {
+				uppercase = 1;
+				return;
+		}
+	}
+		
 		if(keycode == ENTER_KEY_CODE) {
 			kprint_newline();
 			return;
 		}
 
-	
-		vidptr[current_loc++] = keyboard_map[(unsigned char) keycode];
-		vidptr[current_loc++] = 0x07;
+		
+		if(shift == 0) {
+			vidptr[current_loc++] = keyboard_map[(unsigned char) keycode];
+			vidptr[current_loc++] = 0x07;
+		}
+		
+		if(shift == 0) {
+			vidptr[current_loc++] = keyboard_map[(unsigned char) keycode_upper];
+			vidptr[current_loc++] = 0x07;
+		}
+		
       }
 }
 
@@ -271,3 +292,4 @@ void kmain(void) {
 	int blah2 = 10 / blah1;
 	while(1);
 }
+
