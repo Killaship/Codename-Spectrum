@@ -45,7 +45,7 @@ unsigned char keyboard_map[128] =
 
 // This is the same array, but some comments have been accidentally removed, and everything is shifted.
 
-unsigned char keyboard_map_caps[128] =
+unsigned char keyboard_map_upper[128] =
 {
     0,  27, '!', '@', '#', '$', '%', '^', '&', '*',	/* 9 */
   '(', ')', '_', '+', '\b',	/* Backspace */
