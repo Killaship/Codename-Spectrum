@@ -288,8 +288,6 @@ void kmain(void) {
 	kprint(str, 0x0E);
 	kprint_newline();
 	kprint_newline();
-	int blah1 = 0;
-	int blah2 = 10 / blah1;
 	while(1);
 }
 
