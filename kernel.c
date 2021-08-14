@@ -249,13 +249,13 @@ void keyboard_handler_main(void)
 			return;
 		
 		
-		if ((scancode & 0x80)) {
-			if (scancode == 0xAA || scancode == 0xB6) {
+		if ((keycode& 0x80)) {
+			if (keycode == 0xAA || keycode == 0xB6) {
 			uppercase = 0;
 		}
 			
 		} else {
-			if (scancode == 0x36 || scancode == 0x2A) {
+			if (keycode == 0x36 || keycode == 0x2A) {
 				uppercase = 1;
 				return;
 		}
