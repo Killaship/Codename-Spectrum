@@ -231,7 +231,7 @@ void panic2() {
 }
 
 void keyboard_handler_main(void)
-{	int shift;
+{	int shift = 0;
 	unsigned char status;
 	char keycode;
 
