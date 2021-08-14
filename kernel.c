@@ -269,7 +269,7 @@ void keyboard_handler_main(void)
 			vidptr[current_loc++] = 0x07;
 		}
 		
-		if(shift == 0) {
+		if(shift == 1) {
 			vidptr[current_loc++] = keyboard_map_upper[(unsigned char) keycode];
 			vidptr[current_loc++] = 0x07;
 		}
