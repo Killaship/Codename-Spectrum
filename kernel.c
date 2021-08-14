@@ -20,6 +20,8 @@
 #define KERNEL_CODE_SEGMENT_OFFSET 0x08
 
 #define ENTER_KEY_CODE 0x1C
+
+
 extern void boundrx_handler(void);
 extern void div0_handler(void);
 extern void overf_handler(void);
@@ -28,6 +30,9 @@ extern void keyboard_handler(void);
 extern char read_port(unsigned short port);
 extern void write_port(unsigned short port, unsigned char data);
 extern void load_idt(unsigned long *idt_ptr);
+extern void disable_ints(void);
+extern void enable_ints(void);
+
 
 /* current cursor location */
 unsigned int current_loc = 0;
@@ -130,6 +135,8 @@ void idt_init(void)
 	load_idt(idt_ptr);
 }
 
+
+	
 void kb_init(void)
 {
 	/* 0xFD is 11111101 - enables only IRQ1 (keyboard)*/
@@ -259,6 +266,7 @@ void kmain(void) {
 	clear_screen();
 	kprint(str, 0x0E);
 	kprint_newline();
+	int x = 0 / 0;
 	kprint_newline();
 	while(1);
 }
