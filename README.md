@@ -32,6 +32,6 @@ This is under the GPL license now because this: https://github.com/arjun024/mkey
 
 Most of the code is taken from the following repo: https://github.com/arjun024/mkeykernel
 Changes made: expanding on the kernel, taking the code for the keyboard handler, adding more IDT entries and a kernel panic screen.
-Please don't sue me. IDFK much about licenses.
+
 
 Also naming system: Pick a codeword and make up a better name closer to release.
