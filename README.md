@@ -28,6 +28,14 @@ NOTE: This part requires QEMU and an X Server. My enviroment is WSL, I haven't t
 Enjoy your shiny new OS! actually, no, it's just a kernel
 
 
+# To-Do:
+
+Get RTC time
+
+Add support for backspace in keyboard.
+
+
+
 This is under the GPL license now because this: https://github.com/arjun024/mkeykernel/blob/master/LICENSE
 
 Most of the code is taken from the following repo: https://github.com/arjun024/mkeykernel
