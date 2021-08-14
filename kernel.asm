@@ -17,7 +17,8 @@ global keyboard_handler
 global read_port
 global write_port
 global load_idt
-
+global disable_ints
+global enable_ints
 
 extern kmain 		;this is defined in the c file
 extern keyboard_handler_main
@@ -30,6 +31,12 @@ read_port:
 			;al is the lower 8 bits of eax
 	in al, dx	;dx is the lower 16 bits of edx
 	ret
+
+disable_ints:
+	cli
+
+enable_ints:
+	sti
 
 write_port:
 	mov   edx, [esp + 4]    
