@@ -248,12 +248,12 @@ void keyboard_handler_main(void)
 		
 		if ((keycode& 0x80)) {
 			if (keycode == 0xAA || keycode == 0xB6) {
-			uppercase = 0;
+			shift = 0;
 		}
 			
 		} else {
 			if (keycode == 0x36 || keycode == 0x2A) {
-				uppercase = 1;
+				shift = 1;
 				return;
 		}
 	}
