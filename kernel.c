@@ -262,7 +262,7 @@ void keyboard_handler_main(void) {
 				shift = 1;
 		}
 			
-		} else {
+		else {
 			if (keycode == 0x36 || keycode == 0x2A) {
 				shift = 0;
 				return;
