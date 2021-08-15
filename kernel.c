@@ -30,7 +30,7 @@ extern void load_idt(unsigned long *idt_ptr);
 extern void disable_ints(void);
 extern void enable_ints(void);
 
-int shift = 0;
+unsigned int shift = 0;
 
 /* current cursor location */
 unsigned int current_loc = 0;
@@ -241,51 +241,30 @@ unsigned char getcharhigh(unsigned char scancode) {
 }
 
 
+
 void keyboard_handler_main(void) {
-	
-	unsigned char status;
-	unsigned char keycode;
+	unsigned char scancode = read_port(0x60);
 
-	/* write EOI */
-	write_port(0x20, 0x20);
-
-	status = read_port(KEYBOARD_STATUS_PORT);
-	/* Lowest bit of status will be set if buffer is not empty */
-	if (status & 0x01) {
-		keycode = read_port(KEYBOARD_DATA_PORT);
-		if(keycode == 0) {
-			return;
-		}	
-		
-		if ((keycode & 0x80)) {
-			if (keycode == 0xAA || keycode == 0xB6) {
-				shift = 0;
+	// HANDLE UPPERCASE
+	if ((scancode & 0x80)) {
+		if (scancode == 0xAA || scancode == 0xB6) {
+			uppercase = 0;
 		}
-			
-		else {
-			if (keycode == 0x36 || keycode == 0x2A) {
-				shift = 1;
-				return;
+	} else {
+		if (scancode == 0x36 || scancode == 0x2A) {
+			uppercase = 1;
+			return;
 		}
 	}
-		
-		if(keycode == ENTER_KEY_CODE) {
-			kprint_newline();
-			return;
-		}
 
-			
-	unsigned char c = (shift ? getcharhigh(keycode) : getcharlow(keycode));
+	// PRINT CHAR
+	if (!(scancode & 0x80)) {
+		unsigned char c = (uppercase ? getcharlow(scancode) : getcharhigh(scancode));
+
+		
+
+		kprint(c);
 	
-	vidptr[current_loc++] = c;
-	vidptr[current_loc++] = 0x07;
-			
-		
-
-
-		}
-		
-      }
 }
 	
 void kmain(void) {
