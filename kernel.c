@@ -262,8 +262,9 @@ void keyboard_handler_main(void) {
 		unsigned char c = (uppercase ? getcharlow(scancode) : getcharhigh(scancode));
 
 		
-
-		kprint(c);
+		vidptr[current_loc++] = c;
+		vidptr[current_loc++] = 0x07;
+		
 	
 }
 	
