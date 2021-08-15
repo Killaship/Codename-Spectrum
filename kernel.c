@@ -266,7 +266,7 @@ void keyboard_handler_main(void) {
 		vidptr[current_loc++] = 0x07;
 	}	
 	
-	}
+	}}}
 	
 
 	
