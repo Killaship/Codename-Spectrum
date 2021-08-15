@@ -230,6 +230,16 @@ void panic2() {
           );	
 }
 
+
+unsigned char getcharlow(unsigned char scancode) {
+	return qwertylow[scancode];
+}
+
+unsigned char getcharhigh(unsigned char scancode) {
+	return qwertyup[scancode];
+}
+
+
 void keyboard_handler_main(void)
 {	int shift = 0;
 	unsigned char status;
@@ -264,15 +274,13 @@ void keyboard_handler_main(void)
 		}
 
 		
-		if(shift == 0) {
-			vidptr[current_loc++] = qwertylow[(unsigned char) keycode];
+
+			vidptr[current_loc++] = unsigned char c = (uppercase ? getUpperChar(scancode) : getLowerChar(scancode));;
 			vidptr[current_loc++] = 0x07;
-		}
+
 		
-		if(shift == 1) {
-			vidptr[current_loc++] = qwertyup[(unsigned char) keycode];
-			vidptr[current_loc++] = 0x07;
-			kprint("Debug: Shift enabled.", 0x0E);
+
+
 		}
 		
       }
