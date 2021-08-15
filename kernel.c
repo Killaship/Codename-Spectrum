@@ -285,7 +285,8 @@ void keyboard_handler_main(void) {
 		}
 		
       }
-
+}
+	
 void kmain(void) {
 	idt_init();
 	kb_init();
