@@ -248,18 +248,18 @@ void keyboard_handler_main(void) {
 	// HANDLE UPPERCASE
 	if ((scancode & 0x80)) {
 		if (scancode == 0xAA || scancode == 0xB6) {
-			uppercase = 0;
+			shift = 0;
 		}
 	} else {
 		if (scancode == 0x36 || scancode == 0x2A) {
-			uppercase = 1;
+			shift = 1;
 			return;
 		}
-	}
+	
 
 	// PRINT CHAR
 	if (!(scancode & 0x80)) {
-		unsigned char c = (uppercase ? getcharlow(scancode) : getcharhigh(scancode));
+		unsigned char c = (shift ? getcharlow(scancode) : getcharhigh(scancode));
 
 		
 		vidptr[current_loc++] = c;
@@ -267,7 +267,7 @@ void keyboard_handler_main(void) {
 		
 	
 }
-	
+	}
 void kmain(void) {
 	idt_init();
 	kb_init();
