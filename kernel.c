@@ -276,7 +276,7 @@ void keyboard_handler_main(void) {
 
 		
 
-			vidptr[current_loc++] = unsigned char c = (shift ? getcharhigh(keycode) : getcharlow(keycode));;
+			vidptr[current_loc++] = unsigned char c = (shift ? getcharhigh(keycode) : getcharlow(keycode));
 			vidptr[current_loc++] = 0x07;
 
 		
