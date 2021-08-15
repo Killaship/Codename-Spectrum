@@ -30,6 +30,7 @@ extern void load_idt(unsigned long *idt_ptr);
 extern void disable_ints(void);
 extern void enable_ints(void);
 
+int shift = 0;
 
 /* current cursor location */
 unsigned int current_loc = 0;
@@ -240,8 +241,8 @@ unsigned char getcharhigh(unsigned char scancode) {
 }
 
 
-void keyboard_handler_main(void)
-{	int shift = 0;
+void keyboard_handler_main(void) {
+	
 	unsigned char status;
 	char keycode;
 
@@ -284,7 +285,6 @@ void keyboard_handler_main(void)
 		}
 		
       }
-}
 
 void kmain(void) {
 	idt_init();
