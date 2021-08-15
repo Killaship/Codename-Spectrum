@@ -6,27 +6,7 @@ IMPORTANT: The OS is 32 bit. It will not run on modern hardware. Use a VM, prefe
 
 # The 'main' branch is usually is a WIP, refer to Releases for stable versions.
 
-Build Commands:
-
-32 bit: ```nasm -f elf32 kernel.asm -o kasm.o```
-
-32 bit: ```gcc -fno-stack-protector -m32 -c kernel.c -o kc.o``` 
-
-32 bit: ```ld -m elf_i386 -T link.ld -o kernel kasm.o kc.o``` 
-
-# You can also ```bash build.sh``` to auto-build the OS.
-
-
-
-
-NOTE: This part requires QEMU and an X Server. My enviroment is WSL, I haven't tested it anywhere else.
-
-```export DISPLAY=:0.0```
-
-```qemu-system-i386 -no-reboot -kernel ./path/to/kernel/image``` 
-
-Enjoy your shiny new OS! actually, no, it's just a kernel
-
+Use ```bash build.sh``` to build the OS.
 
 # To-Do:
 
