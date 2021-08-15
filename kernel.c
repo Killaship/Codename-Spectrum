@@ -276,9 +276,14 @@ void keyboard_handler_main(void) {
 
 			
 	unsigned char c = (shift ? getcharhigh(keycode) : getcharlow(keycode));
+			if(c == ENTER_KEY_CODE) {
+				kprint_newline();
+				return;
+			}
+			else {
 	vidptr[current_loc++] = c;
 	vidptr[current_loc++] = 0x07;
-
+			}
 		
 
 
