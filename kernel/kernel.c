@@ -2,7 +2,9 @@
 * Parts of this was made by Arjun Sreedharan, all credit where due.
 * License: GPL version 2 or higher http://www.gnu.org/licenses/gpl.html
 */
-#include "keyboard_map.h"
+#include "drivers/keyboard_map.h"
+#include "drivers/"
+
 
 #define LINES 25
 #define COLUMNS_IN_LINE 80
@@ -232,47 +234,31 @@ void panic2() {
 }
 
 
-unsigned char getcharlow(unsigned char scancode) {
-	return qwertylow[scancode];
-}
-
-unsigned char getcharhigh(unsigned char scancode) {
-	return qwertyup[scancode];
-}
 
 
 
-void keyboard_handler_main(void) {
-	unsigned int shift = 0;
-	unsigned char scancode = read_port(0x60);
-
-	// HANDLE UPPERCASE
-	if ((scancode & 0x80)) {
-		if (scancode == 0xAA || scancode == 0xB6) {
-			shift = 0;
-		}
-	} else {
-		if (scancode == 0x36 || scancode == 0x2A) {
-			shift = 1;
-			return;
-		}
-	}
-
-	// PRINT CHAR
-	if (!(scancode & 0x80)) {
-		unsigned char c = (shift ? getcharhigh(scancode) : getcharlow(scancode));
-
-
-
-		vidptr[current_loc++] = (unsigned char) c;
-		vidptr[current_loc++] = 0x07;
-	}
-}
 	
 		
-		
-		
 void kmain(void) {
+	kprint("Color Test:",0x07);
+	kprint_newline();
+	kprint(" ",0x00);
+	kprint(" ",0x11);
+	kprint(" ",0x22);
+	kprint(" ",0x33);
+	kprint(" ",0x44);
+	kprint(" ",0x55);
+	kprint(" ",0x66);
+	kprint(" ",0x77);
+	kprint(" ",0x88);
+	kprint(" ",0x99);
+	kprint(" ",0xAA);
+	kprint(" ",0xBB);
+	kprint(" ",0xCC);
+	kprint(" ",0xDD);
+	kprint(" ",0xEE);
+	kprint(" ",0xFF);
+	kprint_newline();
 	const char *str = "Codename Spectrum Build 0.4.0";
 	clear_screen();
 	kprint(str, 0x0B);
