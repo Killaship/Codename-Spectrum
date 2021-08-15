@@ -266,7 +266,7 @@ void keyboard_handler_main(void) {
 		vidptr[current_loc++] = 0x07;
 	}	
 	
-	}}}
+	}}
 	
 
 	
@@ -274,13 +274,13 @@ void keyboard_handler_main(void) {
 		
 		
 void kmain(void) {
-	idt_init();
-	kb_init();
 	const char *str = "Codename Spectrum Build 0.4.0";
 	clear_screen();
 	kprint(str, 0x0B);
 	kprint_newline();
 	kprint_newline();
+	idt_init();
+	kb_init();
 	while(1);
 }
 
