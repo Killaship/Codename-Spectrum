@@ -255,20 +255,18 @@ void keyboard_handler_main(void) {
 			shift = 1;
 			return;
 		}
-	
+	}
 
 	// PRINT CHAR
 	if (!(scancode & 0x80)) {
-		unsigned char c = (shift ? getcharlow(scancode) : getcharhigh(scancode));
+		unsigned char c = (uppercase ? getcharhigh(scancode) : getcharlow(scancode));
 
-		
-		vidptr[current_loc++] = c;
+
+
+		vidptr[current_loc++] = (unsigned char) c;
 		vidptr[current_loc++] = 0x07;
-	}	
-	write_port(0x20,0x20);
-	}}
-	
-
+	}
+}
 	
 		
 		
