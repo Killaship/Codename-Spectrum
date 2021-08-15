@@ -1,6 +1,6 @@
 
 void sleep(unsigned int milliseconds) {
-	__asm__ volatile("cli");
+	asm("cli");
 
 	int inseconds = milliseconds / 1000;
 	int inminutes = inseconds / 60;
@@ -24,5 +24,5 @@ void sleep(unsigned int milliseconds) {
 
 	while (getSeconds() <= inseconds && getMinutes() <= inminutes && getHours() <= inhours);
 	
-	__asm__ volatile("sti");
+	asm("sti");
 }
