@@ -3,7 +3,7 @@
 * License: GPL version 2 or higher http://www.gnu.org/licenses/gpl.html
 */
 #include "drivers/keyboard_map.h"
-#include "drivers/"
+
 
 
 #define LINES 25
@@ -265,7 +265,7 @@ void kmain(void) {
 	kprint_newline();
 	kprint_newline();
 	idt_init();
-	kb_init();
+	//kb_init();
 	while(1);
 }
 
