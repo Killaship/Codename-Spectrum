@@ -244,7 +244,7 @@ unsigned char getcharhigh(unsigned char scancode) {
 void keyboard_handler_main(void) {
 	
 	unsigned char status;
-	unsigmned char keycode;
+	unsigned char keycode;
 
 	/* write EOI */
 	write_port(0x20, 0x20);
