@@ -301,7 +301,8 @@ void keyboard_handler_main(void)
 
 	
 		
-void kmain(void) {
+void kmain(void) 
+	clear_screen();
 	kprint("Color Test:",0x07);
 	kprint_newline();
 	kprint("0",0x00);
