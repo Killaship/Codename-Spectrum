@@ -244,7 +244,7 @@ unsigned char getcharhigh(unsigned char scancode) {
 void keyboard_handler_main(void) {
 	
 	unsigned char status;
-	signed char keycode;
+	unsigmned char keycode;
 
 	/* write EOI */
 	write_port(0x20, 0x20);
@@ -253,7 +253,7 @@ void keyboard_handler_main(void) {
 	/* Lowest bit of status will be set if buffer is not empty */
 	if (status & 0x01) {
 		keycode = read_port(KEYBOARD_DATA_PORT);
-		if(keycode < 0) {
+		if(keycode == 0) {
 			return;
 		}	
 		
