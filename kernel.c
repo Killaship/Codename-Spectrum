@@ -265,7 +265,7 @@ void keyboard_handler_main(void) {
 		vidptr[current_loc++] = c;
 		vidptr[current_loc++] = 0x07;
 	}	
-	outb(0x20,0x20)
+	outb(0x20,0x20);
 	}}
 	
 
