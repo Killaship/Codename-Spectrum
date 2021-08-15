@@ -259,12 +259,12 @@ void keyboard_handler_main(void) {
 		
 		if ((keycode && 0x80)) {
 			if (keycode == 0xAA || keycode == 0xB6) {
-			shift = 0;
+				shift = 1;
 		}
 			
 		} else {
 			if (keycode == 0x36 || keycode == 0x2A) {
-				shift = 1;
+				shift = 0;
 				return;
 		}
 	}
