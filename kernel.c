@@ -259,7 +259,7 @@ void keyboard_handler_main(void) {
 
 	// PRINT CHAR
 	if (!(scancode & 0x80)) {
-		unsigned char c = (uppercase ? getcharhigh(scancode) : getcharlow(scancode));
+		unsigned char c = (shift ? getcharhigh(scancode) : getcharlow(scancode));
 
 
 
