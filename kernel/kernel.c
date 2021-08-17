@@ -48,8 +48,11 @@ struct IDT_entry {
 };
 
 struct IDT_entry IDT[IDT_SIZE];
-
-
+/* TODO: finish idt entry generator and replace all entries with it
+void gen_idt(int idtnum, int *type, int handler, int addr) {
+	handler
+}
+*/
 void idt_init(void)
 {	unsigned long div0_address;
  	unsigned long boundrx_address;
@@ -76,8 +79,26 @@ void idt_init(void)
 	IDT[0x00].type_attr = INTERRUPT_GATE;
 	IDT[0x00].offset_higherbits = (div0_address & 0xffff0000) >> 16;
  
+ 	div0_address = (unsigned long)div0_handler;
+	IDT[0x01].offset_lowerbits = div0_address & 0xffff;
+	IDT[0x01].selector = KERNEL_CODE_SEGMENT_OFFSET;
+	IDT[0x01].zero = 0;
+	IDT[0x01].type_attr = INTERRUPT_GATE;
+	IDT[0x01].offset_higherbits = (div0_address & 0xffff0000) >> 16;
  
+ 	div0_address = (unsigned long)div0_handler;
+	IDT[0x02].offset_lowerbits = div0_address & 0xffff;
+	IDT[0x02].selector = KERNEL_CODE_SEGMENT_OFFSET;
+	IDT[0x02].zero = 0;
+	IDT[0x02].type_attr = INTERRUPT_GATE;
+	IDT[0x02].offset_higherbits = (div0_address & 0xffff0000) >> 16;
  
+   	overf_address = (unsigned long)overf_handler;
+	IDT[0x04].offset_lowerbits = overf_address & 0xffff;
+	IDT[0x04].selector = KERNEL_CODE_SEGMENT_OFFSET;
+	IDT[0x04].zero = 0;
+	IDT[0x04].type_attr = INTERRUPT_GATE;
+	IDT[0x04].offset_higherbits = (overf_address & 0xffff0000) >> 16;
  
  	boundrx_address = (unsigned long)boundrx_handler;
 	IDT[0x05].offset_lowerbits = boundrx_address & 0xffff;
@@ -86,13 +107,12 @@ void idt_init(void)
 	IDT[0x05].type_attr = INTERRUPT_GATE;
 	IDT[0x05].offset_higherbits = (boundrx_address & 0xffff0000) >> 16;
  
- 
   	overf_address = (unsigned long)overf_handler;
-	IDT[0x04].offset_lowerbits = overf_address & 0xffff;
-	IDT[0x04].selector = KERNEL_CODE_SEGMENT_OFFSET;
-	IDT[0x04].zero = 0;
-	IDT[0x04].type_attr = INTERRUPT_GATE;
-	IDT[0x04].offset_higherbits = (overf_address & 0xffff0000) >> 16;
+	IDT[0x08].offset_lowerbits = overf_address & 0xffff;
+	IDT[0x08].selector = KERNEL_CODE_SEGMENT_OFFSET;
+	IDT[0x08].zero = 0;
+	IDT[0x08].type_attr = INTERRUPT_GATE;
+	IDT[0x08].offset_higherbits = (overf_address & 0xffff0000) >> 16;
 
  
  
