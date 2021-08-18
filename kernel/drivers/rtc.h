@@ -1,5 +1,5 @@
 #pragma once
-
+#include "kernel.h"
 void initRTC();
 
 int getSeconds();
