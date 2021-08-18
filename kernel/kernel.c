@@ -5,7 +5,7 @@
 
 #include "drivers/keyboard_map.h"
 #include "drivers/utils.h"
-
+#include "drivers/rtc.h"
 
 #define LINES 25
 #define COLUMNS_IN_LINE 80
