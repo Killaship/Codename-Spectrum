@@ -2,6 +2,7 @@
 * Parts of this was made by Arjun Sreedharan, all credit where due.
 * License: GPL version 2 or higher http://www.gnu.org/licenses/gpl.html
 */
+#pragma once
 #include "drivers/keyboard_map.h"
 #include "drivers/utils.h"
 
