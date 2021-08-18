@@ -14,11 +14,7 @@ global boundrx_handler
 global overf_handler
 global start
 global keyboard_handler
-global read_port
-global write_port
 global load_idt
-global disable_ints
-global enable_ints
 
 extern kmain 		;this is defined in the c file
 extern keyboard_handler_main
