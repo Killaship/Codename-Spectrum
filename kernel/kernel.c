@@ -5,7 +5,7 @@
 #pragma once
 #include "drivers/keyboard_map.h"
 #include "drivers/utils.h"
-
+initRTC();
 
 #define LINES 25
 #define COLUMNS_IN_LINE 80
