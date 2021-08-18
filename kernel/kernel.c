@@ -5,7 +5,7 @@
 
 #include "drivers/keyboard_map.h"
 #include "drivers/utils.h"
-
+#include "drivers/ports.h"
 
 #define LINES 25
 #define COLUMNS_IN_LINE 80
@@ -27,11 +27,8 @@ extern void div0_handler(void);
 extern void overf_handler(void);
 extern unsigned char keyboard_map[128];
 extern void keyboard_handler(void);
-extern char read_port(unsigned short port);
-extern void write_port(unsigned short port, unsigned char data);
 extern void load_idt(unsigned long *idt_ptr);
-extern void disable_ints(void);
-extern void enable_ints(void);
+
 
 
 
