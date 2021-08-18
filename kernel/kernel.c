@@ -6,7 +6,6 @@
 #include "drivers/keyboard_map.h"
 #include "drivers/utils.h"
 #include "drivers/rtc.h"
-initRTC();
 
 #define LINES 25
 #define COLUMNS_IN_LINE 80
@@ -191,6 +190,7 @@ void clear_screen(void) {
 }
 
 
+
 void panic0() {
 	unsigned int i = 0;
 	while (i < SCREENSIZE) {
@@ -324,6 +324,9 @@ void keyboard_handler_main(void)
 	
 		
 void kmain(void) {
+	initRTC();
+	idt_init();
+	kb_init();
 	clear_screen();
 	kprint("Color Test:",0x07);
 	kprint_newline();
@@ -349,8 +352,6 @@ void kmain(void) {
 	kprint(str, 0x0B);
 	kprint_newline();
 	kprint_newline();
-	idt_init();
-	kb_init();
 	while(1);
 }
 
