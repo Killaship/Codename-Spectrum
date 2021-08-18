@@ -1,5 +1,5 @@
 #pragma once
-#include "../kernel.c"
+// #include "../kernel.c"
 
 void initRTC();
 
