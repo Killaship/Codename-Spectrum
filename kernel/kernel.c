@@ -5,6 +5,7 @@
 #pragma once
 #include "drivers/keyboard_map.h"
 #include "drivers/utils.h"
+#include "drivers/rtc.h"
 initRTC();
 
 #define LINES 25
