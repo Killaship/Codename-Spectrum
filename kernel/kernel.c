@@ -3,7 +3,7 @@
 * License: GPL version 2 or higher http://www.gnu.org/licenses/gpl.html
 */
 #include "drivers/keyboard_map.h"
-
+#include "drivers/utils.h"
 
 
 #define LINES 25
