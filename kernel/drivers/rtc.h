@@ -1,6 +1,6 @@
 #pragma once
 #include "../kernel.h"
-
+#include "utils.h"
 void initRTC();
 
 int getSeconds();
