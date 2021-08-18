@@ -1,4 +1,6 @@
 #pragma once
+#ifndef KERNEL_C
+
 #include "../kernel.c"
 void initRTC();
 
