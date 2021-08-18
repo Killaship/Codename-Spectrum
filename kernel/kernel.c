@@ -341,6 +341,7 @@ void kmain(void) {
 	kprint("0",0xDD);
 	kprint("0",0xEE);
 	kprint("0",0xFF);
+	sleep(3000);
 	kprint_newline();
 	const char *str = "Codename Spectrum Build 0.4.0";
 	kprint(str, 0x0B);
