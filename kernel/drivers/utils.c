@@ -1,4 +1,4 @@
-#pragma once
+#include "utils.h"
 void sleep(unsigned int milliseconds) {
 	asm("cli");
 
