@@ -6,7 +6,7 @@
 #include "drivers/keyboard_map.h"
 #include "drivers/utils.h"
 #include "drivers/ports.h"
-#include "kernel.h"
+
 
 #define LINES 25
 #define COLUMNS_IN_LINE 80
