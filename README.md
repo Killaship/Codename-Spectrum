@@ -12,7 +12,7 @@ Use ```bash build.sh``` to build the OS.
 
 Get RTC time
 
-Add support for backspace in keyboard.
+Add support for backspace & shift in keyboard.
 
 
 
