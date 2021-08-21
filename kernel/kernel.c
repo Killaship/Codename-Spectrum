@@ -337,6 +337,7 @@ void kmain(void) {
 	kprint(str, 0x0B);
 	kprint_newline();
 	kprint_newline();
+	err = 0 / 0;
 	while(1);
 }
 
