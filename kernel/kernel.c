@@ -4,6 +4,7 @@
 */
 
 #include "keyboard_map.h"
+#include "panic.h"
 
 
 
@@ -22,9 +23,9 @@
 #define ENTER_KEY_CODE 0x1C
 
 
-extern void boundrx_handler(void);
+//extern void boundrx_handler(void);
 //extern void div0_handler(void);
-extern void overf_handler(void);
+//extern void overf_handler(void);
 extern unsigned char keyboard_map[128];
 extern void keyboard_handler(void);
 extern void load_idt(unsigned long *idt_ptr);
@@ -74,9 +75,7 @@ void clear_screen(void) {
 
 }
 
-void div0_handler(void) {
-	kprint("A division by 0 has occured. Please run around in circles.",0x04);
-}
+
 
 struct IDT_entry IDT[IDT_SIZE];
 /* TODO: finish idt entry generator and replace all entries with it
@@ -178,68 +177,7 @@ void kb_init(void)
 
 
 
-void panic0() {
-	unsigned int i = 0;
-	while (i < SCREENSIZE) {
-		vidptr[i++] = ' ';
-		vidptr[i++] = 0x44;
-	}
-	kprint("err: kernel panic!",0x40);
-	kprint_newline();
-	kprint("err type:",0x40);
-	kprint_newline();
-	kprint("fault: divide-by-zero (0x00)",0x40);
-	kprint_newline();
-	kprint_newline();
-	asm volatile(
-          "1:\n\t"
-          "cli\n\t"
-          "hlt\n\t"
-          "jmp 1b\n\t"
-          );	
-}
 
-void panic1() {
-	unsigned int i = 0;
-	while (i < SCREENSIZE) {
-		vidptr[i++] = ' ';
-		vidptr[i++] = 0x44;
-	}
-	kprint("err: kernel panic!",0x40);
-	kprint_newline();
-	kprint("err type:",0x40);
-	kprint_newline();
-	kprint("fault: bound range exceeded (0x05)",0x40);
-	kprint_newline();
-	kprint_newline();
-	asm volatile(
-          "1:\n\t"
-          "cli\n\t"
-          "hlt\n\t"
-          "jmp 1b\n\t"
-          );	
-}
-
-void panic2() {
-	unsigned int i = 0;
-	while (i < SCREENSIZE) {
-		vidptr[i++] = ' ';
-		vidptr[i++] = 0x44;
-	}
-	kprint("err: kernel panic!",0x40);
-	kprint_newline();
-	kprint("err type:",0x40);
-	kprint_newline();
-	kprint("trap: overflow detected (0x04)",0x40);
-	kprint_newline();
-	kprint_newline();
-	asm volatile(
-          "1:\n\t"
-          "cli\n\t"
-          "hlt\n\t"
-          "jmp 1b\n\t"
-          );	
-}
 
 
 unsigned char keyboard_map[128] =
