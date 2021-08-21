@@ -35,3 +35,8 @@ void clear_screen(void) {
 	}
 
 }
+/*
+void sh_init() {
+	
+}
+*/
