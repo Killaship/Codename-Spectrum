@@ -1,3 +1,5 @@
+#pragma once
+
 void div0_handler() {
 	unsigned int i = 0;
 	while (i < SCREENSIZE) {
