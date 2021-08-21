@@ -23,7 +23,7 @@
 
 
 extern void boundrx_handler(void);
-extern void div0_handler(void);
+//extern void div0_handler(void);
 extern void overf_handler(void);
 extern unsigned char keyboard_map[128];
 extern void keyboard_handler(void);
@@ -33,8 +33,9 @@ extern void write_port(unsigned short port, unsigned char data);
 extern void enable_ints();
 extern void disable_ints();
 
-
-
+void div0_handler(void) {
+	kprint("A division by 0 has occured. Please run around in circles.",0x04);
+}
 /* current cursor location */
 unsigned int current_loc = 0;
 /* video memory begins at address 0xb8000 */
