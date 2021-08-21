@@ -9,7 +9,7 @@ section .text
         dd 0x00                    ;flags
         dd - (0x1BADB002 + 0x00)   ;checksum. m+f+c should be zero
 	
-global div0_handler
+;global div0_handler
 global boundrx_handler
 global overf_handler
 global start
