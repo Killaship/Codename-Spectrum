@@ -15,6 +15,10 @@ global overf_handler
 global start
 global keyboard_handler
 global load_idt
+global enable_ints
+global disable_ints
+global read_port
+global write_port
 
 extern kmain 		;this is defined in the c file
 extern keyboard_handler_main
