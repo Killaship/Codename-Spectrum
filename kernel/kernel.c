@@ -3,9 +3,8 @@
 * License: GPL version 2 or higher http://www.gnu.org/licenses/gpl.html
 */
 
-#include "drivers/keyboard_map.h"
-#include "drivers/utils.h"
-#include "drivers/ports.h"
+#include "keyboard_map.h"
+
 
 
 #define LINES 25
@@ -304,7 +303,6 @@ void keyboard_handler_main(void)
 	
 		
 void kmain(void) {
-	initRTC();
 	idt_init();
 	kb_init();
 	clear_screen();
@@ -326,7 +324,6 @@ void kmain(void) {
 	kprint("0",0xDD);
 	kprint("0",0xEE);
 	kprint("0",0xFF);
-	sleep(3000);
 	kprint_newline();
 	const char *str = "Codename Spectrum Build 0.4.0";
 	kprint(str, 0x0B);
