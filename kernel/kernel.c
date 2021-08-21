@@ -245,7 +245,6 @@ void kmain(void) {
 	kprint(str, 0x0B);
 	kprint_newline();
 	kprint(str2, 0x0E);
-	overf_handler();
 	kprint_newline();
 	kprint_newline();
 	while(1);
