@@ -57,6 +57,7 @@ void shell() {
 
 void sh_init() {
 	kprint_newline();
+	kprint_newline();
 	shell();
 }
 
