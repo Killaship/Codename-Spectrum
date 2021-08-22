@@ -242,7 +242,8 @@ void kmain(void) {
 	kprint_newline();
 	const char *str = "Codename Spectrum Build 0.4.2?";
 	const char *str2 = "                        Now with %66 more .h files!";
-	sh_init();
+	int abcdefg = 0 / 0;
+	//sh_init();
 	kprint(str, 0x0B);
 	kprint_newline();
 	kprint(str2, 0x0E);
