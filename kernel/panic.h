@@ -1,7 +1,7 @@
 #pragma once
 
 void div0_handler() {
-	*vidptr = (char*)0xb8000;
+	//kprint_newline();
 	unsigned int i = 0;
 	while (i < SCREENSIZE) {
 		vidptr[i++] = ' ';
@@ -23,7 +23,7 @@ void div0_handler() {
 }
 
 void boundrx_handler() {
-	*vidptr = (char*)0xb8000;
+	//kprint_newline();
 	unsigned int i = 0;
 	while (i < SCREENSIZE) {
 		vidptr[i++] = ' ';
@@ -45,7 +45,7 @@ void boundrx_handler() {
 }
 
 void overf_handler() {
-	*vidptr = (char*)0xb8000;
+	//kprint_newline();
 	unsigned int i = 0;
 	while (i < SCREENSIZE) {
 		vidptr[i++] = ' ';
