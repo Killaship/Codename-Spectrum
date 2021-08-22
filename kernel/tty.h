@@ -9,6 +9,10 @@
 unsigned int current_loc = 0;
 /* video memory begins at address 0xb8000 */
 char *vidptr = (char*)0xb8000;
+/* char buffer for the shell */
+char buff[128];
+/* pointer to where we're writing into the buffer */
+int buffptr = 0;
 
 void kprint(const char *str, const int color) {
 	
@@ -35,8 +39,23 @@ void clear_screen(void) {
 	}
 
 }
-/*
-void sh_init() {
-	
+
+void input_prompt() {
+	kprint("kernel@Spectrum:", 0x09);
 }
-*/
+
+void shell() {
+	kprint("Prism Shell 0.0.1 [Kernelspace]", 0x07);
+	kprint_newline();
+	kprint("Type \"help\" for a list of commands.", 0x07);
+	kprint_newline();
+	input_prompt();
+	while(1) {
+		
+	}
+}
+
+void sh_init() {
+	shell();
+}
+
