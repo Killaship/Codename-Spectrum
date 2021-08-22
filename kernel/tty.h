@@ -45,7 +45,6 @@ void input_prompt() {
 }
 
 void shell() {
-	kprint_newline();
 	kprint("Prism Shell 0.0.1 [Kernelspace]", 0x07);
 	kprint_newline();
 	kprint("Type \"help\" for a list of commands.", 0x07);
