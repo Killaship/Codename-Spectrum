@@ -54,7 +54,7 @@ void gen_idt(int idtnum, int *type, int handler, int addr) {
 */
 void idt_init(void)
 	unsigned long dfault_address
-{	unsigned long div0_address;
+	unsigned long div0_address;
  	unsigned long boundrx_address;
 	unsigned long overf_address;
  	unsigned long nmi_address;
