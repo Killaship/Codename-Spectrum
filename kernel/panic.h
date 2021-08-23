@@ -22,7 +22,7 @@ void div0_handler() {
           );	
 }
 
-void boundrx_handler() {
+void debg_handler() {
 	//kprint_newline();
 	unsigned int i = 0;
 	while (i < SCREENSIZE) {
@@ -33,7 +33,29 @@ void boundrx_handler() {
 	kprint_newline();
 	kprint("err type:",0x40);
 	kprint_newline();
-	kprint("fault: bound range exceeded (0x05)",0x40);
+	kprint("fault/trap: debug (0x01)",0x40);
+	kprint_newline();
+	kprint_newline();
+	asm volatile(
+          "1:\n\t"
+          "cli\n\t"
+          "hlt\n\t"
+          "jmp 1b\n\t"
+          );	
+}
+
+void nmi_handler() {
+	//kprint_newline();
+	unsigned int i = 0;
+	while (i < SCREENSIZE) {
+		vidptr[i++] = ' ';
+		vidptr[i++] = 0x44;
+	}
+	kprint("err: kernel panic!",0x40);
+	kprint_newline();
+	kprint("err type:",0x40);
+	kprint_newline();
+	kprint("fault: non-maskable interrupt (0x02)",0x40);
 	kprint_newline();
 	kprint_newline();
 	asm volatile(
@@ -65,3 +87,27 @@ void overf_handler() {
           "jmp 1b\n\t"
           );	
 }
+
+
+void boundrx_handler() {
+	//kprint_newline();
+	unsigned int i = 0;
+	while (i < SCREENSIZE) {
+		vidptr[i++] = ' ';
+		vidptr[i++] = 0x44;
+	}
+	kprint("err: kernel panic!",0x40);
+	kprint_newline();
+	kprint("err type:",0x40);
+	kprint_newline();
+	kprint("fault: bound range exceeded (0x05)",0x40);
+	kprint_newline();
+	kprint_newline();
+	asm volatile(
+          "1:\n\t"
+          "cli\n\t"
+          "hlt\n\t"
+          "jmp 1b\n\t"
+          );	
+}
+
