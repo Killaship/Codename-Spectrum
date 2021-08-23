@@ -73,14 +73,14 @@ void idt_init(void) {
 	IDT[0x21].type_attr = INTERRUPT_GATE;
 	IDT[0x21].offset_higherbits = (keyboard_address & 0xffff0000) >> 16;
 	
-	
+	/*
 	div0_address = (unsigned long)div0_handler;
 	IDT[0x00].offset_lowerbits = div0_address & 0xffff;
 	IDT[0x00].selector = KERNEL_CODE_SEGMENT_OFFSET;
 	IDT[0x00].zero = 0;
 	IDT[0x00].type_attr = INTERRUPT_GATE;
 	IDT[0x00].offset_higherbits = (div0_address & 0xffff0000) >> 16;
- 
+ */
  	debg_address = (unsigned long)debg_handler;
 	IDT[0x01].offset_lowerbits = debg_address & 0xffff;
 	IDT[0x01].selector = KERNEL_CODE_SEGMENT_OFFSET;
@@ -268,6 +268,7 @@ void kmain(void) {
 	kprint(str, 0x0B);
 	kprint_newline();
 	kprint(str2, 0x0E);
+	int abcdef = 0 / 0;
 	sh_init();
 	while(1);
 }
