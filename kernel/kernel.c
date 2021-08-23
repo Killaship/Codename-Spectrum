@@ -56,7 +56,12 @@ void idt_init(void)
 {	unsigned long div0_address;
  	unsigned long boundrx_address;
 	unsigned long overf_address;
+ 	unsigned long nmi_address;
+	unsigned long debg_address;
+ 
+ 
 	unsigned long keyboard_address;
+ 
 	unsigned long idt_address;
 	unsigned long idt_ptr[2];
 
@@ -69,8 +74,6 @@ void idt_init(void)
 	IDT[0x21].offset_higherbits = (keyboard_address & 0xffff0000) >> 16;
 	
 	
-	
-	
 	div0_address = (unsigned long)div0_handler;
 	IDT[0x00].offset_lowerbits = div0_address & 0xffff;
 	IDT[0x00].selector = KERNEL_CODE_SEGMENT_OFFSET;
@@ -78,6 +81,19 @@ void idt_init(void)
 	IDT[0x00].type_attr = INTERRUPT_GATE;
 	IDT[0x00].offset_higherbits = (div0_address & 0xffff0000) >> 16;
  
+ 	debg_address = (unsigned long)debg_handler;
+	IDT[0x01].offset_lowerbits = debg_address & 0xffff;
+	IDT[0x01].selector = KERNEL_CODE_SEGMENT_OFFSET;
+	IDT[0x01].zero = 0;
+	IDT[0x01].type_attr = INTERRUPT_GATE;
+	IDT[0x01].offset_higherbits = (debg_address & 0xffff0000) >> 16;
+ 
+	nmi_address = (unsigned long)nmi_handler;
+	IDT[0x02].offset_lowerbits = nmi_address & 0xffff;
+	IDT[0x02].selector = KERNEL_CODE_SEGMENT_OFFSET;
+	IDT[0x02].zero = 0;
+	IDT[0x02].type_attr = INTERRUPT_GATE;
+	IDT[0x02].offset_higherbits = (nmi_address & 0xffff0000) >> 16;
  
 
    	overf_address = (unsigned long)overf_handler;
