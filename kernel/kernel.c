@@ -268,7 +268,6 @@ void kmain(void) {
 	kprint(str, 0x0B);
 	kprint_newline();
 	kprint(str2, 0x0E);
-	int abcdef = 0 / 0;
 	sh_init();
 	while(1);
 }
