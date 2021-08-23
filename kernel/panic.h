@@ -127,7 +127,7 @@ void dfault_handler() {
 	kprint_newline();
 	kprint_newline();
 	kprint_newline();
-	kprint("Please contact the devs and send them a screenshot.",0x40)
+	kprint("Please contact the devs and send them a screenshot.",0x40);
 	kprint_newline();
 	kprint("This is a pretty rare error, how'd you manage to screw up the kernel this much?!",0x40);
 	asm volatile(
