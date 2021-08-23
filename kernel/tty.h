@@ -41,7 +41,7 @@ void clear_screen(void) {
 }
 
 void input_prompt() {
-	kprint("kernel@Spectrum:", 0x09);
+	kprint("kernel@Spectrum: ", 0x09);
 }
 
 void cmdflush() {
