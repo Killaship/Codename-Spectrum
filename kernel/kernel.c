@@ -206,6 +206,8 @@ void keyboard_handler_main(void)
 
 		if(keycode == ENTER_KEY_CODE) {
 			kprint_newline();
+			//cmdflush();
+			input_prompt();
 			return;
 		}
 
