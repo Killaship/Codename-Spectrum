@@ -1,5 +1,5 @@
 #pragma once
-/*
+
 void div0_handler() {
 	kprint_newline();
 	unsigned int i = 0;
@@ -21,7 +21,7 @@ void div0_handler() {
           "jmp 1b\n\t"
           );	
 }
-*/
+
 void debg_handler() {
 	kprint_newline();
 	unsigned int i = 0;
