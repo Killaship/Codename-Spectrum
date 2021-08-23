@@ -10,7 +10,7 @@ unsigned int current_loc = 0;
 /* video memory begins at address 0xb8000 */
 char *vidptr = (char*)0xb8000;
 /* char buffer for the shell */
-char buff[128];
+char buff[128]; // note to self: don't worry about initialization as this array is global and defaults to a null char.
 /* pointer to where we're writing into the buffer */
 int buffptr = 0;
 
@@ -42,6 +42,10 @@ void clear_screen(void) {
 
 void input_prompt() {
 	kprint("kernel@Spectrum:", 0x09);
+}
+
+void cmdflush() {
+	
 }
 
 void shell() {
