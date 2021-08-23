@@ -247,8 +247,7 @@ void kmain(void) {
 	kprint(str, 0x0B);
 	kprint_newline();
 	kprint(str2, 0x0E);
-	write_port(0x604, 0x20);
-	//sh_init();
+	sh_init();
 	while(1);
 }
 
