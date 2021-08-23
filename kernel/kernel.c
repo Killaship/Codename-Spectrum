@@ -53,6 +53,7 @@ void gen_idt(int idtnum, int *type, int handler, int addr) {
 }
 */
 void idt_init(void)
+	unsigned long dfault_address
 {	unsigned long div0_address;
  	unsigned long boundrx_address;
 	unsigned long overf_address;
@@ -110,7 +111,12 @@ void idt_init(void)
 	IDT[0x05].type_attr = INTERRUPT_GATE;
 	IDT[0x05].offset_higherbits = (boundrx_address & 0xffff0000) >> 16;
  
-  	
+  	dfault_address = (unsigned long)dfault_handler;
+	IDT[0x08].offset_lowerbits = dfault_address & 0xffff;
+	IDT[0x08].selector = KERNEL_CODE_SEGMENT_OFFSET;
+	IDT[0x08].zero = 0;
+	IDT[0x08].type_attr = INTERRUPT_GATE;
+	IDT[0x08].offset_higherbits = (dfault_address & 0xffff0000) >> 16;
  
  
 	/*     Ports
