@@ -1,7 +1,7 @@
 #pragma once
-
+/*
 void div0_handler() {
-	//kprint_newline();
+	kprint_newline();
 	unsigned int i = 0;
 	while (i < SCREENSIZE) {
 		vidptr[i++] = ' ';
@@ -21,9 +21,9 @@ void div0_handler() {
           "jmp 1b\n\t"
           );	
 }
-
+*/
 void debg_handler() {
-	//kprint_newline();
+	kprint_newline();
 	unsigned int i = 0;
 	while (i < SCREENSIZE) {
 		vidptr[i++] = ' ';
@@ -45,7 +45,7 @@ void debg_handler() {
 }
 
 void nmi_handler() {
-	//kprint_newline();
+	kprint_newline();
 	unsigned int i = 0;
 	while (i < SCREENSIZE) {
 		vidptr[i++] = ' ';
@@ -67,7 +67,7 @@ void nmi_handler() {
 }
 
 void overf_handler() {
-	//kprint_newline();
+	kprint_newline();
 	unsigned int i = 0;
 	while (i < SCREENSIZE) {
 		vidptr[i++] = ' ';
@@ -90,7 +90,7 @@ void overf_handler() {
 
 
 void boundrx_handler() {
-	//kprint_newline();
+	kprint_newline();
 	unsigned int i = 0;
 	while (i < SCREENSIZE) {
 		vidptr[i++] = ' ';
@@ -112,7 +112,7 @@ void boundrx_handler() {
 }
 
 void dfault_handler() {
-	//kprint_newline();
+	kprint_newline();
 	unsigned int i = 0;
 	while (i < SCREENSIZE) {
 		vidptr[i++] = ' ';
