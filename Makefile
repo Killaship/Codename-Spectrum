@@ -32,4 +32,4 @@ clean:
 	$(MAKE) clean
 
 distclean: clean
-	rm -rf limine 
+	rm -rf limine *.iso *.o 
