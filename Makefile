@@ -11,13 +11,13 @@ limine:
 	git clone https://github.com/limine-bootloader/limine.git --branch=v2.0-branch-binary --depth=1
 	make -C limine
 
-kernel/SKernel:
+SKernel:
 	$(MAKE) bash build.sh
 
-$(ISO_IMAGE): limine kernel/Skernel
+$(ISO_IMAGE): limine Skernel
 	rm -rf iso_root
 	mkdir -p iso_root
-	cp kernel/SKernel \
+	cp SKernel \
 		limine.cfg limine/limine.sys limine/limine-cd.bin limine/limine-eltorito-efi.bin iso_root/
 	xorriso -as mkisofs -b limine-cd.bin \
 		-no-emul-boot -boot-load-size 4 -boot-info-table \
@@ -29,7 +29,7 @@ $(ISO_IMAGE): limine kernel/Skernel
 
 clean:
 	rm -f $(ISO_IMAGE)
-	$(MAKE) -C kernel clean
+	$(MAKE) clean
 
 distclean: clean
 	rm -rf limine kernel/stivale2.h
