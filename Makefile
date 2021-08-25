@@ -14,7 +14,7 @@ limine:
 SKernel:
 	$(MAKE) bash build.sh
 
-$(ISO_IMAGE): limine Skernel
+$(ISO_IMAGE): limine SKernel
 	rm -rf iso_root
 	mkdir -p iso_root
 	cp SKernel \
@@ -32,4 +32,4 @@ clean:
 	$(MAKE) clean
 
 distclean: clean
-	rm -rf limine kernel/stivale2.h
+	rm -rf limine 
