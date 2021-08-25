@@ -12,7 +12,7 @@ limine:
 	make -C limine
 
 SKernel:
-	$(MAKE) bash build.sh
+	bash build.sh
 
 $(ISO_IMAGE): limine SKernel
 	rm -rf iso_root
