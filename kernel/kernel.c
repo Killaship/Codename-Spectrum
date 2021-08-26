@@ -15,7 +15,7 @@
 #define INTERRUPT_GATE 0x8e
 #define IDT_TA_CallGate         0b10001100
 #define IDT_TA_TrapGate         0b10001111
-#define KERNEL_CODE_SEGMENT_OFFSET 0x28
+#define KERNEL_CODE_SEGMENT_OFFSET 0x08
 #define ENTER_KEY_CODE 0x1C
 
 
