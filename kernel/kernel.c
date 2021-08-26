@@ -61,6 +61,7 @@ void idt_init(void) {
  	unsigned long dfault_address;
  
 	unsigned long keyboard_address;
+	unsigned long irq0_address;
  
 	unsigned long idt_address;
 	unsigned long idt_ptr[2];
@@ -73,6 +74,12 @@ void idt_init(void) {
 	IDT[0x21].type_attr = INTERRUPT_GATE;
 	IDT[0x21].offset_higherbits = (keyboard_address & 0xffff0000) >> 16;
 	
+	irq0_address = (unsigned long)irq0_handler;
+	IDT[0x20].offset_lowerbits = irq0_address & 0xffff;
+	IDT[0x20].selector = KERNEL_CODE_SEGMENT_OFFSET;
+	IDT[0x20].zero = 0;
+	IDT[0x20].type_attr = INTERRUPT_GATE;
+	IDT[0x20].offset_higherbits = (irq0_address & 0xffff0000) >> 16;
 	
 	div0_address = (unsigned long)div0_handler;
 	IDT[0x00].offset_lowerbits = div0_address & 0xffff;
