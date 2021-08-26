@@ -33,6 +33,9 @@ extern void disable_ints();
 
 /* current cursor location */
 
+void irq0_handler() {
+	kprint("IRQ 0 DETECTED", 0x04);
+}
 
 struct IDT_entry {
 	unsigned short int offset_lowerbits;
