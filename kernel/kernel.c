@@ -252,7 +252,7 @@ void keyboard_handler_main(void)
 		
 void kmain(void) {
 	idt_init();
-	//kb_init();
+	kb_init();
 	clear_screen();
 	kprint("Color Test:",0x07);
 	kprint_newline();
@@ -278,6 +278,8 @@ void kmain(void) {
 	kprint(str, 0x0B);
 	kprint_newline();
 	kprint(str2, 0x0E);
+	kprint_newline();
+	sh_init();
 	while(1);
 }
 
