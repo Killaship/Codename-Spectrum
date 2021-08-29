@@ -33,8 +33,8 @@ extern void disable_ints();
 
 /* current cursor location */
 
-void irq0_handler() {
-	kprint("IRQ 0 DETECTED", 0x04);
+void softw_handler() {
+	kprint("SOFTWARE INTERRUPT!", 0x04);
 }
 
 struct IDT_entry {
@@ -63,6 +63,8 @@ void idt_init(void) {
 	unsigned long debg_address;
  	unsigned long dfault_address;
  
+	unsigned long softw_address;
+	
 	unsigned long keyboard_address;
 	unsigned long irq0_address;
  
@@ -77,12 +79,12 @@ void idt_init(void) {
 	IDT[0x21].type_attr = INTERRUPT_GATE;
 	IDT[0x21].offset_higherbits = (keyboard_address & 0xffff0000) >> 16;
 	
-	irq0_address = (unsigned long)irq0_handler;
-	IDT[0x20].offset_lowerbits = irq0_address & 0xffff;
-	IDT[0x20].selector = KERNEL_CODE_SEGMENT_OFFSET;
-	IDT[0x20].zero = 0;
-	IDT[0x20].type_attr = INTERRUPT_GATE;
-	IDT[0x20].offset_higherbits = (irq0_address & 0xffff0000) >> 16;
+	softw_address = (unsigned long)softw_handler;
+	IDT[0x69].offset_lowerbits = softw_address & 0xffff;
+	IDT[0x69].selector = KERNEL_CODE_SEGMENT_OFFSET;
+	IDT[0x69].zero = 0;
+	IDT[0x69].type_attr = INTERRUPT_GATE;
+	IDT[0x69].offset_higherbits = (softw_address & 0xffff0000) >> 16;
 	
 	div0_address = (unsigned long)div0_handler;
 	IDT[0x00].offset_lowerbits = div0_address & 0xffff;
@@ -279,6 +281,7 @@ void kmain(void) {
 	kprint_newline();
 	kprint(str2, 0x0E);
 	kprint_newline();
+	asm("int $0x69");
 	sh_init();
 	while(1);
 }
