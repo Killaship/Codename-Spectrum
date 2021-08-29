@@ -66,7 +66,7 @@ void idt_init(void) {
 	unsigned long softw_address;
 	
 	unsigned long keyboard_address;
-	unsigned long irq0_address;
+	
  
 	unsigned long idt_address;
 	unsigned long idt_ptr[2];
