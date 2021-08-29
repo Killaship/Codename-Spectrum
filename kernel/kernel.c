@@ -281,7 +281,7 @@ void kmain(void) {
 	kprint_newline();
 	kprint(str2, 0x0E);
 	kprint_newline();
-	asm("int $0x69");
+	asm("int 0x69");
 	sh_init();
 	while(1);
 }
