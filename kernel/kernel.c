@@ -33,9 +33,6 @@ extern void disable_ints();
 
 /* current cursor location */
 
-void softw_handler() {
-	kprint("SOFTWARE INTERRUPT!", 0x04);
-}
 
 struct IDT_entry {
 	unsigned short int offset_lowerbits;
@@ -63,7 +60,7 @@ void idt_init(void) {
 	unsigned long debg_address;
  	unsigned long dfault_address;
  
-	unsigned long softw_address;
+	
 	
 	unsigned long keyboard_address;
 	
@@ -78,13 +75,6 @@ void idt_init(void) {
 	IDT[0x21].zero = 0;
 	IDT[0x21].type_attr = INTERRUPT_GATE;
 	IDT[0x21].offset_higherbits = (keyboard_address & 0xffff0000) >> 16;
-	
-	softw_address = (unsigned long)softw_handler;
-	IDT[0x69].offset_lowerbits = softw_address & 0xffff;
-	IDT[0x69].selector = KERNEL_CODE_SEGMENT_OFFSET;
-	IDT[0x69].zero = 0;
-	IDT[0x69].type_attr = INTERRUPT_GATE;
-	IDT[0x69].offset_higherbits = (softw_address & 0xffff0000) >> 16;
 	
 	div0_address = (unsigned long)div0_handler;
 	IDT[0x00].offset_lowerbits = div0_address & 0xffff;
