@@ -239,7 +239,7 @@ void keyboard_handler_main(void)
 	}
 }
 
-int foo() 
+void foo() 
 {
      double x[1048576];
 }
