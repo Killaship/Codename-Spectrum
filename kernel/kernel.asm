@@ -72,6 +72,5 @@ start:
 	hlt 				;halt the CPU
 
 section .bss
-;resb 8192 ; 8KB for stack
-resb 32
+resb 8192 ; 8KB for stack
 stack_space:
