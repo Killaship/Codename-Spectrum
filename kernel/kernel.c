@@ -239,10 +239,7 @@ void keyboard_handler_main(void)
 	}
 }
 
-int foo() { // I wonder what will happen if I try and do an overflow
-     return foo();
-}
-	
+
 		
 void kmain(void) {
 	idt_init();
