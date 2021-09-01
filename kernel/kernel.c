@@ -239,7 +239,10 @@ void keyboard_handler_main(void)
 	}
 }
 
-
+int foo() 
+{
+     double x[1048576];
+}
 		
 void kmain(void) {
 	idt_init();
@@ -270,6 +273,7 @@ void kmain(void) {
 	kprint_newline();
 	kprint(str2, 0x0E);
 	kprint_newline();
+	foo();
 	sh_init();
 	while(1);
 }
