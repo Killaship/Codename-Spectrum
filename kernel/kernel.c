@@ -239,7 +239,9 @@ void keyboard_handler_main(void)
 	}
 }
 
-
+int foo() { // I wonder what will happen if I try and do an overflow
+     return foo();
+}
 	
 		
 void kmain(void) {
@@ -271,8 +273,8 @@ void kmain(void) {
 	kprint_newline();
 	kprint(str2, 0x0E);
 	kprint_newline();
-
 	sh_init();
+	foo();
 	while(1);
 }
 
