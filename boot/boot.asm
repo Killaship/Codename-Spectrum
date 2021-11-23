@@ -1,4 +1,4 @@
-[org 0x7c00]                        
+org 0x7c00                  
 KERNEL_LOCATION equ 0x1000
                                     
 BOOT_DISK: db 0
