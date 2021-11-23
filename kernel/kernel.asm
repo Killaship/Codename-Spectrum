@@ -2,7 +2,7 @@
 ; License: GPL version 2 or higher http://www.gnu.org/licenses/gpl.html
 
 bits 32
-ORG 0x1000
+
 	
 ;global div0_handler
 ;global boundrx_handler
