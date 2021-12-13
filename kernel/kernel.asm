@@ -26,6 +26,10 @@ extern keyboard_handler_main
 ;extern panic1 ;boundrx
 ;extern panic2 ;overflow
 
+dummy_int:
+	int 0xFF
+	ret
+
 read_port:
 	mov edx, [esp + 4]
 			;al is the lower 8 bits of eax
