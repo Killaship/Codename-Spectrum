@@ -29,6 +29,7 @@ extern char read_port(unsigned short port);
 extern void write_port(unsigned short port, unsigned char data);
 extern void enable_ints();
 extern void disable_ints();
+extern void dummy_int();
 
 
 /* current cursor location */
@@ -230,6 +231,7 @@ void kmain(void) {
 	kprint_newline();
 	kprint(str2, 0x0E);
 	kprint_newline();
+	dummy_int();
 	sh_init();
 	while(1);
 }
