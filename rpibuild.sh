@@ -10,4 +10,4 @@ gold -m elf_i386 -T link.ld -o kernel.elf kasm.o kc.o #boot.o
 
 echo "Build Complete. Now running in QEMU."
 export DISPLAY=:0.0 # Replace 0.0 with the address of your X server if needed.
-qemu-system-i386 -kernel kernel.elf
+qemu-system-i386 -curses -kernel kernel.elf
