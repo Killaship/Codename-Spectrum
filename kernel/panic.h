@@ -1,5 +1,14 @@
 #pragma once
 
+void hang() {
+		asm volatile(
+          "1:\n\t"
+          "cli\n\t"
+          "hlt\n\t"
+          "jmp 1b\n\t"
+          );	
+}
+
 void div0_handler() {
 	kprint_newline();
 	unsigned int i = 0;
@@ -14,12 +23,7 @@ void div0_handler() {
 	kprint("fault: divide-by-zero (0x00)",0x40);
 	kprint_newline();
 	kprint_newline();
-	asm volatile(
-          "1:\n\t"
-          "cli\n\t"
-          "hlt\n\t"
-          "jmp 1b\n\t"
-          );	
+	hang();
 }
 
 void debg_handler() {
@@ -36,12 +40,7 @@ void debg_handler() {
 	kprint("fault/trap: debug (0x01)",0x40);
 	kprint_newline();
 	kprint_newline();
-	asm volatile(
-          "1:\n\t"
-          "cli\n\t"
-          "hlt\n\t"
-          "jmp 1b\n\t"
-          );	
+	hang();
 }
 
 void nmi_handler() {
@@ -58,12 +57,7 @@ void nmi_handler() {
 	kprint("fault: non-maskable interrupt (0x02)",0x40);
 	kprint_newline();
 	kprint_newline();
-	asm volatile(
-          "1:\n\t"
-          "cli\n\t"
-          "hlt\n\t"
-          "jmp 1b\n\t"
-          );	
+	hang();
 }
 
 void overf_handler() {
@@ -80,12 +74,7 @@ void overf_handler() {
 	kprint("trap: overflow detected (0x04)",0x40);
 	kprint_newline();
 	kprint_newline();
-	asm volatile(
-          "1:\n\t"
-          "cli\n\t"
-          "hlt\n\t"
-          "jmp 1b\n\t"
-          );	
+	hang();
 }
 
 
@@ -103,12 +92,7 @@ void boundrx_handler() {
 	kprint("fault: bound range exceeded (0x05)",0x40);
 	kprint_newline();
 	kprint_newline();
-	asm volatile(
-          "1:\n\t"
-          "cli\n\t"
-          "hlt\n\t"
-          "jmp 1b\n\t"
-          );	
+	hang();
 }
 
 void dfault_handler() {
@@ -128,12 +112,7 @@ void dfault_handler() {
 	kprint_newline();
 	kprint_newline();
 	kprint("This is a pretty rare error, how'd you manage to screw up the kernel this much?!",0x40);
-	asm volatile(
-          "1:\n\t"
-          "cli\n\t"
-          "hlt\n\t"
-          "jmp 1b\n\t"
-          );	
+	hang();
 }
 
 
