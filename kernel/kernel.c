@@ -231,7 +231,7 @@ void kmain(void) {
 	kprint_newline();
 	kprint(str2, 0x0E);
 	kprint_newline();
-	dummy_int();
+	
 	sh_init();
 	while(1);
 }
