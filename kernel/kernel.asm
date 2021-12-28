@@ -8,7 +8,9 @@ section .text
         dd 0x1BADB002              ;magic
         dd 0x00                    ;flags
         dd - (0x1BADB002 + 0x00)   ;checksum. m+f+c should be zero
-	
+
+%include "gdt.asm"
+
 ;global div0_handler
 ;global boundrx_handler
 ;global overf_handler
@@ -71,10 +73,16 @@ keyboard_handler:
 ;	cli
 ;	call	panic2
 start:
-	cli 				;block interrupts
-	mov esp, stack_space
-	call kmain
-	hlt 				;halt the CPU
+    lgdt [gdt_descriptor]
+    jmp CODE_SEG:.setcs       ; Set CS to our 32-bit flat code selector
+    .setcs:
+    mov ax, DATA_SEG          ; Setup the segment registers with our flat data selector
+    mov ds, ax
+    mov es, ax
+    mov fs, ax
+    mov gs, ax
+    mov ss, ax
+    mov esp, stack_space        ; set stack pointer			;halt the CPU
 
 section .bss
 resb 8192 ; 8KB for stack
