@@ -2,6 +2,8 @@
 An open-source operating system that I'm making as a side project. The bootloading is currently handled by the -kernel flag in QEMU. 
 This isn't meant for real hardware since it's so outdated, so I probably won't add a bootloader.
 
+Keep in mind all this is subject to change, especially since I rarely update the readme.
+
 IMPORTANT: The OS is 32 bit. It will not run on modern hardware. Use a VM, preferably QEMU.
 
 # The 'main' branch is usually is a WIP, refer to Releases for stable versions.
