@@ -8,8 +8,9 @@ rm *iso
 git pull
 
 #nasm -f elf32 boot/boot.asm -o boot.o
-
+cd /kernel
 nasm -f elf32 kernel/kernel.asm -o kasm.o
+cd ..
 gcc -Wall -Wextra -fno-stack-protector -m32 -c kernel/kernel.c -o kc.o
 
 ld -m elf_i386 -T link.ld -o kernel.elf kasm.o kc.o #boot.o
