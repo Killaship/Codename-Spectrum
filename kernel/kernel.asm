@@ -9,7 +9,7 @@ section .text
         dd 0x00                    ;flags
         dd - (0x1BADB002 + 0x00)   ;checksum. m+f+c should be zero
 
-%include "../gdt.asm"
+%include "./gdt.asm"
 
 ;global div0_handler
 ;global boundrx_handler
