@@ -73,8 +73,8 @@ keyboard_handler:
 ;	cli
 ;	call	panic2
 start:
-    lgdt [gdt_descriptor]
-    jmp CODE_SEG:.setcs       ; Set CS to our 32-bit flat code selector
+     lgdt [gdt_pointer]  
+     jmp CODE_SEG:kmain
     .setcs:
     mov ax, DATA_SEG          ; Setup the segment registers with our flat data selector
     mov ds, ax
