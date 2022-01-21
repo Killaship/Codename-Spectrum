@@ -24,7 +24,7 @@ global write_port
 
 extern kmain 		;this is defined in the c file
 extern keyboard_handler_main
-extern dummy_int
+global dummy_int
 ;extern panic0 ;div0
 ;extern panic1 ;boundrx
 ;extern panic2 ;overflow
