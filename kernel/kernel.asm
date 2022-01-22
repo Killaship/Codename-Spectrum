@@ -31,17 +31,6 @@ global dummy_int
 ;extern panic1 ;boundrx
 ;extern panic2 ;overflow
 
-    mov esi,hello
-    mov ebx,0xb8000
-	.loop:
-		lodsb
-		or al,al
-		jz start
-		or eax,0x0100
-		mov word [ebx], ax
-		add ebx,2
-		jmp .loop
-
 dummy_int:
 	int 0xFF
 	ret
