@@ -78,7 +78,7 @@ hello: db "It works! (no shit sherlock)",0
 ;	call	panic2
 start:
      lgdt [gdt_pointer]  
-     jmp CODE_SEG:kmain
+     
     .setcs:
     mov ax, DATA_SEG          ; Setup the segment registers with our flat data selector
     mov ds, ax
@@ -92,7 +92,7 @@ start:
 	.loop:
 		lodsb
 		or al,al
-		jz halt
+		jz CODE_SEG:kmain
 		or eax,0x0100
 		mov word [ebx], ax
 		add ebx,2
