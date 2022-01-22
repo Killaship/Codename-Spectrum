@@ -1,6 +1,8 @@
 ; Parts of this made by Arjun Sreedharan
 ; License: GPL version 2 or higher http://www.gnu.org/licenses/gpl.html
 
+
+
 bits 32
 section .text
         ;multiboot spec
@@ -61,6 +63,8 @@ keyboard_handler:
 	call    keyboard_handler_main
 	iretd
 
+hello: db "It works! (no shit sherlock)",0
+
 ;div0_handler:
 ;	cli
 ;	call	panic0
@@ -83,6 +87,16 @@ start:
     mov gs, ax
     mov ss, ax
     mov esp, stack_space        ; set stack pointer			;halt the CPU
+    mov esi,hello
+    mov ebx,0xb8000
+	.loop:
+		lodsb
+		or al,al
+		jz halt
+		or eax,0x0100
+		mov word [ebx], ax
+		add ebx,2
+		jmp .loop
 
 section .bss
 resb 8192 ; 8KB for stack
