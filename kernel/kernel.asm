@@ -31,6 +31,17 @@ global dummy_int
 ;extern panic1 ;boundrx
 ;extern panic2 ;overflow
 
+    mov esi,hello
+    mov ebx,0xb8000
+	.loop:
+		lodsb
+		or al,al
+		jz start
+		or eax,0x0100
+		mov word [ebx], ax
+		add ebx,2
+		jmp .loop
+
 dummy_int:
 	int 0xFF
 	ret
@@ -78,7 +89,7 @@ hello: db "It works! (no shit sherlock)",0
 ;	call	panic2
 start:
      lgdt [gdt_pointer]  
-     
+     jmp CODE_SEG:kmain
     .setcs:
     mov ax, DATA_SEG          ; Setup the segment registers with our flat data selector
     mov ds, ax
@@ -87,16 +98,7 @@ start:
     mov gs, ax
     mov ss, ax
     mov esp, stack_space        ; set stack pointer			;halt the CPU
-    mov esi,hello
-    mov ebx,0xb8000
-	.loop:
-		lodsb
-		or al,al
-		jz CODE_SEG:kmain
-		or eax,0x0100
-		mov word [ebx], ax
-		add ebx,2
-		jmp .loop
+
 
 section .bss
 resb 8192 ; 8KB for stack
