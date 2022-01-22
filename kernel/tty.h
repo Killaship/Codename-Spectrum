@@ -41,7 +41,7 @@ void clear_screen(void) {
 }
 
 void input_prompt() {
-	kprint("kernel@Spectrum: ", 0x09);
+	kprint("Spectrum@fakeshell: ", 0x09);
 }
 
 void cmdflush() {
@@ -49,7 +49,7 @@ void cmdflush() {
 }
 
 void shell() {
-	kprint("Prism Shell 0.0.1 [Kernelspace]", 0x07);
+	kprint("Prism Shell [Kernelspace]", 0x07);
 	kprint_newline();
 	kprint("Type \"help\" for a list of commands.", 0x07);
 	kprint_newline();
