@@ -30,7 +30,7 @@ global dummy_int
 ;extern panic0 ;div0
 ;extern panic1 ;boundrx
 ;extern panic2 ;overflow
-hello: db "It works! (no shit sherlock)",0
+
     mov esi,hello
     mov ebx,0xb8000
 	.loop:
