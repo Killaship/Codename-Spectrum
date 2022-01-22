@@ -6,6 +6,7 @@
 #include "keyboard_map.h"
 #include "tty.h"
 #include "panic.h"
+#include "cpu.h"
 
 
 
@@ -217,6 +218,8 @@ void keyboard_handler_main(void)
 		vidptr[current_loc++] = 0x07;
 	}
 }
+
+
 
 
 void kmain(void) {
