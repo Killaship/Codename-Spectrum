@@ -72,6 +72,7 @@ void idt_init(void) {
 	unsigned long idt_address;
 	unsigned long idt_ptr[2];
 	kprint("Initializing IDT...", 0x07);
+	kprint_newline();
 	/* populate IDT entry of keyboard's interrupt */
 	keyboard_address = (unsigned long)keyboard_handler;
 	IDT[0x21].offset_lowerbits = keyboard_address & 0xffff;
@@ -170,6 +171,7 @@ void idt_init(void) {
 
 	load_idt(idt_ptr);
 	kprint("Loaded IDT!", 0x07);
+	kprint_newline();
 }
 
 
@@ -178,6 +180,7 @@ void kb_init(void)
 	/* 0xFD is 11111101 - enables only IRQ1 (keyboard)*/
 	write_port(0x21 , 0xFD);
 	kprint("Keyboard init'd", 0x07);
+	kprint_newline();
 }
 
 
@@ -216,9 +219,10 @@ void keyboard_handler_main(void)
 
 
 void kmain(void) {
+	kprint_newline();
 	idt_init();
 	kb_init();
-	clear_screen();
+	kprint_newline();
 	kprint("Color Test:",0x07);
 	kprint_newline();
 	kprint("0",0x00);
