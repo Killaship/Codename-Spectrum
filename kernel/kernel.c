@@ -131,7 +131,8 @@ void idt_init(void) {
 	IDT[0x08].type_attr = INTERRUPT_GATE;
 	IDT[0x08].offset_higherbits = (dfault_address & 0xffff0000) >> 16;
  	
-	kprint("Initialized IDT entries", 0x07);
+	kprint("Initialized IDT entries!", 0x07);
+	kprint_newline();
  
 	/*     Ports
 	*	 PIC1	PIC2
@@ -179,7 +180,7 @@ void kb_init(void)
 {
 	/* 0xFD is 11111101 - enables only IRQ1 (keyboard)*/
 	write_port(0x21 , 0xFD);
-	kprint("Keyboard init'd", 0x07);
+	kprint("Keyboard initialized!", 0x07);
 	kprint_newline();
 }
 
