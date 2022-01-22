@@ -252,7 +252,7 @@ void kmain(void) {
 	kprint_newline();
 	kprint(str2, 0x0E);
 	kprint_newline();
-	
+	kprint(cpu_string(), 0x07);
 	sh_init();
 	while(1);
 }
