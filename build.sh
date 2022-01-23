@@ -11,10 +11,11 @@ git pull
 cd kernel
 nasm -f elf32 kernel.asm -o kasm.o
 
-gcc -Wall -Wextra -fno-stack-protector -m32 -c kernel.c rtc.c cpu.c panic.c tty.c -o kc.o rtc.o cpu.o panic.o tty.o
+gcc -Wall -Wextra -fno-stack-protector -m32 -c kernel.c rtc.c cpu.c panic.c tty.c
 
 
-ld -m elf_i386 -T link.ld -o kernel.elf kasm.o kc.o rtc.o cpu.o panic.o tty.o
+
+ld -m elf_i386 -T ../link.ld -o kernel.elf kasm.o kc.o rtc.o cpu.o panic.o tty.o
 cd -
 
 mkdir -p iso/boot/grub
