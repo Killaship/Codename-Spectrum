@@ -1,4 +1,4 @@
-
+#include "kernel.h"
 
 #define LINES 25
 #define COLUMNS_IN_LINE 80
