@@ -286,11 +286,11 @@ void kmain(void) {
     	read_rtc();
     	asm ("sti");
 	kprint("System Time: ",0x07);
-	kprint(get_RTC_register(0x04),0x07);
+	kprint(itoa(get_RTC_register(0x04)),0x07);
 	kprint(":",0x07);
-	kprint(get_RTC_register(0x02),0x07);
+	kprint(itoa(get_RTC_register(0x02)),0x07);
 	kprint(":",0x07);
-	kprint(get_RTC_register(0x00),0x07);
+	kprint(itoa(get_RTC_register(0x00)),0x07);
 	
 	sh_init();
 	while(1);
