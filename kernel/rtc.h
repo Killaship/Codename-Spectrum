@@ -21,8 +21,12 @@ int get_update_in_progress_flag() {
 }
  
 unsigned char get_RTC_register(int reg) {
-      write_port(reg,(unsigned char) cmos_address);
-      return read_port((unsigned short) cmos_data);
+      //write_port(reg,(unsigned char) cmos_address);
+      //return read_port((unsigned short) cmos_data);
+      unsigned char value;
+      asm volatile ("outb %%al, %%dx" :: "a" (reg), "d" (cmos_address));
+      asm volatile ("inb %%dx, %%al" : "=a" (value) : "d" (cmos_data));
+      return value;
 }
  
 void read_rtc() {
