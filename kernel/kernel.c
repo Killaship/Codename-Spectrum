@@ -248,7 +248,7 @@ char* itoa(int i)
 
 void kmain(void) {
 	read_rtc();
-	clear_screen()
+	clear_screen();
 	idt_init();
 	kb_init();
 	kprint_newline();
