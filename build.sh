@@ -11,7 +11,7 @@ git pull
 cd kernel
 nasm -f elf32 kernel.asm -o kasm.o
 
-gcc -Wall -Wextra -fno-stack-protector -m32 -c kernel.c rtc.c cpu.c panic.c tty.c
+gcc -Wall -Wextra -fno-stack-protector -m32 kernel.c rtc.c cpu.c panic.c tty.c
 
 
 
