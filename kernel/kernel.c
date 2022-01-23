@@ -7,7 +7,7 @@
 #include "tty.h"
 #include "panic.h"
 #include "cpu.h"
-
+#include "rtc.h"
 
 
 #define KEYBOARD_DATA_PORT 0x60
