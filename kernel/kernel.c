@@ -5,7 +5,7 @@
 
 #include "keyboard_map.h"
 
-#include "panic.h"
+
 #include "cpu.h"
 #include "rtc.h"
 
@@ -253,6 +253,7 @@ char* itoa(int i)
 }
 
 #include "tty.h"
+#include "panic.h"
 
 void kmain(void) {
 	clear_screen();
