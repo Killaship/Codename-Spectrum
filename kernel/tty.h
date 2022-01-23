@@ -55,8 +55,10 @@ void shell() {
 	kprint_newline();
 	kprint_newline();
 	input_prompt();
+	kprint(getchar());
+	kprint_newline();
 	while(1) {
-		
+
 	}
 }
 
