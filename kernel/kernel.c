@@ -247,9 +247,6 @@ char* itoa(int i)
 
 
 void kmain(void) {
-	asm ("cli");
-	read_rtc();
-	asm ("sti");
 	clear_screen();
 	idt_init();
 	kb_init();
@@ -285,7 +282,9 @@ void kmain(void) {
 	kprint("Vendor ID: ", 0x07);
 	kprint(cpu_string(), 0x0C);
 	kprint_newline();
-	
+	asm ("cli");
+    	read_rtc();
+    	asm ("sti");
 	kprint("System Time: ",0x07);
 	kprint(itoa((int) hour),0x07);
 	kprint(":",0x07);
