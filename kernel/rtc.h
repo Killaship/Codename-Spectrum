@@ -1,4 +1,7 @@
 #pragma once
+
+#include "kernel.h" //including for I/O Bus
+
 #define CURRENT_YEAR        2022                            // Change this each year!
  
 int century_register = 0x00;                                // Set by ACPI table parsing code if possible
