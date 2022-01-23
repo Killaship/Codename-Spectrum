@@ -284,7 +284,7 @@ void kmain(void) {
 	kprint(cpu_string(), 0x0C);
 	kprint_newline();
 	
-	kprint("\nSystem Time: ",0x07);
+	kprint("System Time: ",0x07);
 	kprint(itoa((int) hour),0x07);
 	read_rtc();
 	kprint(":",0x07);
