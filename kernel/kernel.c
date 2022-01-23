@@ -286,11 +286,9 @@ void kmain(void) {
 	
 	kprint("System Time: ",0x07);
 	kprint(itoa((int) hour),0x07);
-	read_rtc();
 	kprint(":",0x07);
 	kprint(itoa((int) minute),0x07);
 	kprint(":",0x07);
-	read_rtc(); 
 	kprint(itoa((int) second),0x07);
 	
 	sh_init();
