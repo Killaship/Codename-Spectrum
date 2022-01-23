@@ -247,11 +247,12 @@ char* itoa(int i)
 
 
 void kmain(void) {
-	kprint_newline();
 	read_rtc();
+	clear_screen()
 	idt_init();
 	kb_init();
 	kprint_newline();
+	
 	kprint("Color Test:",0x07);
 	kprint_newline();
 	kprint("0",0x00);
@@ -271,15 +272,24 @@ void kmain(void) {
 	kprint("0",0xEE);
 	kprint("0",0xFF);
 	kprint_newline();
+	
 	const char *str = "Codename Spectrum Build 0.5.0";
 	const char *str2 = "                        Now with GRUB!";
 	kprint(str, 0x0B);
 	kprint_newline();
 	kprint(str2, 0x0E);
 	kprint_newline();
+	
 	kprint("Vendor ID: ", 0x07);
 	kprint(cpu_string(), 0x0C);
+	
+	kprint("\nSystem Time: ",0x07);
 	kprint(itoa((int) hour),0x07);
+	kprint(":",0x07);
+	kprint(itoa((int) minute),0x07);
+	kprint(":",0x07);
+	kprint(itoa((int) second),0x07);
+	
 	sh_init();
 	while(1);
 }
