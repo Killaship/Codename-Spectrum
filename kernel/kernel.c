@@ -6,9 +6,6 @@
 #include "keyboard_map.h"
 
 
-#include "cpu.h"
-#include "panic.h"
-
 
 
 
@@ -43,7 +40,7 @@ void write_port(unsigned short port, unsigned char data) {
 }
 
 
-#include "rtc.h"
+
 
 
 
@@ -202,7 +199,7 @@ char getchar() {
 	return last_char;
 }
 
-#include "tty.h"
+
 
 void keyboard_handler_main(void)
 {	
