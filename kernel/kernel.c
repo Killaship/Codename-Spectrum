@@ -4,6 +4,7 @@
 */
 
 #include "keyboard_map.h"
+#include "kernel.h"
 
 
 
