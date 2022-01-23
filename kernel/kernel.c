@@ -3,6 +3,11 @@
 * License: GPL version 2 or higher http://www.gnu.org/licenses/gpl.html
 */
 
+#include "keyboard_map.h"
+#include "tty.h"
+#include "panic.h"
+#include "cpu.h"
+#include "rtc.h"
 
 
 
@@ -178,11 +183,6 @@ void idt_init(void) {
 
 }
 
-#include "keyboard_map.h"
-#include "tty.h"
-#include "panic.h"
-#include "cpu.h"
-#include "rtc.h"
 
 void kb_init(void)
 {
