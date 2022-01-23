@@ -7,6 +7,7 @@
 
 
 #include "cpu.h"
+#include "panic.h"
 
 
 
@@ -253,7 +254,6 @@ char* itoa(int i)
 }
 
 #include "tty.h"
-#include "panic.h"
 
 void kmain(void) {
 	clear_screen();
