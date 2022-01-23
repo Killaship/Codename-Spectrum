@@ -247,7 +247,9 @@ char* itoa(int i)
 
 
 void kmain(void) {
+	asm ("cli");
 	read_rtc();
+	asm ("sti");
 	clear_screen();
 	idt_init();
 	kb_init();
