@@ -282,6 +282,7 @@ void kmain(void) {
 	
 	kprint("Vendor ID: ", 0x07);
 	kprint(cpu_string(), 0x0C);
+	kprint_newline();
 	
 	kprint("\nSystem Time: ",0x07);
 	kprint(itoa((int) hour),0x07);
