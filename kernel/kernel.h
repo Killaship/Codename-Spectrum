@@ -15,3 +15,12 @@ void nmi_handler();
 void overf_handler();
 void boundrx_handler();
 void dfault_handler();
+
+//tty.c
+void kprint(const char *str, const int color);
+void kprint_newline(void);
+void clear_screen(void);
+void input_prompt();
+void cmdflush();
+void shell();
+void sh_init();
