@@ -1,4 +1,4 @@
-#pragma once
+
 
 void hang() {
 		asm volatile(
