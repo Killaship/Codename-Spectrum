@@ -281,18 +281,21 @@ void kmain(void) {
 	kprint_newline();
 	
 	const char *str = "Codename Spectrum Build 0.5.1";
-	const char *str2 = "                Now with more features! (but still no shell)";
+	const char *str2 = "                    Now with more features! (but still no shell)";
 	kprint(str, 0x0B);
 	kprint_newline();
 	kprint(str2, 0x0E);
+	kprint_newline();
 	kprint_newline();
 	
 	kprint("Vendor ID: ", 0x07);
 	kprint(cpu_string(), 0x0C);
 	kprint_newline();
+	
 	asm volatile ("cli");
     	read_rtc();
     	asm volatile ("sti");
+	
 	kprint("System Time: ",0x07);
 	kprint(itoa(hour),0x07);
 	kprint(":",0x07);
