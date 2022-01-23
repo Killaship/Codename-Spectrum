@@ -289,7 +289,7 @@ void kmain(void) {
 	kprint(":",0x07);
 	kprint(itoa((int) minute),0x07);
 	kprint(":",0x07);
-	read_rtc();
+	read_rtc(); 
 	kprint(itoa((int) second),0x07);
 	
 	sh_init();
