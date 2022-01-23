@@ -16,17 +16,13 @@ enum {
 };
  
 int get_update_in_progress_flag() {
-      write_port(0x0A,(unsigned char) cmos_address);
+      write_port((unsigned short) cmos_address, 0x0A);
       return (read_port((unsigned short) cmos_data) & 0x80);
 }
  
 unsigned char get_RTC_register(int reg) {
-      //write_port(reg,(unsigned char) cmos_address);
-      //return read_port((unsigned short) cmos_data);
-      unsigned char value;
-      asm volatile ("outb %%al, %%dx" :: "a" (reg), "d" (cmos_address));
-      asm volatile ("inb %%dx, %%al" : "=a" (value) : "d" (cmos_data));
-      return value;
+      write_port((unsigned short) cmos_address, reg);
+      return read_port((unsigned short) cmos_data);
 }
  
 void read_rtc() {
