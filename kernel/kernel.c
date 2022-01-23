@@ -199,11 +199,14 @@ void kb_init(void)
 
 
 
+char last_char;
 
-
+char getchar() {
+	return last_char;
+}
 
 void keyboard_handler_main(void)
-{
+{	
 	unsigned char status;
 	char keycode;
 
@@ -223,7 +226,7 @@ void keyboard_handler_main(void)
 			input_prompt();
 			return;
 		}
-
+		last_char = keyboard_map[(unsigned char) keycode];
 		vidptr[current_loc++] = keyboard_map[(unsigned char) keycode];
 		vidptr[current_loc++] = 0x07;
 	}
