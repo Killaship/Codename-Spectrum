@@ -3,7 +3,7 @@
 * License: GPL version 2 or higher http://www.gnu.org/licenses/gpl.html
 */
 
-
+#include <math.h>
 
 
 #define KEYBOARD_DATA_PORT 0x60
