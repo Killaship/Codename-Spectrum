@@ -1,4 +1,4 @@
-
+#include "kernel.h"
 
 void hang() {
 		asm volatile(
