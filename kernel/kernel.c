@@ -3,7 +3,7 @@
 * License: GPL version 2 or higher http://www.gnu.org/licenses/gpl.html
 */
 
-#include <math.h>
+
 
 
 #define KEYBOARD_DATA_PORT 0x60
@@ -221,35 +221,27 @@ void keyboard_handler_main(void)
 	}
 }
 
-
-char longtostr( long zahl )
+char* itoa(int i)
 {
-   char *text = 0;
-   int i = 0;
-   int j = 0;
-   int c = 0;
-   int s = 0;
-
-   long *zahlp = &zahl + 4;
-   while( *zahlp++ ) s++;
-
-   if( zahl == 0 )
-   {
-      text[0] = '0';
-      text[1] = '\0';
-      return text;
-   }
-
-   for( j = 1 ; j < s + 1 ; j++ )
-   {
-      while( zahl >= pow( 10, s - j ) ) zahl -= pow( 10, s - j ), c++;
-      if( c > 0 ) text[i++] = c + 48, c = 0;
-   }
-
-   text[i++] = zahl + 48;
-   text[i] = '\0';
-
-   return text;
+      static char text[12];
+      int loc = 11;
+      text[11] = 0;
+      char neg = 1;
+      if (i >= 0)
+      {
+         neg = 0;
+         i = -i;
+      }
+      while (i)
+      {
+          text[--loc] = '0' - (i%10);
+          i/=10;
+      }
+      if (loc==11)
+          text[--loc] = '0';
+      if (neg)
+         text[--loc] = '-';      
+      return &text[loc];
 }
 
 
@@ -287,7 +279,7 @@ void kmain(void) {
 	kprint_newline();
 	kprint("Vendor ID: ", 0x07);
 	kprint(cpu_string(), 0x0C);
-	kprint(longtostr((long) hour),0x07);
+	kprint(itoa((int) hour),0x07);
 	sh_init();
 	while(1);
 }
