@@ -280,8 +280,8 @@ void kmain(void) {
 	kprint("0",0xFF);
 	kprint_newline();
 	
-	const char *str = "Codename Spectrum Build 0.5.0";
-	const char *str2 = "                        Now with GRUB!";
+	const char *str = "Codename Spectrum Build 0.5.1";
+	const char *str2 = "                Now with more features! (but still no shell)";
 	kprint(str, 0x0B);
 	kprint_newline();
 	kprint(str2, 0x0E);
