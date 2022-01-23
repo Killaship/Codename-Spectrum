@@ -202,6 +202,8 @@ char getchar() {
 	return last_char;
 }
 
+#include "tty.h"
+
 void keyboard_handler_main(void)
 {	
 	unsigned char status;
@@ -253,7 +255,7 @@ char* itoa(int i)
       return &text[loc];
 }
 
-#include "tty.h"
+
 
 void kmain(void) {
 	clear_screen();
