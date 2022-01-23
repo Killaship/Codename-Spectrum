@@ -7,7 +7,7 @@
 
 
 #include "cpu.h"
-#include "rtc.h"
+
 
 
 
@@ -42,7 +42,7 @@ void write_port(unsigned short port, unsigned char data) {
 }
 
 
-
+#include "rtc.h"
 
 
 
