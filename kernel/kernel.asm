@@ -18,46 +18,12 @@ section .text
 ;global overf_handler
 global start
 global keyboard_handler
-global load_idt
-global enable_ints
-global disable_ints
-global read_port
-global write_port
 
 extern kmain 		;this is defined in the c file
 extern keyboard_handler_main
-global dummy_int
 ;extern panic0 ;div0
 ;extern panic1 ;boundrx
 ;extern panic2 ;overflow
-
-dummy_int:
-	int 0xFF
-	ret
-
-read_port:
-	mov edx, [esp + 4]
-			;al is the lower 8 bits of eax
-	in al, dx	;dx is the lower 16 bits of edx
-	ret
-
-disable_ints:
-	cli
-
-enable_ints:
-	sti
-
-write_port:
-	mov   edx, [esp + 4]    
-	mov   al, [esp + 4 + 4]  
-	out   dx, al  
-	ret
-
-load_idt:
-	mov edx, [esp + 4]
-	lidt [edx]
-	sti 				;turn on interrupts
-	ret
 
 keyboard_handler:                 
 	call    keyboard_handler_main

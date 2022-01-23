@@ -21,12 +21,20 @@
 //extern void overf_handler(void);
 extern void keyboard_handler(void);
 //extern void pit_handler(void);
-extern void load_idt(unsigned long *idt_ptr);
-extern char read_port(unsigned short port);
-extern void write_port(unsigned short port, unsigned char data);
-extern void enable_ints();
-extern void disable_ints();
-extern void dummy_int();
+
+void load_idt(unsigned long *idt_ptr) {
+	asm volatile ("lidt (%%eax)" :: "a" (idt_ptr));
+}
+
+char read_port(unsigned short port) {
+	unsigned char value;
+	asm volatile ("inb %%dx, %%al" : "=a" (value) : "d" (port));
+	return value;
+}
+
+void write_port(unsigned short port, unsigned char data) {
+	asm volatile ("outb %%al, %%dx" :: "a" (data), "d" (port));
+}
 
 #include "keyboard_map.h"
 #include "tty.h"
@@ -282,15 +290,15 @@ void kmain(void) {
 	kprint("Vendor ID: ", 0x07);
 	kprint(cpu_string(), 0x0C);
 	kprint_newline();
-	asm ("cli");
+	asm volatile ("cli");
     	read_rtc();
-    	asm ("sti");
+    	asm volatile ("sti");
 	kprint("System Time: ",0x07);
-	kprint(itoa(get_RTC_register(0x04)),0x07);
+	kprint(itoa(hour),0x07);
 	kprint(":",0x07);
-	kprint(itoa(get_RTC_register(0x02)),0x07);
+	kprint(itoa(minute),0x07);
 	kprint(":",0x07);
-	kprint(itoa(get_RTC_register(0x00)),0x07);
+	kprint(itoa(second),0x07);
 	
 	sh_init();
 	while(1);
