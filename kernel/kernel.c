@@ -5,6 +5,7 @@
 
 #include "keyboard_map.h"
 #include "kernel.h"
+#include "rtc.h"
 
 
 
