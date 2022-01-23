@@ -14,7 +14,7 @@ char buff[128]; // note to self: don't worry about initialization as this array 
 /* pointer to where we're writing into the buffer */
 int buffptr = 0;
 
-void kprint(const char *str, const int color) {
+void kprint(const char str, const int color) {
 	
 	unsigned int i = 0;
 	while (str[i] != '\0') {
