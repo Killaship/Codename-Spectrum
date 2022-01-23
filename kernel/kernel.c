@@ -3,11 +3,7 @@
 * License: GPL version 2 or higher http://www.gnu.org/licenses/gpl.html
 */
 
-#include "keyboard_map.h"
-#include "tty.h"
-#include "panic.h"
-#include "cpu.h"
-#include "rtc.h"
+
 
 
 #define KEYBOARD_DATA_PORT 0x60
@@ -32,8 +28,14 @@ extern void enable_ints();
 extern void disable_ints();
 extern void dummy_int();
 
+#include "keyboard_map.h"
+#include "tty.h"
+#include "panic.h"
+#include "cpu.h"
+#include "rtc.h"
 
-/* current cursor location */
+
+
 
 
 struct IDT_entry {
