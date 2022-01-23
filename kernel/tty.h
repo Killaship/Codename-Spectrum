@@ -1,4 +1,4 @@
-
+#pragma once
 
 #define LINES 25
 #define COLUMNS_IN_LINE 80
@@ -52,7 +52,6 @@ void shell() {
 	kprint("Prism Shell [Kernelspace]", 0x07);
 	kprint_newline();
 	kprint("Type \"help\" for a list of commands.", 0x07);
-	kprint((const char*) getchar(),0x04);
 	kprint_newline();
 	kprint_newline();
 	input_prompt();
@@ -66,4 +65,3 @@ void sh_init() {
 	kprint_newline();
 	shell();
 }
-
