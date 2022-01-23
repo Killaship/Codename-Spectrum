@@ -1,4 +1,4 @@
-
+#pragma once
 
 void hang() {
 		asm volatile(
@@ -114,5 +114,4 @@ void dfault_handler() {
 	kprint("This is a pretty rare error, how'd you manage to screw up the kernel this much?!",0x40);
 	hang();
 }
-
 
