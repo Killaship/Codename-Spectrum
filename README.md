@@ -17,6 +17,8 @@ Serial communication
 
 Add support for backspace & shift in keyboard.
 
+Some sort of shell
+
 Make it limy limy limine time
 
 
