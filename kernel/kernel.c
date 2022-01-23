@@ -36,11 +36,7 @@ void write_port(unsigned short port, unsigned char data) {
 	asm volatile ("outb %%al, %%dx" :: "a" (data), "d" (port));
 }
 
-#include "keyboard_map.h"
-#include "tty.h"
-#include "panic.h"
-#include "cpu.h"
-#include "rtc.h"
+
 
 
 
@@ -82,8 +78,7 @@ void idt_init(void) {
  
 	unsigned long idt_address;
 	unsigned long idt_ptr[2];
-	kprint("Initializing IDT...", 0x07);
-	kprint_newline();
+
 	/* populate IDT entry of keyboard's interrupt */
 	keyboard_address = (unsigned long)keyboard_handler;
 	IDT[0x21].offset_lowerbits = keyboard_address & 0xffff;
@@ -142,9 +137,7 @@ void idt_init(void) {
 	IDT[0x08].type_attr = INTERRUPT_GATE;
 	IDT[0x08].offset_higherbits = (dfault_address & 0xffff0000) >> 16;
  	
-	kprint("Initialized IDT entries!", 0x07);
-	kprint_newline();
- 
+
 	/*     Ports
 	*	 PIC1	PIC2
 	*Command 0x20	0xA0
@@ -182,17 +175,20 @@ void idt_init(void) {
 	idt_ptr[1] = idt_address >> 16 ;
 
 	load_idt(idt_ptr);
-	kprint("Loaded IDT!", 0x07);
-	kprint_newline();
+
 }
 
+#include "keyboard_map.h"
+#include "tty.h"
+#include "panic.h"
+#include "cpu.h"
+#include "rtc.h"
 
 void kb_init(void)
 {
 	/* 0xFD is 11111101 - enables only IRQ1 (keyboard)*/
 	write_port(0x21 , 0xFD);
-	kprint("Keyboard initialized!", 0x07);
-	kprint_newline();
+
 }
 
 
@@ -231,6 +227,7 @@ void keyboard_handler_main(void)
 		vidptr[current_loc++] = 0x07;
 	}
 }
+
 
 char* itoa(int i)
 {
