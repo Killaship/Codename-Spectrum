@@ -1,5 +1,5 @@
 # Codename Spectrum
-An open-source operating system that I'm making as a side project. This isn't meant for real hardware.
+An open-source operating system that I'm making as a side project. This isn't meant for real hardware. 
 
 Keep in mind all this is subject to change, especially since I rarely update the readme.
 
