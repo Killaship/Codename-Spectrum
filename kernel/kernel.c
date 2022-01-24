@@ -211,7 +211,7 @@ char* itoa(int i)
       return &text[loc];
 }
 
-
+#include "shell.h"
 
 void kmain(void) {
 	clear_screen();
