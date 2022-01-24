@@ -23,4 +23,4 @@ grub-mkrescue -o os.iso iso
 echo "Build Complete. Now running in QEMU."
 
 export DISPLAY=:0.0 # Replace 0.0 with the address of your X server if needed.
-qemu-system-i386 -cdrom os.iso -rtc base=localtime #-curses
+qemu-system-i386 -cdrom os.iso -rtc base=localtime -curses
