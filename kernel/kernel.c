@@ -37,8 +37,8 @@ void write_port(unsigned short port, unsigned char data) {
 }
 
 #include "keyboard_map.h"
-#include "kb.h"
 #include "tty.h"
+#include "kb.h"
 #include "panic.h"
 #include "cpu.h"
 #include "rtc.h"
