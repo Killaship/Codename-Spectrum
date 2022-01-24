@@ -36,7 +36,7 @@ void keyboard_handler_main(void)
 		}
 		
 		if(keycode == 0x0E) {
-		vidptr[current_loc--] = 0x0000
+		vidptr[current_loc--] = 0x0000;
 			return;
 		}		
 		last_char = keyboard_map[(unsigned char) keycode];
