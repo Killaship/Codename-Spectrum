@@ -211,7 +211,8 @@ char* itoa(int i)
 
 #include "shell.h"
 
-#define PORT 0xe9          // COM1
+/*
+#define PORT 0x3F8         // COM1
  
 static int serial_init() {
    write_port(PORT + 1, 0x00);    // Disable all interrupts
@@ -256,9 +257,10 @@ void write_serial(char a) {
    write_port(PORT,a);
 }
 
+*/
 void kmain(void) {
 	clear_screen();
-	serial_init();
+	//serial_init();
 	idt_init();
 	kb_init();
 	kprint_newline();
@@ -290,21 +292,7 @@ void kmain(void) {
 	kprint(str2, 0x0E);
 	kprint_newline();
 	kprint_newline();
-	write_serial("A");
-	write_serial("A");
-	write_serial("A");
-	write_serial("A");
-	write_serial("A");
-	write_serial("A");
-	write_serial("A");
-	write_serial("A");
-	write_serial("A");
-	write_serial("A");
-	write_serial("A");
-	write_serial("A");
-	write_serial("A");
-	write_serial("A");
-	write_serial("\n");
+	
 	
 	
 	kprint("Vendor ID: ", 0x07);
