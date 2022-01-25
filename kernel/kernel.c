@@ -291,6 +291,12 @@ void kmain(void) {
 	kprint_newline();
 	kprint_newline();
 	write_serial("A");
+	write_serial("A");
+	write_serial("A");
+	write_serial("A");
+	write_serial("A");
+	write_serial("\n);
+	
 	kprint("Vendor ID: ", 0x07);
 	kprint(cpu_string(), 0x0C);
 	kprint_newline();
