@@ -240,7 +240,7 @@ void kmain(void) {
 	kprint_newline();
 	
 	const char *str = "Codename Spectrum v0.5.1";
-	const char *str2 = "                    Now with more features! (but still no shell)";
+	const char *str2 = "                    https://github.com/Killaship/Codename-Spectrum/";
 	kprint(str, 0x0B);
 	kprint_newline();
 	kprint(str2, 0x0E);
