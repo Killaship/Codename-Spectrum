@@ -11,9 +11,9 @@ Use ```bash build.sh``` to build the OS.
 
 # To-Do:
 
-More extensive CPUID (coming very soon)
+More extensive CPUID (coming very soon) (no, not that soon)
 
-Serial communication
+Serial communication (this is the new very soon)
 
 Add support for backspace & shift in keyboard. (halfway done, just need to do shift)
 
