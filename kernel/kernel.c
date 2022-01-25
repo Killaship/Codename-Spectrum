@@ -211,7 +211,7 @@ char* itoa(int i)
 
 #include "shell.h"
 
-#define PORT 0x3f8          // COM1
+#define PORT 0xe9          // COM1
  
 static int serial_init() {
    write_port(PORT + 1, 0x00);    // Disable all interrupts
