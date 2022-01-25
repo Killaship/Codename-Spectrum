@@ -236,6 +236,26 @@ static int serial_init() {
 }
 
 
+int serial_received() {
+   return read_port(PORT + 5) & 1;
+}
+ 
+char read_serial() {
+   while (serial_received() == 0);
+ 
+   return read_port(PORT);
+}
+
+int is_transmit_empty() {
+   return read_port(PORT + 5) & 0x20;
+}
+ 
+void write_serial(char a) {
+   while (is_transmit_empty() == 0);
+ 
+   write_port(PORT,a);
+}
+
 void kmain(void) {
 	clear_screen();
 	serial_init();
@@ -270,7 +290,7 @@ void kmain(void) {
 	kprint(str2, 0x0E);
 	kprint_newline();
 	kprint_newline();
-	
+	write_serial("A");
 	kprint("Vendor ID: ", 0x07);
 	kprint(cpu_string(), 0x0C);
 	kprint_newline();
