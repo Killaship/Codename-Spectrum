@@ -304,7 +304,7 @@ void kmain(void) {
 	write_serial("A");
 	write_serial("A");
 	write_serial("A");
-	write_serial("A");
+	write_serial("\n");
 	
 	
 	kprint("Vendor ID: ", 0x07);
