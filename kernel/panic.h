@@ -77,6 +77,23 @@ void overf_handler() {
 	hang();
 }
 
+void boundrx_handler() {
+	kprint_newline();
+	unsigned int i = 0;
+	while (i < SCREENSIZE) {
+		vidptr[i++] = ' ';
+		vidptr[i++] = 0x44;
+	}
+	kprint("err: kernel panic!",0x40);
+	kprint_newline();
+	kprint("err type:",0x40);
+	kprint_newline();
+	kprint("fault: invalid opcode (0x06) #UD",0x40);
+	kprint_newline();
+	kprint_newline();
+	hang();
+}
+
 
 void boundrx_handler() {
 	kprint_newline();
