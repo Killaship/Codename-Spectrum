@@ -110,27 +110,27 @@ string readStr()
                 i++;
                 break;
         case 9:
-                kprint('8');
+                kprint('8',0x07);
                 buffstr[i] = '8';
                 i++;
                 break;
         case 10:
-                kprint('9');
+                kprint('9',0x07);
                 buffstr[i] = '9';
                 i++;
                 break;
         case 11:
-                kprint('0');
+                kprint('0',0x07);
                 buffstr[i] = '0';
                 i++;
                 break;
         case 12:
-                kprint('-');
+                kprint('-',0x07);
                 buffstr[i] = '-';
                 i++;
                 break;
         case 13:
-                kprint('=');
+                kprint('=',0x07);
                 buffstr[i] = '=';
                 i++;
                 break;
@@ -145,62 +145,62 @@ string readStr()
                 i++;
                 break;*/
         case 16:
-                kprint('q');
+                kprint('q',0x07);
                 buffstr[i] = 'q';
                 i++;
                 break;
         case 17:
-                kprint('w');
+                kprint('w',0x07);
                 buffstr[i] = 'w';
                 i++;
                 break;
         case 18:
-                kprint('e');
+                kprint('e',0x07);
                 buffstr[i] = 'e';
                 i++;
                 break;
         case 19:
-                kprint('r');
+                kprint('r',0x07);
                 buffstr[i] = 'r';
                 i++;
                 break;
         case 20:
-                kprint('t');
+                kprint('t',0x07);
                 buffstr[i] = 't';
                 i++;
                 break;
         case 21:
-                kprint('y');
+                kprint('y',0x07);
                 buffstr[i] = 'y';
                 i++;
                 break;
         case 22:
-                kprint('u');
+                kprint('u',0x07);
                 buffstr[i] = 'u';
                 i++;
                 break;
         case 23:
-                kprint('i');
+                kprint('i',0x07);
                 buffstr[i] = 'i';
                 i++;
                 break;
         case 24:
-                kprint('o');
+                kprint('o',0x07);
                 buffstr[i] = 'o';
                 i++;
                 break;
         case 25:
-                kprint('p');
+                kprint('p',0x07);
                 buffstr[i] = 'p';
                 i++;
                 break;
         case 26:
-                kprint('[');
+                kprint('[',0x07);
                 buffstr[i] = '[';
                 i++;
                 break;
         case 27:
-                kprint(']');
+                kprint(']',0x07);
                 buffstr[i] = ']';
                 i++;
                 break;
@@ -216,62 +216,62 @@ string readStr()
                 i++;
                 break;*/
         case 30:
-                kprint('a');
+                kprint('a',0x07);
                 buffstr[i] = 'a';
                 i++;
                 break;
         case 31:
-                kprint('s');
+                kprint('s',0x07);
                 buffstr[i] = 's';
                 i++;
                 break;
         case 32:
-                kprint('d');
+                kprint('d',0x07);
                 buffstr[i] = 'd';
                 i++;
                 break;
         case 33:
-                kprint('f');
+                kprint('f',0x07);
                 buffstr[i] = 'f';
                 i++;
                 break;
         case 34:
-                kprint('g');
+                kprint('g',0x07);
                 buffstr[i] = 'g';
                 i++;
                 break;
         case 35:
-                kprint('h');
+                kprint('h',0x07);
                 buffstr[i] = 'h';
                 i++;
                 break;
         case 36:
-                kprint('j');
+                kprint('j',0x07);
                 buffstr[i] = 'j';
                 i++;
                 break;
         case 37:
-                kprint('k');
+                kprint('k',0x07);
                 buffstr[i] = 'k';
                 i++;
                 break;
         case 38:
-                kprint('l');
+                kprint('l',0x07);
                 buffstr[i] = 'l';
                 i++;
                 break;
         case 39:
-                kprint(';');
+                kprint(';',0x07);
                 buffstr[i] = ';';
                 i++;
                 break;
         case 40:
-                kprint((char)44);               //   Single quote (')
+                kprint((char)44,0x07);               //   Single quote (')
                 buffstr[i] = (char)44;
                 i++;
                 break;
         case 41:
-                kprint((char)44);               // Back tick (`)
+                kprint((char)44,0x07);               // Back tick (`)
                 buffstr[i] = (char)44;
                 i++;
                 break;
@@ -286,62 +286,62 @@ string readStr()
                 i++;
                 break;*/
         case 44:
-                kprint('z');
+                kprint('z',0x07);
                 buffstr[i] = 'z';
                 i++;
                 break;
         case 45:
-                kprint('x');
+                kprint('x',0x07);
                 buffstr[i] = 'x';
                 i++;
                 break;
         case 46:
-                kprint('c');
+                kprint('c',0x07);
                 buffstr[i] = 'c';
                 i++;
                 break;
         case 47:
-                kprint('v');
+                kprint('v',0x07);
                 buffstr[i] = 'v';
                 i++;
                 break;                
         case 48:
-                kprint('b');
+                kprint('b',0x07);
                 buffstr[i] = 'b';
                 i++;
                 break;               
         case 49:
-                kprint('n');
+                kprint('n',0x07);
                 buffstr[i] = 'n';
                 i++;
                 break;                
         case 50:
-                kprint('m');
+                kprint('m',0x07);
                 buffstr[i] = 'm';
                 i++;
                 break;               
         case 51:
-                kprint(',');
+                kprint(',',0x07);
                 buffstr[i] = ',';
                 i++;
                 break;                
         case 52:
-                kprint('.');
+                kprint('.',0x07);
                 buffstr[i] = '.';
                 i++;
                 break;            
         case 53:
-                kprint('/');
+                kprint('/',0x07);
                 buffstr[i] = '/';
                 i++;
                 break;            
         case 54:
-                kprint('.');
+                kprint('.',0x07);
                 buffstr[i] = '.';
                 i++;
                 break;            
         case 55:
-               kprint('/');
+               kprint('/',0x07);
                 buffstr[i] = '/';
                 i++;
                 break;            
@@ -351,7 +351,7 @@ string readStr()
                 i++;
                 break;*/           
         case 57:
-                kprint(' ');
+                kprint(' ',0x07);
                 buffstr[i] = ' ';
                 i++;
                 break;
