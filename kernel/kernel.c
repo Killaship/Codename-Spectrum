@@ -76,6 +76,7 @@ void idt_init(void) {
  	unsigned long dfault_address;
 	unsigned long badtss_address;
 	unsigned long badop_address;
+	unsigned long reserved_address;
  
 	
 	
@@ -156,6 +157,56 @@ void idt_init(void) {
 	IDT[0x0a].zero = 0;
 	IDT[0x0a].type_attr = INTERRUPT_GATE;
 	IDT[0x0a].offset_higherbits = (badtss_address & 0xffff0000) >> 16;	
+	
+	reserved_address = (unsigned long)reserved_handler;
+	IDT[0x0f].offset_lowerbits = reserved_address & 0xffff;
+	IDT[0x0f].selector = KERNEL_CODE_SEGMENT_OFFSET;
+	IDT[0x0f].zero = 0;
+	IDT[0x0f].type_attr = INTERRUPT_GATE;
+	IDT[0x0f].offset_higherbits = (reserved_address & 0xffff0000) >> 16;		
+	
+	reserved_address = (unsigned long)reserved_handler;
+	IDT[0x16].offset_lowerbits = reserved_address & 0xffff;
+	IDT[0x16].selector = KERNEL_CODE_SEGMENT_OFFSET;
+	IDT[0x16].zero = 0;
+	IDT[0x16].type_attr = INTERRUPT_GATE;
+	IDT[0x16].offset_higherbits = (reserved_address & 0xffff0000) >> 16;
+	
+	reserved_address = (unsigned long)reserved_handler;
+	IDT[0x17].offset_lowerbits = reserved_address & 0xffff;
+	IDT[0x17].selector = KERNEL_CODE_SEGMENT_OFFSET;
+	IDT[0x17].zero = 0;
+	IDT[0x17].type_attr = INTERRUPT_GATE;
+	IDT[0x17].offset_higherbits = (reserved_address & 0xffff0000) >> 16;
+	
+	reserved_address = (unsigned long)reserved_handler;
+	IDT[0x18].offset_lowerbits = reserved_address & 0xffff;
+	IDT[0x18].selector = KERNEL_CODE_SEGMENT_OFFSET;
+	IDT[0x18].zero = 0;
+	IDT[0x18].type_attr = INTERRUPT_GATE;
+	IDT[0x18].offset_higherbits = (reserved_address & 0xffff0000) >> 16;	
+	
+	reserved_address = (unsigned long)reserved_handler;
+	IDT[0x19].offset_lowerbits = reserved_address & 0xffff;
+	IDT[0x19].selector = KERNEL_CODE_SEGMENT_OFFSET;
+	IDT[0x19].zero = 0;
+	IDT[0x19].type_attr = INTERRUPT_GATE;
+	IDT[0x19].offset_higherbits = (reserved_address & 0xffff0000) >> 16;	
+
+	reserved_address = (unsigned long)reserved_handler;
+	IDT[0x1a].offset_lowerbits = reserved_address & 0xffff;
+	IDT[0x1a].selector = KERNEL_CODE_SEGMENT_OFFSET;
+	IDT[0x1a].zero = 0;
+	IDT[0x1a].type_attr = INTERRUPT_GATE;
+	IDT[0x1a].offset_higherbits = (reserved_address & 0xffff0000) >> 16;
+	
+	reserved_address = (unsigned long)reserved_handler;
+	IDT[0x1b].offset_lowerbits = reserved_address & 0xffff;
+	IDT[0x1b].selector = KERNEL_CODE_SEGMENT_OFFSET;
+	IDT[0x1b].zero = 0;
+	IDT[0x1b].type_attr = INTERRUPT_GATE;
+	IDT[0x1b].offset_higherbits = (reserved_address & 0xffff0000) >> 16;	
+	
  	
 	/*     Ports
 	*	 PIC1	PIC2
