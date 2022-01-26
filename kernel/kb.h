@@ -15,7 +15,7 @@ void kb_init(void)
 
 char last_char;
 
-
+// todo: massive reform of driver
 
 void keyboard_handler_main(void)
 {	
