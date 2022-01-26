@@ -15,8 +15,8 @@ void shell() {
 	kprint_newline();
 	kprint_newline();
 	input_prompt();
-	//kprint(getchar(),0x07);
-	//kprint_newline();
+	kprint(keyboard_driver_main(),0x07);
+	kprint_newline();
 	
 	while(1) {
 		
