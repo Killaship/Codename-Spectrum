@@ -19,10 +19,10 @@ void backspace() {
 char last_char;
 
 // todo: massive reform of driver
-
+unsigned char kbstatus;
 char keyboard_handler_main(void)
 {	
-	unsigned char status;
+	
 	char keycode;
 
 	// write EOI 
@@ -30,7 +30,7 @@ char keyboard_handler_main(void)
 
 	status = read_port(KEYBOARD_STATUS_PORT);
 	// Lowest bit of status will be set if buffer is not empty 
-	if (status & 0x01) {
+	if (kbstatus & 0x01) {
 		keycode = read_port(KEYBOARD_DATA_PORT);
 		if(keycode < 0)
 			return;
