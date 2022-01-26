@@ -112,7 +112,7 @@ void boundrx_handler() {
 	hang();
 }
 
-void boundrx_handler() {
+void ss_handler() {
 	kprint_newline();
 	unsigned int i = 0;
 	while (i < SCREENSIZE) {
