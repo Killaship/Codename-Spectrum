@@ -112,6 +112,23 @@ void boundrx_handler() {
 	hang();
 }
 
+void boundrx_handler() {
+	kprint_newline();
+	unsigned int i = 0;
+	while (i < SCREENSIZE) {
+		vidptr[i++] = ' ';
+		vidptr[i++] = 0x44;
+	}
+	kprint("err: kernel panic!",0x40);
+	kprint_newline();
+	kprint("err type:",0x40);
+	kprint_newline();
+	kprint("fault: bound range exceeded (0x0C) #SS",0x40);
+	kprint_newline();
+	kprint_newline();
+	hang();
+}
+
 void dfault_handler() {
 	kprint_newline();
 	unsigned int i = 0;
