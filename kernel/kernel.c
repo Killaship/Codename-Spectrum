@@ -74,6 +74,7 @@ void idt_init(void) {
 	unsigned long debg_address;
  	unsigned long dfault_address;
 	unsigned long badtss_address;
+	unsigned long badop_address;
  
 	
 	
@@ -126,8 +127,15 @@ void idt_init(void) {
 	IDT[0x04].zero = 0;
 	IDT[0x04].type_attr = INTERRUPT_GATE;
 	IDT[0x04].offset_higherbits = (overf_address & 0xffff0000) >> 16;
- 
- 	boundrx_address = (unsigned long)boundrx_handler;
+	
+ 	badop_address = (unsigned long)badop_handler;
+	IDT[0x08].offset_lowerbits = badop_address & 0xffff;
+	IDT[0x08].selector = KERNEL_CODE_SEGMENT_OFFSET;
+	IDT[0x08].zero = 0;
+	IDT[0x08].type_attr = INTERRUPT_GATE;
+	IDT[0x08].offset_higherbits = (badop_address & 0xffff0000) >> 16; 
+
+	boundrx_address = (unsigned long)boundrx_handler;
 	IDT[0x05].offset_lowerbits = boundrx_address & 0xffff;
 	IDT[0x05].selector = KERNEL_CODE_SEGMENT_OFFSET;
 	IDT[0x05].zero = 0;
