@@ -28,7 +28,7 @@ char keyboard_handler_main(void)
 	// write EOI 
 	write_port(0x20, 0x20);
 
-	skbtatus = read_port(KEYBOARD_STATUS_PORT);
+	kbstatus = read_port(KEYBOARD_STATUS_PORT);
 	// Lowest bit of status will be set if buffer is not empty 
 	if (kbstatus & 0x01) {
 		keycode = read_port(KEYBOARD_DATA_PORT);
