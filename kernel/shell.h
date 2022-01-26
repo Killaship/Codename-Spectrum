@@ -19,7 +19,7 @@ void shell() {
 	//kprint_newline();
 	
 	while(1) {
-		if(keyboard_handler_main() != 0 {
+		if(keyboard_handler_main() != 0 || keyboard_handler_main() != 0x1c || keyboard_handler_main() != 0x0e) {
 		kprint(keyboard_handler_main(),0x07);
 		}
 	}
