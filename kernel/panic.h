@@ -150,3 +150,21 @@ void badtss_handler() {
 	kprint_newline();
 	hang();
 }
+
+
+void reserved_handler() {
+	kprint_newline();
+	unsigned int i = 0;
+	while (i < SCREENSIZE) {
+		vidptr[i++] = ' ';
+		vidptr[i++] = 0x44;
+	}
+	kprint("err: kernel panic!",0x40);
+	kprint_newline();
+	kprint("err type:",0x40);
+	kprint_newline();
+	kprint("RESERVED (I don't know what it's for either)",0x40);
+	kprint_newline();
+	kprint_newline();
+	hang();
+}
