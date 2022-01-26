@@ -39,12 +39,12 @@ char keyboard_handler_main(void)
 			kprint_newline();
 			//cmdflush();
 			input_prompt();
-			return;
+			return "\n";
 		}
 		
 		if(keycode == 0x0E) {
 			backspace();
-			return;
+			return "\b";
 		}		
 		//last_char = keyboard_map[(unsigned char) keycode];
 		vidptr[current_loc++] = keyboard_map[(unsigned char) keycode];
