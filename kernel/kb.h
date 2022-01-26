@@ -20,7 +20,7 @@ char last_char;
 
 // todo: massive reform of driver
 
-void keyboard_handler_main(void)
+char keyboard_handler_main(void)
 {	
 	unsigned char status;
 	char keycode;
