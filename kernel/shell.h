@@ -15,7 +15,7 @@ void shell() {
 	kprint_newline();
 	kprint_newline();
 	input_prompt();
-	if(keycode != 0) {
+	if(keyboard_handler_main() != 0) {
 	kprint(keyboard_handler_main(),0x07);
 	}
 	kprint_newline();
