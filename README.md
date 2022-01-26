@@ -9,13 +9,15 @@ IMPORTANT: The OS is 32 bit, and is targeted for legacy hardware. Use a VM, pref
 
 Use ```bash build.sh``` to build the OS.
 
-# To-Do:
+# To-Do: (in no specific order)
 
-More extensive CPUID (coming very soon) (no, not that soon)
+More extensive CPUID 
 
-Serial communication (this is the new very soon) (or not, serial is hard)
+Finish adding all of the exception handlers
 
-Add support for backspace & shift in keyboard. (halfway done, just need to do shift)
+Serial communication 
+
+Add support for shift in keyboard.
 
 Some sort of shell
 
