@@ -77,7 +77,7 @@ void overf_handler() {
 	hang();
 }
 
-void boundrx_handler() {
+void badop_handler() {
 	kprint_newline();
 	unsigned int i = 0;
 	while (i < SCREENSIZE) {
