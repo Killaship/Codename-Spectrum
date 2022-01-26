@@ -73,6 +73,7 @@ void idt_init(void) {
  	unsigned long nmi_address;
 	unsigned long debg_address;
  	unsigned long dfault_address;
+	unsigned long badtss_address;
  
 	
 	
@@ -139,6 +140,13 @@ void idt_init(void) {
 	IDT[0x08].zero = 0;
 	IDT[0x08].type_attr = INTERRUPT_GATE;
 	IDT[0x08].offset_higherbits = (dfault_address & 0xffff0000) >> 16;
+	
+	badtss_address = (unsigned long)badtss_handler;
+	IDT[0x0a].offset_lowerbits = badtss_address & 0xffff;
+	IDT[0x0a].selector = KERNEL_CODE_SEGMENT_OFFSET;
+	IDT[0x0a].zero = 0;
+	IDT[0x0a].type_attr = INTERRUPT_GATE;
+	IDT[0x0a].offset_higherbits = (badtss_address & 0xffff0000) >> 16;	
  	
 	/*     Ports
 	*	 PIC1	PIC2
