@@ -46,11 +46,12 @@ char keyboard_handler_main(void)
 			backspace();
 			return;
 		}		
+		return keycode;
 		//last_char = keyboard_map[(unsigned char) keycode];
 		vidptr[current_loc++] = keyboard_map[(unsigned char) keycode];
 		vidptr[current_loc++] = 0x07;
 	}
-	return keycode;
+	
 }
 
 
