@@ -5,7 +5,7 @@
 
 #include <stdint.h>
 #include <stddef.h>
-
+#include <strings.h>
 
 #define IDT_SIZE 256
 #define INTERRUPT_GATE 0x8e
