@@ -19,7 +19,7 @@ void shell() {
 	//kprint_newline();
 	
 	while(1) {
-		kprint(readStr(),0x07);
+		kprint(keyboard_handler_main(),0x07);
 	}
 }
 
