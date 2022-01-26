@@ -17,8 +17,9 @@ void shell() {
 	input_prompt();
 	//kprint(getchar(),0x07);
 	//kprint_newline();
+	
 	while(1) {
-
+		kprint(readString(),0x07);
 	}
 }
 
