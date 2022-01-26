@@ -19,7 +19,7 @@ void shell() {
 	//kprint_newline();
 	
 	while(1) {
-		kprint(readString(),0x07);
+		kprint(readStr(),0x07);
 	}
 }
 
