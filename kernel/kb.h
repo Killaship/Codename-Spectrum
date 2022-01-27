@@ -37,6 +37,27 @@ void keyboard_handler_main(void) {
 	kbstatus = read_port(KEYBOARD_STATUS_PORT);
 	// Lowest bit of status will be set if buffer is not empty 
 	if (kbstatus & 0x01) {
+
+		uint8_t scancode = inb(0x60);
+		if (scancode & 0x80)
+		{
+    			// Released
+		}
+		else
+		{
+    		// Pressed
+    		kprint(keyboard_map[scancode],0x07);
+    		// Or for string
+   		 char c[2] = { keyboard_map[scancode], 0 };
+    		kprint(c,0x07);
+		}
+		
+	}
+	
+
+}
+/*
+
 		keycode = read_port(KEYBOARD_DATA_PORT);
 		if(keycode < 0)
 			return;
@@ -55,12 +76,5 @@ void keyboard_handler_main(void) {
 		buff[0] = keyboard_map[(unsigned char) keycode];
 		buff[1] = 0;
 		kprint(buff,0x07);
-		kprint(buff[0], 0x07);
-
-		
-	}
-	
-
-}
-
-
+		kprint(buff, 0x09);
+*/
