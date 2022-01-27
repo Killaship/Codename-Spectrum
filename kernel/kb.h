@@ -52,7 +52,7 @@ char keyboard_handler_main(void)
 		vidptr[current_loc++] = 0x07;
 		
 	}
-	return last_char;
+	kprint(last_char,0x07);
 	
 }
 
