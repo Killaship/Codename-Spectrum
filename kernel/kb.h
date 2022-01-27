@@ -28,7 +28,7 @@ unsigned char kbstatus;
 void keyboard_handler_main(void) {
 	
 
-	
+	write_port(0x20, 0x20); //eoi
 
 	char keycode;
 
@@ -54,13 +54,13 @@ void keyboard_handler_main(void) {
 		}		
 		
 		last_char = keyboard_map[(char) keycode];
-		kprint(keyboard_map[(char) keycode],0x07);
-		kprint(last_char, 0x07);
+		kprint((char*) keyboard_map[(char) keycode],0x07);
+		kprint((char*) last_char, 0x07);
 
 		
 	}
 	
-	write_port(0x20, 0x20); //eoi
+
 }
 
 
