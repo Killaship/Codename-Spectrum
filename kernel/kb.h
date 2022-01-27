@@ -52,7 +52,7 @@ void keyboard_handler_main(void) {
 			backspace();
 			return;
 		}		
-		buff[0] = keyboard_map[(char) keycode];
+		buff[0] = keyboard_map[(unsigned char) keycode];
 		buff[1] = 0;
 		kprint(buff,0x07);
 		kprint(buff[0], 0x07);
