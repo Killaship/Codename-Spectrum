@@ -16,7 +16,7 @@ void backspace() {
 }
 
 
-unsigned char last_char;
+char * last_char;
 
 // todo: massive reform of driver
 unsigned char kbstatus;
