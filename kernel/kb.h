@@ -54,9 +54,8 @@ void keyboard_handler_main(void) {
 		}
 		else {
 			
-    		kprint(keyboard_map[scancode],0x07);
-    		// Or for string
-   		 char c[2] = { keyboard_map[scancode], 0 };
+
+   		char c[2] = { keyboard_map[scancode], 0 };
     		kprint(c,0x07);
 			
 		}
