@@ -60,7 +60,7 @@ void keyboard_handler_main(void) {
 		
 	}
 	
-		write_port(0x20, 0x20); //eoi
+	write_port(0x20, 0x20); //eoi
 }
 
 
