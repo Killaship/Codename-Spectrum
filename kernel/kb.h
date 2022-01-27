@@ -18,6 +18,7 @@ void backspace() {
 
 char last_char;
 char* buffer; 
+int i;
 
 // todo: massive reform of driver
 unsigned char kbstatus;
