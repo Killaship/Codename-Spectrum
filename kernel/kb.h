@@ -16,7 +16,7 @@ void backspace() {
 }
 
 
-char last_char;
+*char last_char;
 
 
 // todo: massive reform of driver
