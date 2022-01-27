@@ -38,7 +38,7 @@ void keyboard_handler_main(void) {
 	// Lowest bit of status will be set if buffer is not empty 
 	if (kbstatus & 0x01) {
 
-		uint8_t scancode = inb(0x60);
+		uint8_t scancode = read_port(0x60);
 		if (scancode & 0x80)
 		{
     			// Released
