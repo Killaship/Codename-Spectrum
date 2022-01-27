@@ -16,7 +16,7 @@ void backspace() {
 }
 
 
-char last_char;
+unsigned char last_char;
 
 // todo: massive reform of driver
 unsigned char kbstatus;
@@ -52,7 +52,7 @@ char keyboard_handler_main(void)
 		vidptr[current_loc++] = 0x07;
 		vidptr[current_loc++] = keyboard_map[(unsigned char) keycode];
 		vidptr[current_loc++] = 0x04;
-		//kprint(last_char,0x04);
+		kprint(last_char,0x09);
 		
 	}
 	
