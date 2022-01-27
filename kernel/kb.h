@@ -27,7 +27,7 @@ char* last_char;
 unsigned char kbstatus;
 void keyboard_handler_main(void) {
 	
-	write_port(0x20, 0x20);
+
 	
 
 	char keycode;
@@ -60,7 +60,7 @@ void keyboard_handler_main(void) {
 		
 	}
 	
-	
+		write_port(0x20, 0x20); //eoi
 }
 
 
