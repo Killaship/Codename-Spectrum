@@ -21,19 +21,17 @@ void backspace() {
 
 
 
-char *kbptr = (char*)0xb8001; // use vram as memory because I don't know where else I can safely put things.
-char *kbptrcolor (char*)0xb8002; // use vram as memory because I don't know where else I can safely put things.
 
-kbptrcolor = 0x07;
+
 // todo: massive reform of driver
 unsigned char kbstatus;
 void keyboard_handler_main(void) {
- write_port(0x20, 0x20);
+	
+	write_port(0x20, 0x20);
 	
 
 	char keycode;
 
-	// write EOI 
 	
 
 	kbstatus = read_port(KEYBOARD_STATUS_PORT);
@@ -55,11 +53,10 @@ void keyboard_handler_main(void) {
 			return;
 		}		
 		
-		kbptr = keyboard_map[(unsigned char) keycode];
+
 		vidptr[current_loc++] = keyboard_map[(unsigned char) keycode];
-		kbptr = vidptr[current_loc];
 		vidptr[current_loc++] = 0x07;
-		kprint(kbptr,0x09);
+y
 		
 	}
 	
