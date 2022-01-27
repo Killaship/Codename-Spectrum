@@ -43,7 +43,7 @@ char readStr()
                 break;
         case 3:
                 kprint('2',0x07);
-                buffstr[i] = &'2';
+                buffstr[i] = &(*char)'2';
                 i++;
                 break;
         case 4:
