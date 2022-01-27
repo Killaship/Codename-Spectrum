@@ -22,8 +22,9 @@ void backspace() {
 
 
 char *kbptr = (char*)0xb8001; // use vram as memory because I don't know where else I can safely put things.
-char *kbptrcolor (char*)0xb8002 = 0x07; // use vram as memory because I don't know where else I can safely put things.
+char *kbptrcolor (char*)0xb8002; // use vram as memory because I don't know where else I can safely put things.
 
+kbptrcolor = 0x07;
 // todo: massive reform of driver
 unsigned char kbstatus;
 void keyboard_handler_main(void) {
