@@ -22,7 +22,7 @@ void backspace() {
 
 
 
-
+char last_char;
 // todo: massive reform of driver
 unsigned char kbstatus;
 void keyboard_handler_main(void) {
@@ -53,9 +53,10 @@ void keyboard_handler_main(void) {
 			return;
 		}		
 		
-
+		last_char = keyboard_map[(unsigned char) keycode];
 		vidptr[current_loc++] = keyboard_map[(unsigned char) keycode];
 		vidptr[current_loc++] = 0x07;
+		kprint(last_char, 0x07)
 
 		
 	}
