@@ -65,7 +65,7 @@ void keyboard_handler_main(void)
 char readStr()
 {
     char buff;
-    char buffstr = [64];
+    char* buffstr = [64];
     uint8_t i = 0;
     uint8_t reading = 1;
     while(reading)
