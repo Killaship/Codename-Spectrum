@@ -22,7 +22,7 @@ void backspace() {
 
 
 
-char* last_char;
+char last_char;
 // todo: massive reform of driver
 unsigned char kbstatus;
 void keyboard_handler_main(void) {
@@ -31,7 +31,7 @@ void keyboard_handler_main(void) {
 	write_port(0x20, 0x20); //eoi
 
 	char keycode;
-	char buff[2]
+	char buff[2];
 	
 
 	kbstatus = read_port(KEYBOARD_STATUS_PORT);
