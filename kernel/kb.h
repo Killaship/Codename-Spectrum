@@ -22,7 +22,7 @@ int i;
 
 // todo: massive reform of driver
 unsigned char kbstatus;
-char keyboard_handler_main(void)
+char* keyboard_handler_main(void)
 {	
 	
 	char keycode;
