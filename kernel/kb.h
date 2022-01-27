@@ -47,12 +47,12 @@ char keyboard_handler_main(void)
 			return;
 		}		
 		
-		//last_char = keyboard_map[(unsigned char) keycode];
+		last_char = keyboard_map[(unsigned char) keycode];
 		vidptr[current_loc++] = keyboard_map[(unsigned char) keycode];
 		vidptr[current_loc++] = 0x07;
 		
 	}
-	return keycode;
+	return last_char;
 	
 }
 
