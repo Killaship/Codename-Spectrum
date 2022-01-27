@@ -38,17 +38,17 @@ char readStr()
                 break;*/
         case 2:
                 kprint('1',0x07);
-                buffstr[i] = '1';
+                buffstr[i] = &'1';
                 i++;
                 break;
         case 3:
                 kprint('2',0x07);
-                buffstr[i] = '2';
+                buffstr[i] = &'2';
                 i++;
                 break;
         case 4:
                 kprint('3',0x07);
-                buffstr[i] = '3';
+                buffstr[i] = &'3';
                 i++;
                 break;
         case 5:
