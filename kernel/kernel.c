@@ -5,7 +5,7 @@
 
 #include <stdint.h>
 #include <stddef.h>
-typedef char* string;
+#include "types.h"
 
 #define IDT_SIZE 256
 #define INTERRUPT_GATE 0x8e
