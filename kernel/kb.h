@@ -31,7 +31,7 @@ void keyboard_handler_main(void) {
 	write_port(0x20, 0x20); //eoi
 
 	char keycode;
-
+	char buff[2]
 	
 
 	kbstatus = read_port(KEYBOARD_STATUS_PORT);
@@ -52,10 +52,10 @@ void keyboard_handler_main(void) {
 			backspace();
 			return;
 		}		
-		
-		last_char = keyboard_map[(char) keycode];
-		kprint((char*) keyboard_map[(char) keycode],0x07);
-		kprint((char*) last_char, 0x07);
+		buf[0] = keyboard_map[(char) keycode];
+		buf[1] = 0;
+		kprint(buf,0x07);
+		kprint(buf[0], 0x07);
 
 		
 	}
