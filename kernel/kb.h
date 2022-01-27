@@ -22,7 +22,7 @@ void backspace() {
 
 
 
-char last_char;
+unsigned char last_char;
 // todo: massive reform of driver
 unsigned char kbstatus;
 void keyboard_handler_main(void) {
