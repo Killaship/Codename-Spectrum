@@ -29,7 +29,7 @@ void keyboard_handler_main(void) {
 
 	write_port(0x20, 0x20); //eoi
 
-	char keycode;
+
 	
 	
 
@@ -45,6 +45,7 @@ void keyboard_handler_main(void) {
 		else
 		{
     		// Pressed
+		
 		if(keyboard_map[(char)scancode] == "\n") {
 			kprint_newline(); 
 			input_prompt();
