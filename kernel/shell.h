@@ -16,7 +16,7 @@ void shell() {
 	kprint_newline();
 	input_prompt();
 
-	kprint_newline();
+
 	
 	while(1) {
 
