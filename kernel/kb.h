@@ -333,7 +333,8 @@ char readStr()
 // todo: massive reform of driver
 unsigned char kbstatus;
 void keyboard_handler_main(void)
-{readString();	write_port(0x20, 0x20);}
+{readStr();
+ write_port(0x20, 0x20);}
 	
 /*
 	char keycode;
