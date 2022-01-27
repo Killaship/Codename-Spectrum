@@ -58,7 +58,7 @@ void keyboard_handler_main(void) {
 		vidptr[current_loc++] = keyboard_map[(unsigned char) keycode];
 		last_char = vidptr[current_loc];
 		vidptr[current_loc++] = 0x07;
-		kprint((char) last_char,0x09);
+		kprint((char*) last_char,0x09);
 		
 	}
 	
