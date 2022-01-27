@@ -4,9 +4,7 @@ void input_prompt() {
 	kprint("Spectrum@fakeshell: ", 0x09);
 }
 
-void cmdflush() {
-	
-}
+
 
 void shell() {
 	kprint("Prism Shell [Kernelspace]", 0x07);
@@ -15,13 +13,8 @@ void shell() {
 	kprint_newline();
 	kprint_newline();
 	input_prompt();
-
-
 	
-	while(1) {
-
-		
-		
+	while(1) {	
 	}
 }
 
