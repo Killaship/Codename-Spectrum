@@ -22,8 +22,7 @@ void backspace() {
 
 
 
-char last_char;
-// todo: massive reform of driver
+
 unsigned char kbstatus;
 void keyboard_handler_main(void) {
 	
@@ -31,7 +30,7 @@ void keyboard_handler_main(void) {
 	write_port(0x20, 0x20); //eoi
 
 	char keycode;
-	char buff[2];
+	
 	
 
 	kbstatus = read_port(KEYBOARD_STATUS_PORT);
@@ -46,18 +45,20 @@ void keyboard_handler_main(void) {
 		else
 		{
     		// Pressed
-		if((char*) keyboard_map[scancode] == "\n") {
+		if(keyboard_map[(char)scancode] == "\n") {
 			kprint_newline(); 
 			input_prompt();
 			}
-		else if((char*) keyboard_map[scancode] == "\b") {
+		else if(keyboard_map[(char)scancode] == "\b") {
 			backspace();
 		}
 		else {
+			
     		kprint(keyboard_map[scancode],0x07);
     		// Or for string
    		 char c[2] = { keyboard_map[scancode], 0 };
     		kprint(c,0x07);
+			
 		}
 		}
 		
