@@ -24,7 +24,7 @@ void kprint(const char *str, const int color) {
 }
 
 
-void putc(const char str, const int color) {
+void putc(const char *str, const int color) {
 	vidptr[current_loc++] = str;
 	vidptr[current_loc++] = color;
 	
