@@ -25,7 +25,7 @@ void backspace() {
 uint8_t scancode;
 unsigned char kbstatus;
 char c[2];
-char buff[64];
+char buffer[64];
 void keyboard_handler_main(void) {
 	int i;
 	
@@ -51,9 +51,9 @@ void keyboard_handler_main(void) {
     		// Pressed
 		
 		if(keyboard_map[(char)scancode] == '\n') { 	
-			buff[64] = 0;
+			buffer[64] = '';
 
-			memset(buff, 0, 64);
+			memset(buffer, 0, 64);
 			i = 0;
 			kprint_newline();
 			input_prompt();
