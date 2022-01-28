@@ -26,7 +26,7 @@ uint8_t scancode;
 unsigned char kbstatus;
 char c[2];
 char buffer[64];
-void keyboard_handler_main(void) {
+char* keyboard_handler_main(void) {
 	int i;
 	
 	
