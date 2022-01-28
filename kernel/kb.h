@@ -51,7 +51,7 @@ void keyboard_handler_main(void) {
     		// Pressed
 		
 		if(keyboard_map[(char)scancode] == '\n') { 	
-			buffer[64] = '';
+			buffer[64] = 0;
 
 			memset(buffer, 0, 64);
 			i = 0;
