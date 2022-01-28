@@ -52,11 +52,13 @@ void keyboard_handler_main(void) {
 		
 		if(keyboard_map[(char)scancode] == '\n') {
 			kprint_newline(); 
-			input_prompt();
+			
 			buff[64] = 0;
 			kprint(buff,0x07);
 			memset(buff, 0, 64);
 			i = 0;
+			kprint_newline();
+			input_prompt();
 			}
 		else if(keyboard_map[(char)scancode] == '\b') {
 			backspace();
