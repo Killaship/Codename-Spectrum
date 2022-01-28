@@ -50,25 +50,31 @@ void keyboard_handler_main(void) {
 		{
     		// Pressed
 		
-		if(keyboard_map[(char)scancode] == '\n') { 	
+		if(keyboard_map[(char)scancode] == '\n') { 
+			char buffcpy[64];
+			memset(buffcpy, 0, 64);
+			for (int a = 0; a < 64; a++) {     
+        			buffcpy[a] = buffer[a];     
+   			}     
 			buffer[64] = 0;
-
+	
 			memset(buffer, 0, 64);
 			i = 0;
 			kprint_newline();
 			input_prompt();
+			return buffcpy;
 			}
 		else if(keyboard_map[(char)scancode] == '\b') {
 			backspace();
-			buff[i] = 0;
+			buffer[i] = 0;
 			i--;
-			buff[i] = 0;
+			buffer[i] = 0;
 		}
 		else {
 		
 		c[0] = keyboard_map[scancode];
 		c[1] = 0;
-		buff[i] = c[0];
+		buffer[i] = c[0];
 		i++;
     		kprint(c,0x07);
 		
