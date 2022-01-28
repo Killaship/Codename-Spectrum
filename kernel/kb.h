@@ -71,9 +71,9 @@ char keyboard_handler_main(void) {
 }
 
 
-//char getchar() {
-//	return c[0];
-//}
+char getchar() {
+	return c[0];
+}
 
 
 /*
