@@ -25,10 +25,10 @@ void backspace() {
 uint8_t scancode;
 unsigned char kbstatus;
 char c[2];
-
+char buff[64];
 void keyboard_handler_main(void) {
 	int i;
-	char buff[64];
+	
 	
 
 	write_port(0x20, 0x20); //eoi
@@ -50,11 +50,9 @@ void keyboard_handler_main(void) {
 		{
     		// Pressed
 		
-		if(keyboard_map[(char)scancode] == '\n') {
-			kprint_newline(); 
-			
+		if(keyboard_map[(char)scancode] == '\n') { 	
 			buff[64] = 0;
-			kprint(buff,0x07);
+
 			memset(buff, 0, 64);
 			i = 0;
 			kprint_newline();
@@ -84,9 +82,6 @@ void keyboard_handler_main(void) {
 }
 
 
-char getchar() {
-	return c[0];
-}
 
 
 /*
