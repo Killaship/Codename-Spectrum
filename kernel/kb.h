@@ -28,7 +28,7 @@ char c[2];
 char buffer[64];
 
 
-char* keyboard_handler_main(void) {
+void keyboard_handler_main(void) {
 	int i;
 	
 	write_port(0x20, 0x20); //eoi
@@ -46,18 +46,13 @@ char* keyboard_handler_main(void) {
     		// Pressed
 		
 		if(keyboard_map[(char)scancode] == '\n') { 
-			char buffcpy[64];
-			memset(buffcpy, 0, 64);
-			for (int a = 0; a < 64; a++) {     
-        			buffcpy[a] = buffer[a];     
-   			}     
+
 			buffer[64] = 0;
-	
 			memset(buffer, 0, 64);
 			i = 0;
 			kprint_newline();
 			input_prompt();
-			return buffcpy;
+	
 			}
 		else if(keyboard_map[(char)scancode] == '\b') {
 			backspace();
