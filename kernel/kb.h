@@ -24,7 +24,7 @@ void backspace() {
 
 uint8_t scancode;
 unsigned char kbstatus;
-char c[2] = {keyboard_map[scancode], 0};
+char c[2];
 
 void keyboard_handler_main(void) {
 	
@@ -72,6 +72,8 @@ void keyboard_handler_main(void) {
 char getchar() {
 	return c[0];
 }
+
+
 /*
 
 		keycode = read_port(KEYBOARD_DATA_PORT);
