@@ -7,8 +7,7 @@ void input_prompt() {
 
 
 void shell() {
-	char oldchar = 0;
-	char newchar;
+
 	
 	kprint("Prism Shell [Kernelspace]", 0x07);
 	kprint_newline();
@@ -18,13 +17,7 @@ void shell() {
 	input_prompt();
 	
 	while(1) {	
-		newchar = getchar();
-		if(newchar != oldchar) {
-			putc(newchar, 0x07);
-		}
-		else {
-			return;
-		}
+
 	}
 }
 
