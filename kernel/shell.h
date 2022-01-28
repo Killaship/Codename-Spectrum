@@ -18,7 +18,7 @@ void shell() {
 	input_prompt();
 	
 	while(1) {	
-		newchar = keyboard_handler_main();
+		newchar = getchar();
 		if(newchar != oldchar) {
 			putc(newchar, 0x07);
 		}
