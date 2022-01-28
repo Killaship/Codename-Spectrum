@@ -46,11 +46,11 @@ void keyboard_handler_main(void) {
 		{
     		// Pressed
 		
-		if(keyboard_map[(char)scancode] == "\n") {
+		if(keyboard_map[(char)scancode] == '\n') {
 			kprint_newline(); 
 			input_prompt();
 			}
-		else if(keyboard_map[(char)scancode] == "\b") {
+		else if(keyboard_map[(char)scancode] == '\b') {
 			backspace();
 		}
 		else {
