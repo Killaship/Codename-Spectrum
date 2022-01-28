@@ -23,7 +23,7 @@ void shell() {
 			putc(newchar, 0x07);
 		}
 		else {
-			return
+			return;
 		}
 	}
 }
