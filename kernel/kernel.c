@@ -271,7 +271,7 @@ void idt_init(void) {
 
 
 
-#include "shell.h"
+
 
 /*
 #define PORT 0x3F8         // COM1
@@ -320,6 +320,19 @@ void write_serial(char a) {
 }
 
 */
+void printtime() {
+	asm volatile ("cli");
+    	read_rtc();
+    	asm volatile ("sti");
+	
+	kprint("System Time: ",0x07);
+	kprint(itoa(hour),0x07);
+	kprint(":",0x07);
+	kprint(itoa(minute),0x07);
+	kprint(":",0x07);
+	kprint(itoa(second),0x07);
+}
+#include "shell.h"
 void kmain(void) {
 	clear_screen();
 	//serial_init();
@@ -360,17 +373,9 @@ void kmain(void) {
 	kprint("Vendor ID: ", 0x07);
 	kprint(cpu_string(), 0x0C);
 	kprint_newline();
+	printtime();
 	
-	asm volatile ("cli");
-    	read_rtc();
-    	asm volatile ("sti");
-	
-	kprint("System Time: ",0x07);
-	kprint(itoa(hour),0x07);
-	kprint(":",0x07);
-	kprint(itoa(minute),0x07);
-	kprint(":",0x07);
-	kprint(itoa(second),0x07);
+
 	
 	sh_init();
 	while(1);
