@@ -24,6 +24,8 @@ void backspace() {
 
 
 unsigned char kbstatus;
+char c[2] = {keyboard_map[scancode], 0};
+uint8_t scancode;
 void keyboard_handler_main(void) {
 	
 
@@ -37,7 +39,7 @@ void keyboard_handler_main(void) {
 	// Lowest bit of status will be set if buffer is not empty 
 	if (kbstatus & 0x01) {
 
-		uint8_t scancode = read_port(0x60);
+		scancode = read_port(0x60);
 		if (scancode & 0x80)
 		{
     			// Released
@@ -56,7 +58,6 @@ void keyboard_handler_main(void) {
 		else {
 			
 
-   		char c[2] = { keyboard_map[scancode], 0 };
     		kprint(c,0x07);
 			
 		}
@@ -65,6 +66,11 @@ void keyboard_handler_main(void) {
 	}
 	
 
+}
+
+
+char getchar() {
+	return c[0];
 }
 /*
 
