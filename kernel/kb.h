@@ -22,10 +22,10 @@ void backspace() {
 
 
 
-
+uint8_t scancode;
 unsigned char kbstatus;
 char c[2] = {keyboard_map[scancode], 0};
-uint8_t scancode;
+
 void keyboard_handler_main(void) {
 	
 
@@ -57,7 +57,7 @@ void keyboard_handler_main(void) {
 		}
 		else {
 			
-
+		c = {keyboard_map[scancode], 0};
     		kprint(c,0x07);
 			
 		}
