@@ -26,7 +26,9 @@ uint8_t scancode;
 unsigned char kbstatus;
 char c[2];
 
-char keyboard_handler_main(void) {
+void keyboard_handler_main(void) {
+	int i;
+	char buff[64];
 	
 
 	write_port(0x20, 0x20); //eoi
@@ -51,16 +53,25 @@ char keyboard_handler_main(void) {
 		if(keyboard_map[(char)scancode] == '\n') {
 			kprint_newline(); 
 			input_prompt();
+			buff[64] = "";
+			kprint(buff,0x07);
+			buff[64] = {0};
+			i = 0;
 			}
 		else if(keyboard_map[(char)scancode] == '\b') {
 			backspace();
+			buff[i] = 0;
+			i--;
+			buff[i] = 0;
 		}
 		else {
-			
+		
 		c[0] = keyboard_map[scancode];
 		c[1] = 0;
+		buff[i] = c[0];
+		i++;
     		kprint(c,0x07);
-		return c[0];
+		
 			
 		}
 		}
