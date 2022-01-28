@@ -53,9 +53,9 @@ void keyboard_handler_main(void) {
 		if(keyboard_map[(char)scancode] == '\n') {
 			kprint_newline(); 
 			input_prompt();
-			buff[64] = "";
+			buff[64] = 0;
 			kprint(buff,0x07);
-			buff[64] = {0};
+			buff = {0};
 			i = 0;
 			}
 		else if(keyboard_map[(char)scancode] == '\b') {
