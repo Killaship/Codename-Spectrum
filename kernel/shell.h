@@ -17,7 +17,7 @@ void shell() {
 	input_prompt();
 	
 	while(1) {	
-		kprint(keyboard_handler_main(),0x07);
+		//kprint(keyboard_handler_main(),0x07);
 	}
 }
 
