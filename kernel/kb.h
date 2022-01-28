@@ -55,7 +55,7 @@ void keyboard_handler_main(void) {
 			input_prompt();
 			buff[64] = 0;
 			kprint(buff,0x07);
-			memset(buffer, 0, 64);
+			memset(buff, 0, 64);
 			i = 0;
 			}
 		else if(keyboard_map[(char)scancode] == '\b') {
