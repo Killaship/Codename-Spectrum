@@ -24,7 +24,11 @@ void kprint(const char *str, const int color) {
 }
 
 
-
+void putc(const char str, const int color) {
+	vidptr[current_loc++] = str;
+	vidptr[current_loc++] = color;
+	
+}
 void kprint_newline(void)
 {
 	unsigned int line_size = BYTES_FOR_EACH_ELEMENT * COLUMNS_IN_LINE;
