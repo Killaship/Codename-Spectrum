@@ -26,7 +26,7 @@ uint8_t scancode;
 unsigned char kbstatus;
 char c[2];
 
-void keyboard_handler_main(void) {
+char keyboard_handler_main(void) {
 	
 
 	write_port(0x20, 0x20); //eoi
@@ -60,6 +60,7 @@ void keyboard_handler_main(void) {
 		c[0] = keyboard_map[scancode];
 		c[1] = 0;
     		kprint(c,0x07);
+		return c[0];
 			
 		}
 		}
@@ -70,9 +71,9 @@ void keyboard_handler_main(void) {
 }
 
 
-char getchar() {
-	return c[0];
-}
+//char getchar() {
+//	return c[0];
+//}
 
 
 /*
