@@ -26,17 +26,12 @@ uint8_t scancode;
 unsigned char kbstatus;
 char c[2];
 char buffer[64];
+
+
 char* keyboard_handler_main(void) {
 	int i;
 	
-	
-
 	write_port(0x20, 0x20); //eoi
-
-
-	
-	
-
 	kbstatus = read_port(KEYBOARD_STATUS_PORT);
 	// Lowest bit of status will be set if buffer is not empty 
 	if (kbstatus & 0x01) {
