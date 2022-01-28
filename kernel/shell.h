@@ -7,6 +7,9 @@ void input_prompt() {
 
 
 void shell() {
+	char oldchar = 0;
+	char newchar;
+	
 	kprint("Prism Shell [Kernelspace]", 0x07);
 	kprint_newline();
 	kprint("Type \"help\" for a list of commands.", 0x07);
@@ -15,6 +18,13 @@ void shell() {
 	input_prompt();
 	
 	while(1) {	
+		char newchar = getchar();
+		if(newchar != oldchar) {
+			putc(newchar, 0x07);
+		}
+		else {
+			return
+		}
 	}
 }
 
