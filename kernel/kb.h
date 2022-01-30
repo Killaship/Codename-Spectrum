@@ -86,11 +86,11 @@ void keyboard_handler_main(void) {
 				kprint_newline();
 				kprint("COMMANDS:",0x07);
 				kprint_newline();
-				kprint("help   --   Displays this help message.");
+				kprint("help   --   Displays this help message.", 0x07);
 				kprint_newline();
-				kprint("time   --   Displays the system RTC time.");
+				kprint("time   --   Displays the system RTC time.", 0x07);
 				kprint_newline();
-				kprint("cls    --   Clears the screen.");
+				kprint("cls    --   Clears the screen.", 0x07);
 				kprint_newline();
 				kprint("cpuid  --   Displays the CPU info.", 0x07)
 				kprint_newline();
