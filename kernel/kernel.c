@@ -11,7 +11,7 @@
 #define IDT_TA_CallGate         0b10001100
 #define IDT_TA_TrapGate         0b10001111
 #define KERNEL_CODE_SEGMENT_OFFSET 0x08
-
+#define osversion "Codename Spectrum v0.5.1"
 
 
 //extern void boundrx_handler(void);
@@ -320,6 +320,11 @@ void write_serial(char a) {
 }
 
 */
+void printcpu() {
+	kprint("Vendor ID: ", 0x07);
+	kprint(cpu_string(), 0x0C);
+}
+
 void printtime() {
 	asm volatile ("cli");
     	read_rtc();
@@ -361,18 +366,15 @@ void kmain(void) {
 	kprint("0",0xFF);
 	kprint_newline();
 	
-	const char *str = "Codename Spectrum v0.5.1";
+	
 	const char *str2 = "                    https://github.com/Killaship/Codename-Spectrum/";
-	kprint(str, 0x0B);
+	kprint(osversion, 0x0B);
 	kprint_newline();
 	kprint(str2, 0x0E);
 	kprint_newline();
 	kprint_newline();
 	
-	
-	
-	kprint("Vendor ID: ", 0x07);
-	kprint(cpu_string(), 0x0C);
+	printcpu();
 	kprint_newline();
 	printtime();
 	
