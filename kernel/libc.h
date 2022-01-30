@@ -2,7 +2,7 @@
 
 // Possibly libc stuff
 // https://wiki.osdev.org/Meaty_Skeleton
-
+// This isn't really even any sort of libc, more just bits and pieces I've swiped from places. (the osdev wiki)
 
 void* memset(void* bufptr, int value, size_t size) {
 	unsigned char* buf = (unsigned char*) bufptr;
@@ -72,4 +72,14 @@ char* itoa(int i)
       if (neg)
          text[--loc] = '-';      
       return &text[loc];
+}
+
+int strcmp( const char * s1, const char * s2 )
+{
+    while ( ( *s1 ) && ( *s1 == *s2 ) )
+    {
+        ++s1;
+        ++s2;
+    }
+    return ( *s1 - *s2 );
 }
