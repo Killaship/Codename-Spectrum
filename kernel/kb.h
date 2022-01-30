@@ -27,6 +27,7 @@ unsigned char kbstatus;
 char c[2];
 char buffer[64];
 
+// I can't seem to get this thing to return a string properly so I'm just gonna make a shell a part of the kb driver.
 
 void keyboard_handler_main(void) {
 	int i;
@@ -67,6 +68,10 @@ void keyboard_handler_main(void) {
 		buffer[i] = c[0];
 		i++;
     		kprint(c,0x07);
+		if(c == "time") {
+			printtime();
+		}
+		
 		
 			
 		}
