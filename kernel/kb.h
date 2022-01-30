@@ -92,7 +92,7 @@ void keyboard_handler_main(void) {
 				kprint_newline();
 				kprint("cls    --   Clears the screen.", 0x07);
 				kprint_newline();
-				kprint("cpuid  --   Displays the CPU info.", 0x07)
+				kprint("cpuid  --   Displays the CPU info.", 0x07);
 				kprint_newline();
 				kprint_newline();
 				kprint("https://github.com/Killaship/Codename-Spectrum/", 0x04);
