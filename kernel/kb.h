@@ -49,6 +49,10 @@ void keyboard_handler_main(void) {
 		if(keyboard_map[(char)scancode] == '\n') { 
 
 			buffer[64] = 0;
+			if(strcmp("time", buffer) == 0) {
+				kprint_newline();
+				printtime();
+			}
 			memset(buffer, 0, 64);
 			i = 0;
 			kprint_newline();
@@ -68,11 +72,7 @@ void keyboard_handler_main(void) {
 		buffer[i] = c[0];
 		i++;
     		kprint(c,0x07);
-		if(strcmp("time", buffer) == 0) {
-			kprint_newline();
-			printtime();
-			kprint_newline();
-		}
+
 		
 		
 			
