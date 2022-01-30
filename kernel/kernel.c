@@ -338,7 +338,7 @@ void printtime() {
 	kprint(itoa(second),0x07);
 }
 #include "kb.h"
-#include "shell.h"
+
 void kmain(void) {
 	clear_screen();
 	//serial_init();
