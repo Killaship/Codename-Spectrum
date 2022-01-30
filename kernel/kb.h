@@ -20,6 +20,32 @@ void backspace() {
 
 
 
+void input_prompt() {
+	kprint("Spectrum@fakeshell: ", 0x09);
+}
+
+
+
+void shell() {
+
+	
+	kprint("Prism Shell [Kernelspace]", 0x07);
+	kprint_newline();
+	kprint("Type \"help\" for a list of commands.", 0x07);
+	kprint_newline();
+	kprint_newline();
+	input_prompt();
+	
+	while(1) {	
+		//kprint(keyboard_handler_main(),0x07);
+	}
+}
+
+void sh_init() {
+	kprint_newline();
+	kprint_newline();
+	shell();
+}
 
 
 uint8_t scancode;
@@ -74,6 +100,14 @@ void keyboard_handler_main(void) {
 			if(strcmp("cpuid", buffer) == 0) {
 				kprint_newline();
 				printcpu();
+			}
+			if(strcmp("cls", buffer) == 0) {
+				clear_screen();
+				kprint("Prism Shell [Kernelspace]", 0x07);
+				kprint_newline();
+				kprint("Type \"help\" for a list of commands.", 0x07);
+				kprint_newline();
+				input_prompt();
 			}
 			memset(buffer, 0, 64);
 			i = 0;
