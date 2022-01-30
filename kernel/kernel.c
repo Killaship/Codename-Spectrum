@@ -36,7 +36,7 @@ void write_port(unsigned short port, unsigned char data) {
 
 #include "keyboard_map.h"
 #include "tty.h"
-#include "kb.h"
+
 #include "panic.h"
 #include "cpu.h"
 #include "rtc.h"
@@ -332,6 +332,7 @@ void printtime() {
 	kprint(":",0x07);
 	kprint(itoa(second),0x07);
 }
+#include "kb.h"
 #include "shell.h"
 void kmain(void) {
 	clear_screen();
