@@ -41,7 +41,7 @@ void clear_screen(void) {
 		vidptr[i++] = ' ';
 		vidptr[i++] = 0x07;
 	}
-	vidptr = (char*)0xb8000;
+	current_loc = 0;
 
 }
 
