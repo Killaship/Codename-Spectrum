@@ -46,6 +46,22 @@ void* memcpy(void* restrict dstptr, const void* restrict srcptr, size_t size) {
 	return dstptr;
 }
 
+int strncmp(const char *s1, const char *s2, size_t n)
+{
+	unsigned int count = 0;
+	while (count < n)
+	{
+		if (s1[count] == s2[count])
+		{
+			if (s1[count] == '\0') //quit early because null-termination found
+				return 0;
+			else
+				count++;
+		}
+		else
+			return s1[count] - s2[count];
+	}
+
 int memcmp(const void* aptr, const void* bptr, size_t size) {
 	const unsigned char* a = (const unsigned char*) aptr;
 	const unsigned char* b = (const unsigned char*) bptr;
