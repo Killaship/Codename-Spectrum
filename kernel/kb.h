@@ -68,7 +68,7 @@ void keyboard_handler_main(void) {
 		buffer[i] = c[0];
 		i++;
     		kprint(c,0x07);
-		if(strcmp(buffer,"time") == 0) {
+		if(strcmp(buffer, "time") == 0) {
 			printtime();
 		}
 		
