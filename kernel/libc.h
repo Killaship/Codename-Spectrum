@@ -11,6 +11,33 @@ void* memset(void* bufptr, int value, size_t size) {
 	return bufptr;
 }
 
+
+char *strncpy(char *s1, const char *s2, size_t n)
+{
+	unsigned int extern_iter = 0; //when s2's length is shorter than n, this allows the function to continue padding null characters
+
+	unsigned int iterator = 0;
+	for (iterator = 0; iterator < n; iterator++) //iterate through s2 up to char n, copying them to s1
+	{
+		if (s2[iterator] != '\0')
+			s1[iterator] = s2[iterator];
+		else //the end of s2 was found prematurely - copy the null character, update external iterator and quit for loop
+		{
+			s1[iterator] = s2[iterator];
+			extern_iter = iterator + 1;
+			break;
+		}
+	}
+
+	while (extern_iter < n) //while there are still spaces that need to be filled with null characters, fill them
+	{
+		s1[extern_iter] = '\0';
+		extern_iter++;
+	}
+
+	return s1;
+}
+
 void* memcpy(void* restrict dstptr, const void* restrict srcptr, size_t size) {
 	unsigned char* dst = (unsigned char*) dstptr;
 	const unsigned char* src = (const unsigned char*) srcptr;
@@ -74,12 +101,9 @@ char* itoa(int i)
       return &text[loc];
 }
 
-int strcmp( const char * s1, const char * s2 )
+int strcmp(const char *s1, const char *s2)
 {
-    while ( ( *s1 ) && ( *s1 == *s2 ) )
-    {
-        ++s1;
-        ++s2;
-    }
-    return ( *s1 - *s2 );
+	if (strlen(s1) != strlen(s2))
+		return s2-s1;
+	return strncmp(s1, s2, strlen(s1)); //It doesn't matter what the n is at this point - they should be the same length anyways
 }
