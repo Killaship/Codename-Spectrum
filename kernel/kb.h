@@ -53,6 +53,28 @@ void keyboard_handler_main(void) {
 				kprint_newline();
 				printtime();
 			}
+			if(strcmp("help", buffer) == 0) {
+				kprint_newline();
+				kprint("Prism Shell for ", 0x07);
+				kprint(osversion, 0x08);
+				kprint_newline();
+				kprint("COMMANDS:",0x07);
+				kprint_newline();
+				kprint("help   --   Displays this help message.");
+				kprint_newline();
+				kprint("time   --   Displays the system RTC time.");
+				kprint_newline();
+				kprint("cls    --   Clears the screen.");
+				kprint_newline();
+				kprint("cpuid  --   Displays the CPU info.", 0x07)
+				kprint_newline();
+				kprint_newline();
+				kprint("https://github.com/Killaship/Codename-Spectrum/", 0x04);
+			}
+			if(strcmp("cpuid", buffer) == 0) {
+				kprint_newline();
+				printcpu();
+			}
 			memset(buffer, 0, 64);
 			i = 0;
 			kprint_newline();
