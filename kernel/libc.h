@@ -60,7 +60,7 @@ int strncmp(const char *s1, const char *s2, size_t n)
 		}
 		else
 			return s1[count] - s2[count];
-	}
+	}}
 
 int memcmp(const void* aptr, const void* bptr, size_t size) {
 	const unsigned char* a = (const unsigned char*) aptr;
