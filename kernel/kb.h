@@ -75,11 +75,14 @@ void keyboard_handler_main(void) {
 		if(keyboard_map[(char)scancode] == '\n') { 
 
 			buffer[64] = 0;
-			if(strcmp("time", buffer) == 0) {
+			if(buffer[0] == ';' && buffer[1] == ';') {
+				// Literally nothing, just move on, it's a comment
+			}
+			else if(strcmp("time", buffer) == 0) {
 				kprint_newline();
 				printtime();
 			}
-			if(strcmp("help", buffer) == 0) {
+			else if(strcmp("help", buffer) == 0) {
 				kprint_newline();
 				kprint("Prism Shell for ", 0x07);
 				kprint(osversion, 0x08);
@@ -97,17 +100,20 @@ void keyboard_handler_main(void) {
 				kprint_newline();
 				kprint("https://github.com/Killaship/Codename-Spectrum/", 0x04);
 			}
-			if(strcmp("cpuid", buffer) == 0) {
+			else if(strcmp("cpuid", buffer) == 0) {
 				kprint_newline();
 				printcpu();
 			}
-			if(strcmp("cls", buffer) == 0) {
+			else if(strcmp("cls", buffer) == 0) {
 				clear_screen();
 				kprint("Prism Shell [Kernelspace]", 0x07);
 				kprint_newline();
 				kprint("Type \"help\" for a list of commands.", 0x07);
 				kprint_newline();
 				input_prompt();
+			}
+			else {
+				kprint("Bad command!", 0x07);
 			}
 			memset(buffer, 0, 64);
 			i = 0;
