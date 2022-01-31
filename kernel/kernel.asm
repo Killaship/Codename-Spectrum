@@ -18,6 +18,7 @@ section .text
 ;global overf_handler
 global start
 global keyboard_handler
+global loadprgm
 
 extern kmain 		;this is defined in the c file
 extern keyboard_handler_main
@@ -29,7 +30,8 @@ keyboard_handler:
 	call    keyboard_handler_main
 	iretd
 
-hello: db "It works! (no shit sherlock)",0
+loadprgm:
+	jmp $ ; do later
 
 ;div0_handler:
 ;	cli
@@ -52,8 +54,7 @@ start:
     mov fs, ax
     mov gs, ax
     mov ss, ax
-    mov esp, stack_space        ; set stack pointer			;halt the CPU
-
+    mov esp, stack_space        ; set stack pointer		
 
 section .bss
 resb 8192 ; 8KB for stack
