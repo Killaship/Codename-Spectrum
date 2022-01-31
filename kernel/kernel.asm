@@ -1,6 +1,8 @@
 ; Parts of this made by Arjun Sreedharan
 ; License: GPL version 2 or higher http://www.gnu.org/licenses/gpl.html
-
+; actually this was changed so much that should I even bother including this anymore?
+; it's not even close to the original program, with almost everything being rewritten or added to
+; ship of theseus moment
 
 
 bits 32
