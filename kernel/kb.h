@@ -87,6 +87,8 @@ void keyboard_handler_main(void) {
 				kprint("Prism Shell for ", 0x07);
 				kprint(osversion, 0x08);
 				kprint_newline();
+				kprint("Prepend \";;\" to a command for it to be a comment!",0x09)
+				kprint_newline();
 				kprint("COMMANDS:",0x07);
 				kprint_newline();
 				kprint("help   --   Displays this help message.", 0x07);
