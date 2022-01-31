@@ -11,7 +11,7 @@
 #define IDT_TA_CallGate         0b10001100
 #define IDT_TA_TrapGate         0b10001111
 #define KERNEL_CODE_SEGMENT_OFFSET 0x08
-#define osversion "Codename Spectrum v0.5.1"
+#define osversion "Codename Spectrum v0.6.0"
 
 
 //extern void boundrx_handler(void);
@@ -367,7 +367,7 @@ void kmain(void) {
 	kprint_newline();
 	
 	
-	const char *str2 = "                    https://github.com/Killaship/Codename-Spectrum/";
+	const char *str2 = "               \"oh holy crap there's finally a shell (but no fs)\"";
 	kprint(osversion, 0x0B);
 	kprint_newline();
 	kprint(str2, 0x0E);
