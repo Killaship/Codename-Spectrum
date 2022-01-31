@@ -20,6 +20,8 @@
 extern void keyboard_handler(void);
 //extern void pit_handler(void);
 
+extern void loadprgm(void);
+
 void load_idt(unsigned long *idt_ptr) {
 	asm volatile ("lidt (%%eax)" :: "a" (idt_ptr));
 }
