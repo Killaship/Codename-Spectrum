@@ -11,7 +11,7 @@
 #define IDT_TA_CallGate         0b10001100
 #define IDT_TA_TrapGate         0b10001111
 #define KERNEL_CODE_SEGMENT_OFFSET 0x08
-#define osversion "Codename Spectrum v0.6.0"
+#define osversion "Codename Spectrum v0.6.1"
 
 
 //extern void boundrx_handler(void);
