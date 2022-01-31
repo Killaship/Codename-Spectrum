@@ -115,8 +115,11 @@ void keyboard_handler_main(void) {
 				input_prompt();
 			}
 			else {
+				if(strcmp("\n", buffer) != 0) {
 				kprint_newline();
 				kprint("Bad command!", 0x07);
+				}
+				else{}
 			}
 			memset(buffer, 0, 64);
 			i = 0;
