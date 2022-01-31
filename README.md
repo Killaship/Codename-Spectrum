@@ -19,8 +19,6 @@ Serial communication
 
 Add support for shift in keyboard.
 
-Some sort of shell
-
 Make it limy limy limine time
 
 
