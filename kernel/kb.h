@@ -113,7 +113,9 @@ void keyboard_handler_main(void) {
 				input_prompt();
 			}
 			else {
+				kprint_newline();
 				kprint("Bad command!", 0x07);
+				kprint_newline();
 			}
 			memset(buffer, 0, 64);
 			i = 0;
