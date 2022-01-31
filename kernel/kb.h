@@ -115,7 +115,6 @@ void keyboard_handler_main(void) {
 			else {
 				kprint_newline();
 				kprint("Bad command!", 0x07);
-				kprint_newline();
 			}
 			memset(buffer, 0, 64);
 			i = 0;
@@ -151,25 +150,4 @@ void keyboard_handler_main(void) {
 
 
 
-/*
 
-		keycode = read_port(KEYBOARD_DATA_PORT);
-		if(keycode < 0)
-			return;
-
-		if(keycode == ENTER_KEY_CODE) {
-			kprint_newline();
-			//cmdflush();
-			input_prompt();
-			return;
-		}
-		
-		if(keycode == 0x0E) {
-			backspace();
-			return;
-		}		
-		buff[0] = keyboard_map[(unsigned char) keycode];
-		buff[1] = 0;
-		kprint(buff,0x07);
-		kprint(buff, 0x09);
-*/
