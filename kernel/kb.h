@@ -106,6 +106,10 @@ void keyboard_handler_main(void) {
 				kprint_newline();
 				printcpu();
 			}
+			else if(strcmp("test", buffer) == 0) {
+				kprint_newline();
+				loadprgm(); // test on loading programs
+			}			
 			else if(strcmp("cls", buffer) == 0) {
 				clear_screen();
 				kprint("Prism Shell [Kernelspace]", 0x07);
