@@ -125,3 +125,14 @@ int strcmp(const char *s1, const char *s2)
 		return s2-s1;
 	return strncmp(s1, s2, strlen(s1)); //It doesn't matter what the n is at this point - they should be the same length anyways
 }
+
+int oct2bin(unsigned char *str, int size) {
+    int n = 0;
+    unsigned char *c = str;
+    while (size-- > 0) {
+        n *= 8;
+        n += *c - '0';
+        c++;
+    }
+    return n;
+}
