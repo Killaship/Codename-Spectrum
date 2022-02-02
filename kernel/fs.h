@@ -26,6 +26,10 @@ unsigned int getsize(const char *in)
 
 struct tar_header *headers[32];
 
+//  Currently just putting the tarball as an ELF along with the kernel
+//  _binary_initrd_tar_start < Symbol to reference (or objdump -t initrd.o)
+//  Use the address of the symbol for the initrd for the parsing stuff
+
 unsigned int parse(unsigned int address)
 {
  
