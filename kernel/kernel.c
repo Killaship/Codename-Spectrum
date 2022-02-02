@@ -380,7 +380,7 @@ void kmain(void) {
 	printcpu();
 	kprint_newline();
 	printtime();
-	
+	parse((unsigned int) _binary_initrd_tar_start);
 
 	
 	sh_init();
