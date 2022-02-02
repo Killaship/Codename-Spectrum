@@ -7,7 +7,7 @@ rm *iso
 git pull
 
 tar cvf initrd.tar ramdisk
-ld -m elf_i386 -r -b binary initrd.tar -o initrd.o
+ld -m elf_i386 -r -b binary initrd.tar -o initrd.o # turn the tarball into an elf to be compiled
 
 #nasm -f elf32 boot/boot.asm -o boot.o
 cd kernel
