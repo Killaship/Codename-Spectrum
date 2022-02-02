@@ -13,6 +13,8 @@ Use ```bash build.sh``` to build the OS.
 
 More extensive CPUID 
 
+Read only Filesystem via abuse of the initrd
+
 Finish adding all of the exception handlers
 
 Serial communication 
