@@ -1,9 +1,11 @@
-echo "NOTE: This requires QEMU installed, and an X server as well."
+
 
 echo "Now Building..."
 rm *.o
 rm -rf iso
 rm *iso
+
+tar cvf initrd.tar ramdisk
 
 git pull
 
