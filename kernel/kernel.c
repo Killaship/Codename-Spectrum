@@ -339,8 +339,9 @@ void printtime() {
 	kprint(":",0x07);
 	kprint(itoa(second),0x07);
 }
+
 #include "kb.h"
-#include "fs.h"
+// #include "fs.h"
 
 void kmain(void) {
 	clear_screen();
