@@ -24,9 +24,9 @@ void kprint(const char *str, const int color) {
 }
 
 
-void putc(const char str, const int color) {
+void putc(const char str) {
 	vidptr[current_loc++] = str;
-	vidptr[current_loc++] = color;
+	vidptr[current_loc++] = 0x07;
 	
 }
 void kprint_newline(void)
@@ -44,5 +44,6 @@ void clear_screen(void) {
 	current_loc = 0;
 
 }
+
 
 
