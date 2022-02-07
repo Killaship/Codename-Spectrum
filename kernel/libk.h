@@ -145,7 +145,7 @@ int oct2bin(unsigned char *str, int size) {
 */
 char *arggen(char *pstr, const int argn, char * out) {
 	int i;
-	for(i = 0; pstr != "\0"; i++) {
+	for(i = 0; pstr != '\0'; i++) {
 		if(pstr[i] ==' ') {
 			// do stuff
 		}
