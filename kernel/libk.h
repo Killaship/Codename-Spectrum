@@ -144,7 +144,7 @@ int oct2bin(unsigned char *str, int size) {
    (Sounds dumb, but programs should know how many arguments they have possible, or handle it on their end.)
 */
 char *arggen(char *pstr, const int argn, char * out) {
-	const int i;
+	int i;
 	for(i = 0; pstr != "\0"; i++)
 		if(pstr[i] ==' ') {
 			
