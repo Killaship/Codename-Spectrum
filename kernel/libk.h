@@ -137,3 +137,17 @@ int oct2bin(unsigned char *str, int size) {
     return n;
 }
 
+/* arggen()
+   Similar to strtok, I made my own because why not, and I don't have malloc() or anything like it yet.
+   This uses manual string searching, and returns the argument selected in argn, in out. (That chooses which one out of the list of arguments to return.)
+   Beware, argn is not smart and assumes the programmer knows how many arguments there are. 
+   (Sounds dumb, but programs should know how many arguments they have possible, or handle it on their end.)
+*/
+char *arggen(char *pstr, const int argn, char * out) {
+	const int i;
+	for(i = 0; pstr != "\0"; i++)
+		if(pstr[i] ==' ') {
+			
+		}
+	}
+}
