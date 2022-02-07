@@ -143,10 +143,10 @@ int oct2bin(unsigned char *str, int size) {
    Beware, argn is not smart and assumes the programmer knows how many arguments there are. 
    (Sounds dumb, but programs should know how many arguments they have possible, or handle it on their end.)
 */
-char *arggen(char *pstr, const int argn, char * out) {
+char *arggen(char * pstr, const int argn, char * out) {
 	int i;
-	for(i = 0; pstr != '\0'; i++) {
-		if(pstr[i] ==' ') {
+	for(i = 0; *pstr != '\0'; i++) {
+		if(pstr[i] == ' ') {
 			// do stuff
 		}
 	}
