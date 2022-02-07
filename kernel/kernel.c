@@ -5,7 +5,7 @@
 
 #include <stdint.h>
 #include <stddef.h>
-#include "libc.h"
+#include "libk.h"
 #define IDT_SIZE 256
 #define INTERRUPT_GATE 0x8e
 #define IDT_TA_CallGate         0b10001100
