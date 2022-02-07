@@ -1,8 +1,8 @@
 #pragma once
 
-// Possibly libc stuff
+// Possibly libk stuff
 // https://wiki.osdev.org/Meaty_Skeleton
-// This isn't really even any sort of libc, more just bits and pieces I've swiped from places. (the osdev wiki)
+
 
 void* memset(void* bufptr, int value, size_t size) {
 	unsigned char* buf = (unsigned char*) bufptr;
