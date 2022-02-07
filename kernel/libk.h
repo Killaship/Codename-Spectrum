@@ -142,7 +142,7 @@ STRSPN (const char *str, const char *accept)
 {
   if (accept[0] == '\0')
     return 0;
-  if (__glibc_unlikely (accept[1] == '\0'))
+  if ((accept[1] == '\0'))
     {
       const char *a = str;
       for (; *str == *accept; str++);
