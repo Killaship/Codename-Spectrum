@@ -382,7 +382,7 @@ void kmain(void) {
 	kprint_newline();
 	printtime();
 	
-
+	arggen(0,0,0);
 	
 	sh_init();
 	while(1);
