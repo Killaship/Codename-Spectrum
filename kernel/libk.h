@@ -153,7 +153,7 @@ char *arggen(char * pstr, const int argn, char * out) {
 	for(i = 0; *pstr != '\0'; i++) {
 		if(pstr[i] == ' ') {
 			int c; // thing so that the func knows where to stop taking the argument
-			pstr[i] == '\0;
+			pstr[i] == '\0';
 			// insert for loop to copy off of pstr[]
 			// do stuff
 		}
