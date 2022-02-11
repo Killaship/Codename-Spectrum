@@ -62,12 +62,6 @@ struct IDT_entry {
 struct IDT_entry IDT[IDT_SIZE];
 
 
-/* TODO: finish idt entry generator and replace all entries with it
-void gen_idt(int idtnum, int *type, int handler, int addr) {
-	handler
-}
-*/
-
 void idt_init(void) {
 	unsigned long div0_address;
  	unsigned long boundrx_address;
