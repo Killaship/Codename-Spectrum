@@ -11,6 +11,8 @@ Use ```bash build.sh``` to build the OS.
 
 # To-Do: (in no specific order)
 
+Installation capabilities via a separate entry in GRUB
+
 More extensive CPUID 
 
 Read only Filesystem via abuse of the initrd
