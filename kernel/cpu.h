@@ -20,7 +20,7 @@ void reboot()
     while (good & 0x02)
         good = read_port(0x64);
     write_port(0x64, 0xFE);
-    halt();
+    hang();
 }
 
 
