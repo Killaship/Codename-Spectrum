@@ -47,6 +47,7 @@ void write_port(unsigned short port, unsigned char data) {
 
 
 
+
 struct IDT_entry {
 	unsigned short int offset_lowerbits;
 	unsigned short int selector;
