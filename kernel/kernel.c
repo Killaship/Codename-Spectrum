@@ -376,7 +376,7 @@ void kmain(void) {
 	kprint_newline();
 	printtime();
 	
-
+	
 	
 	sh_init();
 	while(1);

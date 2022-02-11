@@ -99,7 +99,7 @@ void keyboard_handler_main(void) {
 				kprint_newline();
 				kprint("cpuid  --   Displays the CPU info.", 0x07);
 				kprint_newline();
-				kprint("bf     --   A BrainF**k interpreter.", 0x07);
+				kprint("rst    --   Reboots the computer.", 0x07);
 				kprint_newline();
 				kprint_newline();
 				kprint("https://github.com/Killaship/Codename-Spectrum/", 0x04);
@@ -108,8 +108,8 @@ void keyboard_handler_main(void) {
 				kprint_newline();
 				printcpu();
 			}
-			else if(strcmp("bf", buffer) == 0) {
-				clear_screen();
+			else if(strcmp("rst", buffer) == 0) {
+				reboot();
 				
 			}			
 			else if(strcmp("test", buffer) == 0) {
