@@ -1,4 +1,14 @@
 #pragma once
+
+void reboot()
+{
+    uint8_t good = 0x02;
+    while (good & 0x02)
+        good = inb(0x64);
+    outb(0x64, 0xFE);
+    halt();
+}
+
 static inline int cpuid_string(int code, int where[4]) {
   __asm__ volatile ("cpuid":"=a"(*where),"=b"(*(where+0)),
                "=d"(*(where+1)),"=c"(*(where+2)):"a"(code));
