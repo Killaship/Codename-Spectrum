@@ -6,10 +6,8 @@ rm -rf iso
 rm *iso
 git pull
 
-tar cvf initrd.tar ramdisk
-ld -m elf_i386 -r -b binary initrd.tar -o initrd.o # turn the tarball into an elf to be compiled
 
-#nasm -f elf32 boot/boot.asm -o boot.o
+
 cd kernel
 nasm -f elf32 kernel.asm -o kasm.o
 cd -
@@ -21,7 +19,7 @@ cd -
 gcc -Wall -Wextra -fno-stack-protector -m32 -c install/kernel.c -o ic.o -ffreestanding
 
 
-ld -m elf_i386 -T link.ld -o kernel.elf kernel/kasm.o kc.o -format binary initrd.o
+ld -m elf_i386 -T link.ld -o kernel.elf kernel/kasm.o kc.o 
 ld -m elf_i386 -T link.ld -o install.elf install/iasm.o ic.o 
 
 

@@ -14,11 +14,8 @@
 #define osversion "Codename Spectrum v0.6.1"
 
 
-//extern void boundrx_handler(void);
-//extern void div0_handler(void);
-//extern void overf_handler(void);
 extern void keyboard_handler(void);
-//extern void pit_handler(void);
+
 
 extern void loadprgm(void);
 
@@ -79,7 +76,6 @@ void idt_init(void) {
 	
 	
 	unsigned long keyboard_address;
-	//unsigned long pit_address;
  
 	unsigned long idt_address;
 	unsigned long idt_ptr[2];
@@ -91,14 +87,8 @@ void idt_init(void) {
 	IDT[0x21].zero = 0;
 	IDT[0x21].type_attr = INTERRUPT_GATE;
 	IDT[0x21].offset_higherbits = (keyboard_address & 0xffff0000) >> 16;
-	/*
-	pit_address = (unsigned long)pit_handler;
-	IDT[0x22].offset_lowerbits = pit_address & 0xffff;
-	IDT[0x22].selector = KERNEL_CODE_SEGMENT_OFFSET;
-	IDT[0x22].zero = 0;
-	IDT[0x22].type_attr = INTERRUPT_GATE;
-	IDT[0x22].offset_higherbits = (pit_address & 0xffff0000) >> 16;
-	*/
+
+
 	div0_address = (unsigned long)div0_handler;
 	IDT[0x00].offset_lowerbits = div0_address & 0xffff;
 	IDT[0x00].selector = KERNEL_CODE_SEGMENT_OFFSET;
