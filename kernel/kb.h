@@ -124,7 +124,7 @@ void keyboard_handler_main(void) {
 				kprint_newline();
 				kprint("Type \"help\" for a list of commands.", 0x07);
 				kprint_newline();
-				input_prompt();
+				
 			}
 			else {
 				if(strcmp("", buffer) != 0) {
