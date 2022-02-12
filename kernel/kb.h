@@ -114,6 +114,7 @@ void keyboard_handler_main(void) {
 			}			
 			else if(strcmp("test", buffer) == 0) {
 				kprint_newline();
+				kprint("I can taste 6 and hear purple",0x09);
 				while(1) {}
 				loadprgm(); // test on loading programs, will not come soon, currently halts cpu
 			}			
