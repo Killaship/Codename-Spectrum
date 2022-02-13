@@ -3,10 +3,10 @@
 
 typedef struct _KHEAPBLOCKBM {
 	struct _KHEAPBLOCKBM	                *next;
-	uint32					size;
-	uint32					used;
-	uint32					bsize;
-        uint32                                  lfb;
+	uint32_t				size;
+	uint32_t				used;
+	uint32_t				bsize;
+        uint32_t                                  lfb;
 } KHEAPBLOCKBM;
  
 typedef struct _KHEAPBM {
@@ -17,11 +17,11 @@ void k_heapBMInit(KHEAPBM *heap) {
 	heap->fblock = 0;
 }
  
-int k_heapBMAddBlock(KHEAPBM *heap, uintptr addr, uint32 size, uint32 bsize) {
+int k_heapBMAddBlock(KHEAPBM *heap, uintptr_t addr, uint32_t size, uint32_t bsize) {
 	KHEAPBLOCKBM		*b;
-	uint32				bcnt;
-	uint32				x;
-	uint8				*bm;
+	uint32_t				bcnt;
+	uint32_t				x;
+	uint8_t				*bm;
  
 	b = (KHEAPBLOCKBM*)addr;
 	b->size = size - sizeof(KHEAPBLOCKBM);
@@ -31,7 +31,7 @@ int k_heapBMAddBlock(KHEAPBM *heap, uintptr addr, uint32 size, uint32 bsize) {
 	heap->fblock = b;
  
 	bcnt = b->size / b->bsize;
-	bm = (uint8*)&b[1];
+	bm = (uint8_t*)&b[1];
  
 	/* clear bitmap */
 	for (x = 0; x < bcnt; ++x) {
@@ -51,19 +51,19 @@ int k_heapBMAddBlock(KHEAPBM *heap, uintptr addr, uint32 size, uint32 bsize) {
 	return 1;
 }
  
-static uint8 k_heapBMGetNID(uint8 a, uint8 b) {
-	uint8		c;	
+static uint8_t k_heapBMGetNID(uint8_t a, uint8_t b) {
+	uint8_t		c;	
 	for (c = a + 1; c == b || c == 0; ++c);
 	return c;
 }
  
-void *k_heapBMAlloc(KHEAPBM *heap, uint32 size) {
+void *k_heapBMAlloc(KHEAPBM *heap, uint32_t size) {
 	KHEAPBLOCKBM		*b;
-	uint8				*bm;
-	uint32				bcnt;
-	uint32				x, y, z;
-	uint32				bneed;
-	uint8				nid;
+	uint8_t				*bm;
+	uint32_t				bcnt;
+	uint32_t				x, y, z;
+	uint32_t				bneed;
+	uint8_t				nid;
  
 	/* iterate blocks */
 	for (b = heap->fblock; b; b = b->next) {
@@ -72,7 +72,7 @@ void *k_heapBMAlloc(KHEAPBM *heap, uint32 size) {
  
 			bcnt = b->size / b->bsize;		
 			bneed = (size / b->bsize) * b->bsize < size ? size / b->bsize + 1 : size / b->bsize;
-			bm = (uint8*)&b[1];
+			bm = (uint8_t*)&b[1];
  
 			for (x = (b->lfb + 1 >= bcnt ? 0 : b->lfb + 1); x < b->lfb; ++x) {
 				/* just wrap around */
@@ -100,7 +100,7 @@ void *k_heapBMAlloc(KHEAPBM *heap, uint32 size) {
 						/* count used blocks NOT bytes */
 						b->used += y;
  
-						return (void*)(x * b->bsize + (uintptr)&b[1]);
+						return (void*)(x * b->bsize + (uintptr_t)&b[1]);
 					}
  
 					/* x will be incremented by one ONCE more in our FOR loop */
@@ -116,20 +116,20 @@ void *k_heapBMAlloc(KHEAPBM *heap, uint32 size) {
  
 void k_heapBMFree(KHEAPBM *heap, void *ptr) {
 	KHEAPBLOCKBM		*b;	
-	uintptr				ptroff;
-	uint32				bi, x;
-	uint8				*bm;
-	uint8				id;
-	uint32				max;
+	uintptr_t				ptroff;
+	uint32_t				bi, x;
+	uint8_t				*bm;
+	uint8_t				id;
+	uint32_t				max;
  
 	for (b = heap->fblock; b; b = b->next) {
-		if ((uintptr)ptr > (uintptr)b && (uintptr)ptr < (uintptr)b + sizeof(KHEAPBLOCKBM) + b->size) {
+		if ((uintptr_t)ptr > (uintptr_t)b && (uintptr_t)ptr < (uintptr_t)b + sizeof(KHEAPBLOCKBM) + b->size) {
 			/* found block */
-			ptroff = (uintptr)ptr - (uintptr)&b[1];  /* get offset to get block */
+			ptroff = (uintptr_t)ptr - (uintptr_t)&b[1];  /* get offset to get block */
 			/* block offset in BM */
 			bi = ptroff / b->bsize;
 			/* .. */
-			bm = (uint8*)&b[1];
+			bm = (uint8_t*)&b[1];
 			/* clear allocation */
 			id = bm[bi];
 			/* oddly.. GCC did not optimize this */
@@ -147,7 +147,7 @@ void k_heapBMFree(KHEAPBM *heap, void *ptr) {
 	return;
 }
 
-void *kmalloc(KHEAPBM *heap, uint32 size) {
+void *kmalloc(KHEAPBM *heap, uint32_t size) {
   
   char *ptr = k_heapBMAlloc(KHEAPBM *heap, uint32 size);
   if(ptr != 0); {
