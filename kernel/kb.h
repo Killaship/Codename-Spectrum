@@ -116,6 +116,7 @@ void keyboard_handler_main(void) {
 				kprint_newline();
 				kprint("I can taste 6 and hear purple",0x09);
 				KHEAPBM     kheap;
+				char        *ptr;
 				ptr = (char*)kmalloc(&kheap, 0x10000F);           /* allocate over 1 MB and break stuff (malloc) */
     				
 				
