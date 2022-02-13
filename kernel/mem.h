@@ -152,7 +152,9 @@ void k_heapBMFree(KHEAPBM *heap, void *ptr) {
 
 
 void memheapinit() {
-    k_heapBMInit(&kheap);                              // initialize the heap 
-    k_heapBMAddBlock(&kheap, 0x100000, 0x100000, 16);  // add block to heap (starting 1MB mark and length of 1MB) with default block size of 16 bytes
+	KHEAPBM     kheap;
+	char        *ptr;
+	k_heapBMInit(&kheap);                              // initialize the heap 
+	k_heapBMAddBlock(&kheap, 0x100000, 0x100000, 16);  // add block to heap (starting 1MB mark and length of 1MB) with default block size of 16 bytes
 
 }
