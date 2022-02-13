@@ -39,7 +39,7 @@ void write_port(unsigned short port, unsigned char data) {
 #include "panic.h"
 #include "cpu.h"
 #include "rtc.h"
-
+#include "mem.h"
 
 
 
