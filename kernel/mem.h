@@ -1,5 +1,8 @@
+#pragma once
 
 #define kfree k_heapBMFree
+#define kmalloc k_heapBMAlloc
+
 
 typedef struct _KHEAPBLOCKBM {
 	struct _KHEAPBLOCKBM	                *next;
@@ -147,18 +150,6 @@ void k_heapBMFree(KHEAPBM *heap, void *ptr) {
 	return;
 }
 
-void *kmalloc(KHEAPBM *heap, uint32_t size) {
-  
-  char *ptr = k_heapBMAlloc(KHEAPBM *heap, uint32 size);
-  if(ptr != 0); {
-    // do nothing
-  }
-  else {
-    kprint_newline();
-    kprint("[ERROR]: kmalloc() failed, out of memory! (kmalloc returned null ptr)", 0x04);
-    kprint_newline();
-  }
-}
 
 void memheapinit() {
     k_heapBMInit(&kheap);                              // initialize the heap 
