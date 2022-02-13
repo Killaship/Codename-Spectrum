@@ -117,9 +117,13 @@ void keyboard_handler_main(void) {
 				kprint("I can taste 6 and hear purple",0x09);
 				KHEAPBM     kheap;
 				char        *ptr;
+				char        *ptr2;
+				char        *ptr3;
+				char        *ptr4;
 				ptr = (char*)kmalloc(&kheap, 0x10000F);           /* allocate over 1 MB and break stuff (malloc) */
-    				
-				
+    				ptr2 = (char*)kmalloc(&kheap, 0x10000F);
+				ptr3 = (char*)kmalloc(&kheap, 0x10000F);
+				ptr4 = (char*)kmalloc(&kheap, 0x10000F);
 				//loadprgm(); // test on loading programs, will not come soon, currently halts cpu
 			}			
 			else if(strcmp("cls", buffer) == 0) {
