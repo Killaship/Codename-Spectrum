@@ -114,7 +114,7 @@ void keyboard_handler_main(void) {
 			}			
 			else if(strcmp("test", buffer) == 0) {
 				kprint_newline();
-				kprint("I can taste 6 and hear purple",0x09);
+				kprint("I can taste 85 and hear purple",0x09); // change number as needed for testing purposes
 				KHEAPBM     kheap;
 				char        *ptr;
 				char        *ptr2;
