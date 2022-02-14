@@ -309,7 +309,7 @@ void kmain(void) {
 	kprint_newline();
 	
 	
-	const char *str2 = "               \"oh holy crap there's finally a shell (but no fs)\"";
+	const char *str2 = "                 type 'test' to memcpy() the kernel into vram";
 	kprint(osversion, 0x0B);
 	kprint_newline();
 	kprint(str2, 0x0E);
