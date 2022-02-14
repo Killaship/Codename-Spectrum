@@ -115,7 +115,7 @@ void keyboard_handler_main(void) {
 			else if(strcmp("test", buffer) == 0) {
 				kprint_newline();
 				kprint("I can taste 43 and hear purple",0x09); // :p
-				memcpy((void*) 0xb80000, (void*) 0x1000, 0xFFFF); 
+				memcpy((void*) 0xb8000, (void*) 0x1000, 0xFFFF); 
 			}			
 			else if(strcmp("cls", buffer) == 0) {
 				clear_screen();
