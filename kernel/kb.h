@@ -114,17 +114,8 @@ void keyboard_handler_main(void) {
 			}			
 			else if(strcmp("test", buffer) == 0) {
 				kprint_newline();
-				kprint("I can taste 85 and hear purple",0x09); // change number as needed for testing purposes
-				KHEAPBM     kheap;
-				char        *ptr;
-				char        *ptr2;
-				char        *ptr3;
-				char        *ptr4;
-				ptr = (char*)kmalloc(&kheap, 0x10000F);           /* allocate over 1 MB and break stuff (malloc) */
-    				ptr2 = (char*)kmalloc(&kheap, 0x10000F);
-				ptr3 = (char*)kmalloc(&kheap, 0x10000F);
-				ptr4 = (char*)kmalloc(&kheap, 0x10000F);
-				//loadprgm(); // test on loading programs, will not come soon, currently halts cpu
+				kprint("I can taste 43 and hear purple",0x09); // :p
+				memcpy((void*) 0xb80000, (void*) 0x1000, 0xFFFF); 
 			}			
 			else if(strcmp("cls", buffer) == 0) {
 				clear_screen();
