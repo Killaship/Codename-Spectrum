@@ -14,7 +14,7 @@ cd -
 gcc -Wall -Wextra -fno-stack-protector -m32 -c kernel/kernel.c -o kc.o -ffreestanding
 
 cd install
-nasm -fbin kernel.asm -o iasm.bin
+nasm -fbin install.asm -o iasm.bin
 cd -
 
 
