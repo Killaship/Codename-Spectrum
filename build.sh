@@ -25,7 +25,7 @@ ld -m elf_i386 -T link.ld -o kernel.elf kernel/kasm.o kc.o
 
 mkdir -p iso/boot/grub
 cp kernel.elf iso/boot/kernel.elf
-cp install.bin iso/boot/install.bin
+cp install/install.bin iso/boot/install.bin
 cp grub.cfg iso/boot/grub/grub.cfg
 grub-mkrescue -o os.iso iso
 
