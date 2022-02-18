@@ -27,7 +27,7 @@
    jc .install
    
    mov si, buffer
-   mov di, cmd_rst  ; "install" command
+   mov di, cmd_quit  ; "quit" command
    call strcmp
    jc reboot
  
@@ -58,8 +58,8 @@
  prompt db '>', 0
  cmd_help db 'help', 0
  cmd_install db 'install', 0
- cmd_rst db 'rst', 0
- msg_help db 'My OS: Commands: install, help, rst', 0x0D, 0x0A, 0
+ cmd_quit db 'quit', 0
+ msg_help db 'Commands: install, help, quit', 0x0D, 0x0A, 0
  buffer times 64 db 0
  
  ; ================
