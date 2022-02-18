@@ -24,7 +24,7 @@
    mov si, buffer
    mov di, cmd_install  ; "install" command
    call strcmp
-   jc .helloworld
+   jc .install
  
    mov si, buffer
    mov di, cmd_help  ; "help" command
