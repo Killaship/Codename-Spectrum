@@ -29,7 +29,7 @@
    mov si, buffer
    mov di, cmd_rst  ; "install" command
    call strcmp
-   jc 0xFFFF:0
+   jc 0xFFFF
  
    mov si, buffer
    mov di, cmd_help  ; "help" command
