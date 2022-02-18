@@ -29,7 +29,7 @@
    mov si, buffer
    mov di, cmd_rst  ; "install" command
    call strcmp
-   jc 0x0:0xFFFF
+   jc reboot
  
    mov si, buffer
    mov di, cmd_help  ; "help" command
@@ -134,7 +134,10 @@
    int 0x10		; newline
  
    ret
- 
+ reboot:
+   cli
+   jmp 0xFFFF:0x0000
+   jmp $
  strcmp:
  .loop:
    mov al, [si]   ; grab a byte from SI
