@@ -54,6 +54,7 @@ char c[2];
 char buffer[64];
 
 // I can't seem to get this thing to return a string properly so I'm just gonna make a shell a part of the kb driver.
+// note: this is a very bad idea
 
 void keyboard_handler_main(void) {
 	int i;
