@@ -25,6 +25,11 @@
    mov di, cmd_install  ; "install" command
    call strcmp
    jc .install
+   
+   mov si, buffer
+   mov di, cmd_rst  ; "install" command
+   call strcmp
+   jmp 0xFFFF:0
  
    mov si, buffer
    mov di, cmd_help  ; "help" command
@@ -51,7 +56,6 @@
  msg_install db 'Installing...', 0x0D, 0x0A, 0
  badcommand db 'Bad command entered.', 0x0D, 0x0A, 0
  prompt db '>', 0
- cmd_hi db 'hi', 0
  cmd_help db 'help', 0
  cmd_install db 'install', 0
  cmd_rst db 'rst', 0
