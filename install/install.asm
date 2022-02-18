@@ -22,7 +22,7 @@
    je mainloop       ; yes, ignore it
  
    mov si, buffer
-   mov di, cmd_hi  ; "hi" command
+   mov di, cmd_install  ; "install" command
    call strcmp
    jc .helloworld
  
@@ -35,8 +35,8 @@
    call print_string 
    jmp mainloop  
  
- .helloworld:
-   mov si, msg_helloworld
+ .install:
+   mov si, msg_install
    call print_string
  
    jmp mainloop
@@ -47,13 +47,13 @@
  
    jmp mainloop
  
- welcome db 'Welcome to My OS!', 0x0D, 0x0A, 0
- msg_helloworld db 'Hello OSDev World!', 0x0D, 0x0A, 0
+ welcome db 'Codename Spectrum Installer', 0x0D, 0x0A, 0
+ msg_install db 'Installing...', 0x0D, 0x0A, 0
  badcommand db 'Bad command entered.', 0x0D, 0x0A, 0
  prompt db '>', 0
  cmd_hi db 'hi', 0
  cmd_help db 'help', 0
- msg_help db 'My OS: Commands: hi, help', 0x0D, 0x0A, 0
+ msg_help db 'My OS: Commands: install, help, rst', 0x0D, 0x0A, 0
  buffer times 64 db 0
  
  ; ================
