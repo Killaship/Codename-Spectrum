@@ -320,7 +320,7 @@ void kmain(void) {
 	kprint_newline();
 	printtime();
 	ptr = (char*)kmalloc(&kheap, 256);  
-	kprint(itoa(ptr));
+	kprint(itoa(ptr), 0x07);
 	
 	sh_init();
 	while(1);
