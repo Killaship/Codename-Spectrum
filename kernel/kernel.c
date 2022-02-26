@@ -319,6 +319,7 @@ void kmain(void) {
 	printcpu();
 	kprint_newline();
 	printtime();
+	char *ptr;
 	ptr = (char*)kmalloc(&kheap, 256);  
 	kprint(itoa(ptr), 0x07);
 	
