@@ -326,7 +326,7 @@ void kmain(void) {
 	
 	char *ptr;
 	ptr = (char*)kmalloc(&kheap, 256);  
-	kprint(itoa(ptr), 0x07);
+	kprint(ptr, 0x07);
 	
 	sh_init();
 	while(1);
