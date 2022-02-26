@@ -146,7 +146,7 @@ int oct2bin(unsigned char *str, int size) {
    I'll implement it so that it writes directly to the pointer passed, like strtok().
 */
 
-
+/*
 char *arggen(char * pstr, const int argn, char * out) {
 	int i; // inc variable for the for loop
 	int a; // how many arguments to skip over before using it
@@ -159,4 +159,4 @@ char *arggen(char * pstr, const int argn, char * out) {
 		}
 	}
 }
-
+*/
