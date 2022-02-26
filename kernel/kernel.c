@@ -2,7 +2,7 @@
 * Parts of this was made by Arjun Sreedharan, all credit where due.
 * License: GPL version 2 or higher http://www.gnu.org/licenses/gpl.html
 */
-
+#define my_sizeof(type) (char *)(&type+1)-(char*)(&type)
 #include <stdint.h>
 #include <stddef.h>
 #include "libk.h"
@@ -319,8 +319,8 @@ void kmain(void) {
 	printcpu();
 	kprint_newline();
 	printtime();
-	
-	
+	ptr = (char*)kmalloc(&kheap, 256);  
+	kprint(itoa(ptr));
 	
 	sh_init();
 	while(1);
