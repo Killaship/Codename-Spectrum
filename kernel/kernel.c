@@ -323,11 +323,6 @@ void kmain(void) {
 	printcpu();
 	kprint_newline();
 	printtime();
-	kprint_newline();
-	kprint_newline();
-	
-	kprint(itoa((int)kmalloc(&kheap, 256)), 0x07);
-	
 	sh_init();
 	while(1);
 }
