@@ -283,7 +283,7 @@ unsigned int address_of_module;
 #include "serial.h"
 #include "kb.h"
 
-void start(void) {
+void main(void) {
 	clear_screen();
 	idt_init();
 	
@@ -337,7 +337,7 @@ void kmain(unsigned int ebx) {
         address_of_module = mbinfo->mods_addr;
 	kprint(itoa(address_of_module), 0x04);
 	kprint_newline();
-	start();
+	main();
 }
 
 
