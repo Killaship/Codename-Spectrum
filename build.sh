@@ -24,9 +24,13 @@ ld -m elf_i386 -T link.ld -o kernel.elf kernel/kasm.o kc.o
 
 
 mkdir -p iso/boot/grub
+mkdir -p iso/modules
+
 cp kernel.elf iso/boot/kernel.elf
+cp program.elf iso/modules/program.elf
 cp install/install.bin iso/boot/install.bin
 cp grub.cfg iso/boot/grub/grub.cfg
+
 grub-mkrescue -o os.iso iso
 
 echo "Build Complete. Now running in QEMU."
