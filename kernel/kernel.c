@@ -279,14 +279,10 @@ void printtime() {
 	kprint(itoa(second),0x07);
 }
 
-
+unsigned int address_of_module;
 #include "serial.h"
 #include "kb.h"
-void kmain(unsigned int ebx) {
-        multiboot_info_t *mbinfo = (multiboot_info_t *) ebx;
-        unsigned int address_of_module = mbinfo->mods_addr;
-	start();
-}
+
 void start(void) {
 	clear_screen();
 	idt_init();
@@ -334,3 +330,14 @@ void start(void) {
 	sh_init();
 	while(1);
 }
+
+
+void kmain(unsigned int ebx) {
+        multiboot_info_t *mbinfo = (multiboot_info_t *) ebx;
+        address_of_module = mbinfo->mods_addr;
+	kprint(itoa(address_of_module), 0x04);
+	kprint_newline();
+	start();
+}
+
+
