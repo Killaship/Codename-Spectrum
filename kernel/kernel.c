@@ -1,7 +1,8 @@
 /*
 * Parts of this was made by Arjun Sreedharan, all credit where due.
 * License: GPL version 2 or higher http://www.gnu.org/licenses/gpl.html
-*/
+
+#include "multiboot.h"
 #define my_sizeof(type) (char *)(&type+1)-(char*)(&type)
 #include <stdint.h>
 #include <stddef.h>
