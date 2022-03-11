@@ -53,6 +53,7 @@ loadprgm:
 ;	call	panic2
 start:
      lgdt [gdt_pointer]  
+     push ebx
      jmp CODE_SEG:kmain
     .setcs:
     mov ax, DATA_SEG          ; Setup the segment registers with our flat data selector
