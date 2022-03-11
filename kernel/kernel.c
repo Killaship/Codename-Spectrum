@@ -336,6 +336,10 @@ void kmain(unsigned int ebx) {
         address_of_module = mbinfo->mods_addr;
 	clear_screen();
 	kprint(itoa(address_of_module), 0x07);
+	typedef void (*call_module_t)(void);
+   	/* ... */
+        call_module_t start_program = (call_module_t) address_of_module;
+   	start_program();
 	kprint_newline();
 	main();
 }
