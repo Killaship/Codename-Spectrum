@@ -311,7 +311,9 @@ void kmain(void) {
 	kprint("0",0xEE);
 	kprint("0",0xFF);
 	kprint_newline();
-	
+	write_port(SERIAL_LINE_COMMAND_PORT(com), 0x61);
+	write_port(SERIAL_LINE_COMMAND_PORT(com), 0x61);
+	write_port(SERIAL_LINE_COMMAND_PORT(com), 0x61);
 	
 	const char *str2 = "                 type 'test' to memcpy() the kernel into vram";
 	kprint(osversion, 0x0B);
