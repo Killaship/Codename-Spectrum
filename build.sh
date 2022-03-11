@@ -10,6 +10,7 @@ git pull
 
 cd kernel
 nasm -f elf32 kernel.asm -o kasm.o
+nasm -f bin program.asm -o program
 cd -
 gcc -Wall -Wextra -fno-stack-protector -m32 -c kernel/kernel.c -o kc.o -ffreestanding
 
@@ -27,7 +28,7 @@ mkdir -p iso/boot/grub
 mkdir -p iso/modules
 
 cp kernel.elf iso/boot/kernel.elf
-cp program.elf iso/modules/program.elf
+cp kernel/program iso/modules/program
 cp install/install.bin iso/boot/install.bin
 cp grub.cfg iso/boot/grub/grub.cfg
 
