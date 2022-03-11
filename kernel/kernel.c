@@ -335,7 +335,6 @@ void kmain(unsigned int ebx) {
         multiboot_info_t *mbinfo = (multiboot_info_t *) ebx;
         address_of_module = mbinfo->mods_addr;
 	clear_screen();
-	kprint("a",0x06);
 	kprint(itoa(address_of_module), 0x07);
 	kprint_newline();
 	main();
