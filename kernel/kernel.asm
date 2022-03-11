@@ -4,16 +4,20 @@
 ; it's not even close to the original program, with almost everything being rewritten or added to
 ; ship of theseus moment
 
+    MAGIC_NUMBER    equ 0x1BADB002      ; define the magic number constant
+    ALIGN_MODULES   equ 0x00000001      ; tell GRUB to align modules
+
+    ; calculate the checksum (all options + checksum should equal 0)
+    CHECKSUM        equ -(MAGIC_NUMBER + ALIGN_MODULES + 0x00)
+
 bits 32
 section .text
         ;multiboot spec
         align 4
 
-        dd 0x00000001          ; write the align modules instruction
-        dd 0x1BADB002              ;magic
-        dd 0x00                    ;flags
-        dd - (0x1BADB002 + 0x00 + 0x00000001)   ;checksum. m+f+c should be zero
-
+        dd MAGIC_NUMBER                 ; write the magic number
+        dd ALIGN_MODULES                ; write the align modules instruction
+        dd CHECKSUM   
 %include "gdt.asm"
 
 ;global div0_handler
