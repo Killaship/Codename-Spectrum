@@ -277,7 +277,7 @@ void printtime() {
 	kprint(":",0x07);
 	kprint(itoa(second),0x07);
 }
-
+#include "serial.h"
 #include "kb.h"
 
 
