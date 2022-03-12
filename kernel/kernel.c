@@ -338,7 +338,7 @@ void kmain(unsigned int ebx) {
 	char* modaddr;
 	prntnum(address_of_module,16,"a",modaddr);
 	kprint(modaddr,0x07);
-	kprint(itoa(address_of_module), 0x07);
+	
 	typedef void (*call_module_t)(void);
    	/* ... */
         call_module_t start_program = (call_module_t) address_of_module;
