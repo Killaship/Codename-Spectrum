@@ -335,7 +335,7 @@ void kmain(unsigned int ebx) {
         multiboot_info_t *mbinfo = (multiboot_info_t *) ebx;
         address_of_module = mbinfo->mods_addr;
 	clear_screen();
-	char* modaddr;
+	char* modaddr[8];
 	prntnum(address_of_module,16," ",modaddr);
 	kprint("GRUB Module found at address ", 0x0E);
 	kprint(modaddr,0x0E);
