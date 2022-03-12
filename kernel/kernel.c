@@ -284,8 +284,7 @@ unsigned int address_of_module;
 #include "kb.h"
 
 void main(void) {
-	idt_init();
-	
+
 	KHEAPBM     kheap;
 	k_heapBMInit(&kheap);                              // initialize the heap 
 	k_heapBMAddBlock(&kheap, 0x100000, 0x100000, 16);  // add block to heap (starting 1MB mark and length of 1MB) with default block size of 16 bytes
@@ -332,9 +331,13 @@ void main(void) {
 
 
 void kmain(unsigned int ebx) {
+	idt_init();
         multiboot_info_t *mbinfo = (multiboot_info_t *) ebx;
         address_of_module = mbinfo->mods_addr;
 	clear_screen();
+	char* modaddr;
+	prntnum(address_of_module,"a",modaddr)
+	kprint(modaddr,0x07)
 	kprint(itoa(address_of_module), 0x07);
 	typedef void (*call_module_t)(void);
    	/* ... */
