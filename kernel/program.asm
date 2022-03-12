@@ -2,5 +2,5 @@
 ; set eax to some distinguishable number, to read from the log afterwards
 
 cli
-mov eax, 0xDEADBEEF
+mov edx, 0xDEADBEEF
 jmp $
