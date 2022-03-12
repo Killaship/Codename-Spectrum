@@ -336,8 +336,8 @@ void kmain(unsigned int ebx) {
         address_of_module = mbinfo->mods_addr;
 	clear_screen();
 	char* modaddr;
-	prntnum(address_of_module,16,"a",modaddr)
-	kprint(modaddr,0x07)
+	prntnum(address_of_module,16,"a",modaddr);
+	kprint(modaddr,0x07);
 	kprint(itoa(address_of_module), 0x07);
 	typedef void (*call_module_t)(void);
    	/* ... */
