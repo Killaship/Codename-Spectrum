@@ -337,7 +337,7 @@ void kmain(unsigned int ebx) {
 	clear_screen();
 	char* modaddr;
 	prntnum(address_of_module,16," ",modaddr);
-	kprint("GRUB Module found at address ", 0x0E)
+	kprint("GRUB Module found at address ", 0x0E);
 	kprint(modaddr,0x0E);
 	
 	typedef void (*call_module_t)(void);
