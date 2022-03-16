@@ -44,18 +44,10 @@ void write_port(unsigned short port, unsigned char data) {
 
 
 
-void syscall_handler(unsigned int ebx) {
-	switch(ebx) {
-		case 0x01:
-			kprint("test1",0x07);
-			break;
-		case 0x02:
-			kprint_newline();
-			break;
-		case 0x03:
-			kprint("test2",0x07);
-			break;
-	}
+void syscall_handler() {
+	kprint("test1",0x07);
+	kprint_newline();
+
 }
 
 
