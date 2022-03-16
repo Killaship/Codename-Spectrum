@@ -343,7 +343,6 @@ void kmain(unsigned int ebx) {
 	typedef void (*call_module_t)(void);
    	/* ... */
         call_module_t start_program = (call_module_t) address_of_module;
-   	start_program();
 	kprint_newline();
 	main();
 }
