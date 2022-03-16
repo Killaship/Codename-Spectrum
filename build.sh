@@ -28,7 +28,7 @@ mkdir -p iso/boot/grub
 mkdir -p iso/modules
 
 cp kernel.elf iso/boot/kernel.elf
-#cp kernel/program iso/modules/program
+cp kernel/program iso/modules/program
 cp install/install.bin iso/boot/install.bin
 cp grub.cfg iso/boot/grub/grub.cfg
 
