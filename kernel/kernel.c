@@ -44,11 +44,6 @@ void write_port(unsigned short port, unsigned char data) {
 
 
 
-void syscall_handler() {
-	kprint("test1",0x07);
-	kprint_newline();
-
-}
 
 
 
@@ -79,7 +74,7 @@ void idt_init(void) {
 	unsigned long reserved_address;
 	unsigned long ss_address;
 	unsigned long gp_address;
-	unsigned long syscall_address;
+
  
 	
 	
@@ -117,13 +112,7 @@ void idt_init(void) {
 	IDT[0x01].zero = 0;
 	IDT[0x01].type_attr = INTERRUPT_GATE;
 	IDT[0x01].offset_higherbits = (debg_address & 0xffff0000) >> 16;
- 
-	syscall_address = (unsigned long)syscall_handler;
-	IDT[0x69].offset_lowerbits = syscall_address & 0xffff;
-	IDT[0x69].selector = KERNEL_CODE_SEGMENT_OFFSET;
-	IDT[0x69].zero = 0;
-	IDT[0x69].type_attr = INTERRUPT_GATE;
-	IDT[0x69].offset_higherbits = (syscall_address & 0xffff0000) >> 16;
+
 	
 	nmi_address = (unsigned long)nmi_handler;
 	IDT[0x02].offset_lowerbits = nmi_address & 0xffff;
