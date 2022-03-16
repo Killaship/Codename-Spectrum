@@ -42,7 +42,7 @@ void write_port(unsigned short port, unsigned char data) {
 #include "rtc.h"
 #include "mem.h"
 
-syscall_handler(unsigned int ebx) {
+void syscall_handler(unsigned int ebx) {
 	switch(ebx) {
 		case 0x01:
 			kprint("test1",0x07);
