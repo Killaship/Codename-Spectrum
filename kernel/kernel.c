@@ -332,8 +332,8 @@ void main(void) {
 
 void kmain(unsigned int ebx) {
 	idt_init();
-        multiboot_info_t *mbinfo = (multiboot_info_t *) ebx;
-        address_of_module = mbinfo->mods_addr;
+        //multiboot_info_t *mbinfo = (multiboot_info_t *) ebx;
+        //address_of_module = mbinfo->mods_addr;
 	clear_screen();
 	//char* modaddr[8];
 	//prntnum(address_of_module,16," ",modaddr);
