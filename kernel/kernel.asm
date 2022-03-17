@@ -55,7 +55,9 @@ start:
      lgdt [gdt_pointer]  
    ;  push ebx
     ; call kmain
-    jmp CODE_SEG:kmain
+    jmp .setcs
+    
+   
     .setcs:
     mov ax, DATA_SEG          ; Setup the segment registers with our flat data selector
     mov ds, ax
@@ -64,7 +66,7 @@ start:
     mov gs, ax
     mov ss, ax
     mov esp, stack_space        ; set stack pointer		
-
+    call kmain
 section .bss
 resb 8192 ; 8KB for stack
 stack_space:
