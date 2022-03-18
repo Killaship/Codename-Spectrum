@@ -280,7 +280,7 @@ void printtime() {
 }
 
 unsigned int address_of_module;
-#include "serial.h"
+//#include "serial.h"
 #include "kb.h"
 
 void main(void) {
@@ -311,10 +311,7 @@ void main(void) {
 	kprint("0",0xEE);
 	kprint("0",0xFF);
 	kprint_newline();
-	write_port(SERIAL_LINE_COMMAND_PORT(0), 0x61);
-	write_port(SERIAL_LINE_COMMAND_PORT(0), 0x61);
-	write_port(SERIAL_LINE_COMMAND_PORT(0), 0x61);
-	
+
 	const char *str2 = "                 type 'test' to memcpy() the kernel into vram";
 	kprint(osversion, 0x0B);
 	kprint_newline();
