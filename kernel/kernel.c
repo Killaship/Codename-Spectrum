@@ -284,7 +284,7 @@ unsigned int address_of_module;
 #include "kb.h"
 
 void main(void) {
-	idt_init();
+
 	KHEAPBM     kheap;
 	k_heapBMInit(&kheap);                              // initialize the heap 
 	k_heapBMAddBlock(&kheap, 0x100000, 0x100000, 16);  // add block to heap (starting 1MB mark and length of 1MB) with default block size of 16 bytes
@@ -331,19 +331,20 @@ void main(void) {
 
 
 void kmain(unsigned int ebx) {
-	
-        //multiboot_info_t *mbinfo = (multiboot_info_t *) ebx;
-        //address_of_module = mbinfo->mods_addr;
+	idt_init();
+        multiboot_info_t *mbinfo = (multiboot_info_t *) ebx;
+        address_of_module = mbinfo->mods_addr;
 	clear_screen();
-	//char* modaddr[8];
-	//prntnum(address_of_module,16," ",modaddr);
-	//kprint("GRUB Module found at address ", 0x0E);
-	//kprint(modaddr,0x0E);
+	char* modaddr[8];
+	prntnum(address_of_module,16," ",modaddr);
+	kprint("GRUB Module found at address ", 0x0E);
+	kprint(modaddr,0x0E);
 	
-	//typedef void (*call_module_t)(void);
+	typedef void (*call_module_t)(void);
    	/* ... */
-       // call_module_t start_program = (call_module_t) address_of_module;
-	//kprint_newline();
+        call_module_t start_program = (call_module_t) address_of_module;
+   	start_program();
+	kprint_newline();
 	main();
 }
 
