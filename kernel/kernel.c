@@ -2,7 +2,6 @@
 * Parts of this was made by Arjun Sreedharan, all credit where due.
 * License: GPL version 2 or higher http://www.gnu.org/licenses/gpl.html
 */
-#include "multiboot.h"
 #define my_sizeof(type) (char *)(&type+1)-(char*)(&type)
 #include <stdint.h>
 #include <stddef.h>
@@ -279,12 +278,13 @@ void printtime() {
 	kprint(itoa(second),0x07);
 }
 
-unsigned int address_of_module;
-//#include "serial.h"
 #include "kb.h"
 
-void main(void) {
 
+void kmain(void) {
+	clear_screen();
+	idt_init();
+	
 	KHEAPBM     kheap;
 	k_heapBMInit(&kheap);                              // initialize the heap 
 	k_heapBMAddBlock(&kheap, 0x100000, 0x100000, 16);  // add block to heap (starting 1MB mark and length of 1MB) with default block size of 16 bytes
@@ -312,6 +312,7 @@ void main(void) {
 	kprint("0",0xFF);
 	kprint_newline();
 
+	
 	const char *str2 = "                 type 'test' to memcpy() the kernel into vram";
 	kprint(osversion, 0x0B);
 	kprint_newline();
@@ -325,23 +326,3 @@ void main(void) {
 	sh_init();
 	while(1);
 }
-
-
-void kmain(unsigned int ebx) {
-	idt_init();
-        multiboot_info_t *mbinfo = (multiboot_info_t *) ebx;
-        address_of_module = mbinfo->mods_addr;
-	clear_screen();
-	char* modaddr[8];
-	prntnum(address_of_module,16," ",modaddr);
-	kprint("GRUB Module found at address ", 0x0E);
-	kprint(modaddr,0x0E);
-	
-	typedef void (*call_module_t)(void);
-   	/* ... */
-        call_module_t start_program = (call_module_t) address_of_module;
-   	//start_program();
-	kprint_newline();
-	main();
-}
-
