@@ -1,3 +1,11 @@
+# Check YAOS for a version that has a fancier error screen, and might be updated more by me.
+YAOS is supposed to basically be a rewrite. I don't like how I hardly had anything useful in this OS's kernel. 
+YAOS is less about placing functionality and UI in the kernel, and more about trying to do kernel things in the kernel. However, YAOS, as of writing, is no longer updated on Github, and neither is this, because Github is mandating 2FA in 2023, and I don't have a phone. 
+
+Differences between YAOS and Spectrum (and Proton)
+YAOS is more about kernel stuff like memory management
+Spectrum is a kernel shell
+Proton is a 16 bit kernel shell that relies on BIOS interrupts.
 # Codename Spectrum
 An open-source operating system that I'm making as a side project. This isn't meant for real hardware. 
 
@@ -15,7 +23,7 @@ Installation capabilities via a separate entry in GRUB
 
 More extensive CPUID 
 
-Read only Filesystem via abuse of the initrd
+Read only Filesystem via abuse of an initrd
 
 Finish adding all of the exception handlers
 
