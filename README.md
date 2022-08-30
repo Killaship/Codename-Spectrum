@@ -13,6 +13,20 @@ Keep in mind all this is subject to change, especially since I rarely update the
 
 IMPORTANT: The OS is 32 bit, and is targeted for legacy hardware. Use a VM, preferably QEMU.
 
+
+![image](https://user-images.githubusercontent.com/69988679/187515188-42264d6e-fb92-4f5a-94d2-ccba0fd9135c.png)
+
+<img width="515" alt="image" src="https://user-images.githubusercontent.com/69988679/187515262-89597a8d-938b-40aa-a889-a5a836bd123f.png">
+
+
+
+
+
+
+
+
+
+
 # The 'main' branch is usually is a WIP, refer to Releases for stable versions.
 
 Use ```bash build.sh``` to build the OS.
