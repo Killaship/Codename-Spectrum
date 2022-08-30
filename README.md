@@ -37,7 +37,7 @@ Installation capabilities via a separate entry in GRUB
 
 More extensive CPUID 
 
-Read only Filesystem via abuse of an initrd
+Read only Filesystem via abuse of an initrd and/or ramdisk
 
 Finish adding all of the exception handlers
 
@@ -46,12 +46,4 @@ Serial communication
 Add support for shift in keyboard.
 
 Make it limy limy limine time
-
-
-
-
-
-
-Some of the code is taken from the following repo: https://github.com/arjun024/mkeykernel
-Changes made: expanding on the kernel, taking the code for the keyboard handler, adding more IDT entries and a kernel panic screen, etc.
 
