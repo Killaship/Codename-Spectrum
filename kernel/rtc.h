@@ -105,3 +105,16 @@ void read_rtc() {
             if(year < CURRENT_YEAR) year += 100;
       }
 }
+
+void printtime() {
+	asm volatile ("cli");
+    	read_rtc();
+    	asm volatile ("sti");
+	
+	kprint("System Time: ",0x07);
+	kprint(itoa(hour),0x07);
+	kprint(":",0x07);
+	kprint(itoa(minute),0x07);
+	kprint(":",0x07);
+	kprint(itoa(second),0x07);
+}
