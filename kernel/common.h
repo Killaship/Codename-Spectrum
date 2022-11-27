@@ -1,9 +1,4 @@
 #pragma once
-
-// Possibly libk stuff
-// https://wiki.osdev.org/Meaty_Skeleton
-
-
 void* memset(void* bufptr, int value, size_t size) {
 	unsigned char* buf = (unsigned char*) bufptr;
 	for (size_t i = 0; i < size; i++)
@@ -138,7 +133,6 @@ int oct2bin(unsigned char *str, int size) {
 }
 
 
-
 //*************************************************************
 // void prntnum(unsigned long n, int base, char sign, char *outbuf)
 // unsigned long num = number to be printed
@@ -172,29 +166,3 @@ void prntnum(unsigned long num, int base, char sign, char *outbuf)
 
 }
 
-
-
-
-/* arggen()
-   Similar to strtok, I made my own because why not, and I don't have malloc() or anything like it yet.
-   This uses manual string searching, and returns the argument selected in argn, in out. (That chooses which one out of the list of arguments to return.)
-   Beware, argn is not smart and assumes the programmer knows how many arguments there are. 
-   (Sounds dumb, but programs should know how many arguments they have possible, or handle it on their end.)
-   I think
-   I'll implement it so that it writes directly to the pointer passed, like strtok().
-*/
-
-/*
-char *arggen(char * pstr, const int argn, char * out) {
-	int i; // inc variable for the for loop
-	int a; // how many arguments to skip over before using it
-	for(i = 0; *pstr != '\0'; i++) {
-		if(pstr[i] == ' ') {
-			int c; // thing so that the func knows where to stop taking the argument
-			pstr[i] == '\0';
-			// insert for loop to copy off of pstr[]
-			// do stuff
-		}
-	}
-}
-*/
