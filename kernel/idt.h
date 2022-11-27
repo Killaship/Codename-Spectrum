@@ -44,9 +44,6 @@ void idt_init(void)
 	
 	// PIT timer shit
 	unsigned int pit_address;
-	
-	//syscall shit
-	unsigned int sys_address;
 
 	unsigned int keyboard_address;
 	int i = 0;
@@ -78,15 +75,6 @@ void idt_init(void)
 	IDT[0x21].zero = 0;
 	IDT[0x21].type_attr = INTERRUPT_GATE;
 	IDT[0x21].offset_higherbits = (keyboard_address & 0xffff0000) >> 16;
-	
-	sys_address = &syscall;
-	IDT[0x80].offset_lowerbits = sys_address & 0xffff;
-	IDT[0x80].selector = KERNEL_CODE_SEGMENT_OFFSET;
-	IDT[0x80].zero = 0;
-	IDT[0x80].type_attr = INTERRUPT_GATE;
-	IDT[0x80].offset_higherbits = (sys_address & 0xffff0000) >> 16;	
-
-	
 
 	/*     Ports
 	*	 PIC1	PIC2
