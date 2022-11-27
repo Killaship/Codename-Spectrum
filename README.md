@@ -1,6 +1,30 @@
+# All of the below is outdated, I'm gutting out the old stuff, and continuing development on this.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Check YAOS for a version that has a fancier error screen, and might be updated more by me.
 YAOS is supposed to basically be a rewrite. I don't like how I hardly had anything useful in this OS's kernel. 
 YAOS is less about placing functionality and UI in the kernel, and more about trying to do kernel things in the kernel. However, YAOS, as of writing, is no longer updated on Github, and neither is this, because Github is mandating 2FA in 2023, and I don't have a phone. 
+(EDIT: I do, in fact, now have a phone. I'll be )
 
 Differences between YAOS and Spectrum (and Proton)
 YAOS is more about kernel stuff like memory management
