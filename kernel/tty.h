@@ -14,14 +14,24 @@ char buff[128]; // note to self: don't worry about initialization as this array 
 /* pointer to where we're writing into the buffer */
 int buffptr = 0;
 
-void kprint(const char *str, const int color) {
-	
-	unsigned int i = 0;
-	while (str[i] != '\0') {
-		vidptr[current_loc++] = str[i++];
-		vidptr[current_loc++] = color;
+void kprint(const char *str, int color) {
+	for(size_t i = 0; i < strlen(str); i++) {
+		switch(str[i]) {
+		case '\n':
+			kprint_newline();
+			break;
+		case '\t':
+			for(int j = 0; j < 4; j++)
+				kprint(" ", color);
+			break;
+		default:
+			vidptr[current_loc++] = str[i];
+			vidptr[current_loc++] = color;
+			break;
+		}
 	}
 }
+
 
 
 void putc(const char str) {
