@@ -1,6 +1,0 @@
-*.o
-*.elf
-*.iso
-iso/
-initrd.tar
-install/install.bin
