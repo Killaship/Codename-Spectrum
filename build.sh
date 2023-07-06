@@ -17,7 +17,7 @@ compile() {
 }
 
 run() {
-	qemu-system-i386 -cdrom os.iso -rtc base=localtime -curses 
+	qemu-system-i386 -cdrom os.iso -rtc base=localtime 
 }
 
 compile
