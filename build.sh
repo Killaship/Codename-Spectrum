@@ -2,13 +2,13 @@
 
 compile() {
 
-	cd src
+	cd kernel
 	nasm -f elf32 kernel.asm -o kasm.o
 	cd -
 
-	gcc -Wall -Wextra -fno-stack-protector -m32 -g -c src/kernel.c -o kc.o -ffreestanding
+	gcc -Wall -Wextra -fno-stack-protector -m32 -g -c kernel/kernel.c -o kc.o -ffreestanding
 
-	ld -m elf_i386 -T link.ld -g -o kernel.elf src/kasm.o kc.o 
+	ld -m elf_i386 -T link.ld -g -o kernel.elf kernel/kasm.o kc.o 
 	mkdir -p iso/boot/grub
 	mkdir -p iso/modules
 	cp kernel.elf iso/boot/kernel.elf
